@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Saraswati Agro Feeds"
+version = "1.0.0"
+id = "artifacts/saraswati-agro"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24651
+
+[services.development]
+run = "pnpm --filter @workspace/saraswati-agro run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/saraswati-agro", "run", "build" ]
+publicDir = "artifacts/saraswati-agro/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24651"
+BASE_PATH = "/"
