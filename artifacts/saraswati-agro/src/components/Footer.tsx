@@ -1,11 +1,15 @@
-import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Phone, Mail, MapPin } from "lucide-react";
+
+const WA_NUMBER = "919552398974";
+const WA_URL = `https://wa.me/${WA_NUMBER}?text=नमस्कार%2C%0Aमला%20सरस्वती%20अॅग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.`;
 
 export default function Footer() {
   const quickLinks = [
     { label: "मुख्यपृष्ठ", href: "#hero" },
     { label: "उत्पादने", href: "#products" },
     { label: "फायदे", href: "#benefits" },
+    { label: "आमच्याबद्दल", href: "#about" },
     { label: "वितरक बना", href: "#dealer" },
     { label: "संपर्क", href: "#contact" },
   ];
@@ -25,11 +29,11 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-background/70 leading-relaxed max-w-sm">
-              २०१६ पासून महाराष्ट्रातील शेतकऱ्यांच्या सेवेत. संतुलित व पौष्टिक पशुखाद्याद्वारे जनावरांचे आरोग्य आणि दूध उत्पादन वाढविण्याचे आमचे ध्येय आहे.
+              २०१६ पासून महाराष्ट्रातील शेतकऱ्यांच्या सेवेत. रत्नाई पशु आहार ब्रँडद्वारे जनावरांचे आरोग्य सुधारणे, दूध उत्पादन वाढवणे आणि शेतकऱ्यांची समृद्धी हे आमचे ध्येय आहे.
             </p>
             <div className="flex gap-3 mt-2">
               <a
-                href="https://wa.me/919921937353"
+                href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-green-600 hover:bg-green-500 flex items-center justify-center text-white transition-colors"
@@ -54,6 +58,15 @@ export default function Footer() {
                 data-testid="link-footer-instagram"
               >
                 <FaInstagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://youtube.com/@SaraswatiAgroFeeds"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-red-600 hover:bg-red-500 flex items-center justify-center text-white transition-colors"
+                data-testid="link-footer-youtube"
+              >
+                <FaYoutube className="w-5 h-5" />
               </a>
             </div>
           </div>

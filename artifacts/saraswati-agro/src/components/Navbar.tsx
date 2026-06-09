@@ -3,6 +3,9 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
 
+const WA_URL =
+  "https://wa.me/919552398974?text=नमस्कार%2C%0Aमला%20सरस्वती%20अॅग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.";
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,7 +22,7 @@ export default function Navbar() {
     { name: "मुख्यपृष्ठ", href: "#hero" },
     { name: "उत्पादने", href: "#products" },
     { name: "फायदे", href: "#benefits" },
-    { name: "आमच्याबद्दल", href: "#why-choose-us" },
+    { name: "आमच्याबद्दल", href: "#about" },
     { name: "संपर्क", href: "#contact" },
   ];
 
@@ -32,7 +35,6 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {/* Using a text logo for now, as creating an SVG takes more code, but we can make it look good */}
             <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-xl">
               SAF
             </div>
@@ -41,7 +43,6 @@ export default function Navbar() {
             </span>
           </div>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             <ul className="flex items-center gap-6">
               {navLinks.map((link) => (
@@ -57,24 +58,24 @@ export default function Navbar() {
             </ul>
             <Button
               className="bg-green-600 hover:bg-green-700 text-white gap-2 rounded-full px-6"
-              onClick={() => window.open("https://wa.me/919921937353?text=नमस्कार%2C%0Aमला%20सरस्वती%20अॅग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.", "_blank")}
+              onClick={() => window.open(WA_URL, "_blank")}
+              data-testid="button-nav-whatsapp"
             >
               <FaWhatsapp className="w-5 h-5" />
               व्हॉट्सअॅप करा
             </Button>
           </nav>
 
-          {/* Mobile Menu Toggle */}
           <button
             className="lg:hidden text-foreground p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            data-testid="button-mobile-menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
       {mobileMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t shadow-lg py-4 px-4 flex flex-col gap-4">
           <ul className="flex flex-col gap-4">
@@ -93,9 +94,10 @@ export default function Navbar() {
           <Button
             className="bg-green-600 hover:bg-green-700 text-white gap-2 w-full mt-2"
             onClick={() => {
-              window.open("https://wa.me/919921937353?text=नमस्कार", "_blank");
+              window.open(WA_URL, "_blank");
               setMobileMenuOpen(false);
             }}
+            data-testid="button-mobile-whatsapp"
           >
             <FaWhatsapp className="w-5 h-5" />
             व्हॉट्सअॅप करा

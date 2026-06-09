@@ -6,6 +6,7 @@ import Products from "@/components/Products";
 import Benefits from "@/components/Benefits";
 import ProductionProcess from "@/components/ProductionProcess";
 import QualityAssurance from "@/components/QualityAssurance";
+import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import DealerForm from "@/components/DealerForm";
 import Contact from "@/components/Contact";
@@ -24,6 +25,7 @@ export default function Home() {
         <Benefits />
         <ProductionProcess />
         <QualityAssurance />
+        <About />
         <Testimonials />
         <DealerForm />
         <Contact />

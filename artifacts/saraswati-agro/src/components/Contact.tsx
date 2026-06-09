@@ -3,6 +3,9 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
+const WA_URL =
+  "https://wa.me/919552398974?text=नमस्कार%2C%0Aमला%20सरस्वती%20अॅग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.";
+
 export default function Contact() {
   return (
     <section id="contact" className="py-24 bg-green-50/50 dark:bg-green-950/20">
@@ -84,7 +87,7 @@ export default function Contact() {
               <Button
                 size="lg"
                 className="flex-1 gap-2 bg-green-600 hover:bg-green-700 text-white rounded-full"
-                onClick={() => window.open("https://wa.me/919921937353?text=नमस्कार%2C%0Aमला%20सरस्वती%20अॅग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.", "_blank")}
+                onClick={() => window.open(WA_URL, "_blank")}
                 data-testid="button-whatsapp-contact"
               >
                 <FaWhatsapp className="w-5 h-5" />
