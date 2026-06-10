@@ -80,7 +80,7 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, type: "spring" }}
-              className="absolute -bottom-6 -right-3 sm:-right-5 w-32 h-32 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-4 border-white shadow-2xl"
+              className="absolute -bottom-5 right-2 sm:-bottom-6 sm:-right-4 w-28 h-28 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-2xl overflow-hidden border-4 border-white shadow-2xl"
             >
               <img
                 src={COW_PORTRAIT}

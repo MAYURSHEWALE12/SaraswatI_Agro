@@ -1,5 +1,6 @@
 import { FaWhatsapp, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Phone, Mail, MapPin } from "lucide-react";
+import safLogo from "@assets/image_1781081387145.png";
 
 const WA_NUMBER = "919552398974";
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=नमस्कार%2C%0Aमला%20सरस्वती%20अॅग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.`;
@@ -20,9 +21,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="flex flex-col gap-4 lg:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-lg shrink-0">
-                SAF
-              </div>
+              <img
+                src={safLogo}
+                alt="SAF Logo"
+                className="w-12 h-12 rounded-full object-cover shadow-md shrink-0"
+              />
               <div>
                 <div className="font-bold text-xl text-background">सरस्वती अॅग्रो फीड्स</div>
                 <div className="text-background/60 text-sm">उत्तम पशुखाद्य, भरपूर दूध उत्पादन</div>

@@ -97,13 +97,20 @@ export default function Products() {
   const prev = () => go(active - 1, -1);
   const next = () => go(active + 1,  1);
 
-  /* Position of each card relative to active */
+  /* Position of each card relative to active — responsive spacing */
+  const getXSpacing = () => {
+    if (typeof window === "undefined") return 200;
+    if (window.innerWidth < 400) return 150;
+    if (window.innerWidth < 640) return 175;
+    return 220;
+  };
+
   const getStyle = (i: number) => {
     const diff = mod(i - active + Math.floor(total / 2), total) - Math.floor(total / 2);
     const absDiff = Math.abs(diff);
     const scale   = absDiff === 0 ? 1.12 : absDiff === 1 ? 0.82 : 0.64;
     const opacity = absDiff === 0 ? 1    : absDiff === 1 ? 0.7  : 0.35;
-    const x       = diff * 240;
+    const x       = diff * getXSpacing();
     const zIndex  = 10 - absDiff;
     return { scale, opacity, x, zIndex };
   };

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
+import safLogo from "@assets/image_1781081387145.png";
 
 const WA_URL =
   "https://wa.me/919552398974?text=नमस्कार%2C%0Aमला%20सरस्वती%20अॅग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.";
@@ -35,9 +36,11 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-xl">
-              SAF
-            </div>
+            <img
+              src={safLogo}
+              alt="SAF Logo"
+              className="w-10 h-10 rounded-full object-cover shadow-sm"
+            />
             <span className="font-bold text-xl md:text-2xl text-foreground hidden sm:block tracking-tight">
               सरस्वती <span className="text-primary">अॅग्रो</span>
             </span>
