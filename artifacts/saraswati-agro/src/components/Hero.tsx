@@ -33,9 +33,8 @@ export default function Hero() {
           loading="eager"
           fetchPriority="high"
         />
-        {/* Lighter gradient — less black, more emerald tint */}
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/80 via-green-800/65 to-emerald-900/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 via-transparent to-transparent" />
+        {/* Neutral dark overlay — just enough for text legibility, no colour tint */}
+        <div className="absolute inset-0 bg-black/40" />
       </motion.div>
 
       <motion.div
