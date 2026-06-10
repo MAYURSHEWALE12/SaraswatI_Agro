@@ -1,206 +1,277 @@
-import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import ratnaiAmrutdhara from "@assets/WhatsApp_Image_2026-06-09_at_12.48.21_(5)_1780997454734.jpeg";
-import janayatriKaf from "@assets/WhatsApp_Image_2026-06-09_at_12.48.22_(1)_1780997454734.jpeg";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
+import mashal     from "@assets/Unknownn_1781078200839.jpeg";
+import hirkani    from "@assets/Unknownnn_1781078200839.jpeg";
+import yashika    from "@assets/Unkno_1781078200839.jpeg";
+import vakrangee  from "@assets/Unknown_1781078200839.jpeg";
+import holstein   from "@assets/Unknownnnnn_1781078200839.jpeg";
+
+const WA_URL =
+  "https://wa.me/919552398974?text=नमस्कार%2C%0Aमला%20सरस्वती%20अॅग्रो%20फीड्सच्या%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.";
 
 const products = [
   {
+    image: mashal,
     name: "रत्नाई पशु आहार",
     nameEn: "Ratnai Pashu Aahar",
-    type: "उच्च दूध उत्पादन",
-    image: ratnaiAmrutdhara,
-    specs: {
-      use: "गाय व म्हैस",
-      protein: "25%",
-      fat: "6%",
-      weight: "५० किलो",
-      dosage: "गाय: ३०० ग्रॅम / लिटर | म्हैस: ४०० ग्रॅम / लिटर",
-    },
-    details: [
-      { label: "Moisture (Max)", value: "10%" },
-      { label: "Crude Protein (Min)", value: "25%" },
-      { label: "Crude Fat (Min)", value: "6%" },
-      { label: "Crude Fibre (Max)", value: "10%" },
-      { label: "Acid Insoluble Ash (Max)", value: "2.50%" },
-      { label: "Calcium (Min)", value: "0.80%" },
-      { label: "Total Phosphorus (Min)", value: "0.50%" },
-      { label: "Available Phosphorus (Min)", value: "0.25%" },
-      { label: "Aflotoxin B1 (Max)", value: "20 PPB" },
-      { label: "Urea if Present (Max)", value: "1%" },
-    ],
+    tag: "उच्च दूध उत्पादन",
+    color: "from-amber-600 to-yellow-500",
+    specs: "प्रथिने 25% • फॅट 6% • BIS Type 1",
+    dosage: "गाय: ३०० ग्रॅम / लिटर | म्हैस: ४०० ग्रॅम / लिटर",
+    weight: "५० किलो",
   },
   {
+    image: hirkani,
     name: "अमृतधारा पशु आहार",
     nameEn: "Amrutdhara Pashu Aahar",
-    type: "संतुलित आहार",
-    image: ratnaiAmrutdhara,
-    specs: {
-      use: "गाय व म्हैस",
-      protein: "22%",
-      fat: "5%",
-      weight: "५० किलो",
-      dosage: "गाय: ३५० ग्रॅम / लिटर | म्हैस: ५०० ग्रॅम / लिटर",
-    },
-    details: [
-      { label: "Moisture (Max)", value: "10%" },
-      { label: "Crude Protein (Min)", value: "22%" },
-      { label: "Crude Fat (Min)", value: "5%" },
-      { label: "Crude Fibre (Max)", value: "10%" },
-      { label: "Acid Insoluble Ash (Max)", value: "2.50%" },
-      { label: "Calcium (Min)", value: "0.80%" },
-      { label: "Total Phosphorus (Min)", value: "0.50%" },
-      { label: "Available Phosphorus (Min)", value: "0.25%" },
-      { label: "Aflotoxin B1 (Max)", value: "20 PPB" },
-      { label: "Urea if Present (Max)", value: "1%" },
-    ],
+    tag: "संतुलित आहार",
+    color: "from-green-700 to-emerald-500",
+    specs: "प्रथिने 22% • फॅट 5% • BIS Type 2",
+    dosage: "गाय: ३५० ग्रॅम / लिटर | म्हैस: ५०० ग्रॅम / लिटर",
+    weight: "५० किलो",
   },
   {
+    image: yashika,
     name: "जनयात्री",
     nameEn: "Janayatri (Heifer Feed)",
-    type: "गाभण जनावरांसाठी",
-    image: janayatriKaf,
-    specs: {
-      use: "गाभण गाय आणि म्हैस",
-      weight: "५० किलो",
-      utility: "सुलभ प्रसूती व वेताची भक्कम सुरुवात करण्यासाठी अत्यंत उपयुक्त",
-      dosage: "कालवडी (७ व्या महिन्यापर्यंत): २ किलो | ८ वा महिना: ३ किलो | ९ वा महिना: ४ किलो",
-    },
-    details: [],
+    tag: "गाभण जनावरांसाठी",
+    color: "from-teal-700 to-cyan-500",
+    specs: "विशेष फॉर्म्युला • सुलभ प्रसूती",
+    dosage: "८ वा महिना: ३ किलो | ९ वा महिना: ४ किलो",
+    weight: "५० किलो",
   },
   {
+    image: vakrangee,
     name: "ट्रांझिट फीड",
     nameEn: "Transit Feed",
-    type: "संक्रमण काळासाठी",
-    image: janayatriKaf,
-    specs: {
-      use: "प्रसूतीपूर्व व प्रसूतीनंतरच्या गायी व म्हशी",
-      weight: "५० किलो",
-      utility: "प्रसूतीनंतरच्या गुंतागुंत टाळण्यासाठी व जनावराला लवकर स्वस्थ करण्यासाठी",
-      dosage: "पशुवैद्यकाच्या सल्ल्यानुसार",
-    },
-    details: [],
+    tag: "संक्रमण काळासाठी",
+    color: "from-emerald-700 to-green-400",
+    specs: "प्रसूतीपूर्व व प्रसूतीनंतर • द्रुत स्वस्थ",
+    dosage: "पशुवैद्यकाच्या सल्ल्यानुसार",
+    weight: "५० किलो",
   },
   {
+    image: holstein,
     name: "काफ गो-बूस्ट",
     nameEn: "Kaf Go-Boost",
-    type: "वासरांसाठी",
-    image: janayatriKaf,
-    specs: {
-      use: "वासरे (Calves)",
-      weight: "२५ किलो",
-      utility: "वजन वाढीस आणि अवयवांच्या विकासास मदत होते",
-      dosage: "वय आणि वजनानुसार (तक्त्यानुसार)",
-    },
-    details: [],
-  },
-  {
-    name: "बॅलन्स्ड कॅटल फीड",
-    nameEn: "Balanced Cattle Feed",
-    type: "सर्व जनावरांसाठी",
-    image: ratnaiAmrutdhara,
-    specs: {
-      use: "सर्व प्रकारच्या गायी व म्हशी",
-      weight: "५० किलो",
-      utility: "दैनंदिन पोषण गरजा पूर्ण करण्यासाठी संतुलित व किफायतशीर आहार",
-      dosage: "जनावराच्या वजन व दूध उत्पादनानुसार",
-    },
-    details: [],
+    tag: "वासरांसाठी",
+    color: "from-red-700 to-orange-500",
+    specs: "वजन वाढ • अवयव विकास • मजबूत हाडे",
+    dosage: "वय आणि वजनानुसार (तक्त्यानुसार)",
+    weight: "२५ किलो",
   },
 ];
 
+const total = products.length;
+
+function mod(n: number, m: number) {
+  return ((n % m) + m) % m;
+}
+
 export default function Products() {
+  const [active, setActive] = useState(0);
+  const [dir, setDir]       = useState(1);
+  const timerRef            = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const go = useCallback((next: number, d: number) => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    setDir(d);
+    setActive(mod(next, total));
+    timerRef.current = setInterval(() => {
+      setDir(1);
+      setActive((p) => mod(p + 1, total));
+    }, 2000);
+  }, []);
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setDir(1);
+      setActive((p) => mod(p + 1, total));
+    }, 2000);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, []);
+
+  const prev = () => go(active - 1, -1);
+  const next = () => go(active + 1,  1);
+
+  /* Position of each card relative to active */
+  const getStyle = (i: number) => {
+    const diff = mod(i - active + Math.floor(total / 2), total) - Math.floor(total / 2);
+    const absDiff = Math.abs(diff);
+    const scale   = absDiff === 0 ? 1.12 : absDiff === 1 ? 0.82 : 0.64;
+    const opacity = absDiff === 0 ? 1    : absDiff === 1 ? 0.7  : 0.35;
+    const x       = diff * 240;
+    const zIndex  = 10 - absDiff;
+    return { scale, opacity, x, zIndex };
+  };
+
+  const p = products[active];
+
   return (
-    <section id="products" className="py-24 bg-green-50/50 dark:bg-green-950/20">
+    <section id="products" className="py-16 sm:py-20 md:py-24 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            आमची <span className="text-primary">उत्पादने</span>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto mb-10 md:mb-14"
+        >
+          <span className="inline-block bg-emerald-50 text-emerald-700 border border-emerald-200 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+            🌿 आमची उत्पादने
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+            आमची <span className="text-emerald-600">उत्पादने</span>
           </h2>
-          <div className="h-1.5 w-24 bg-accent mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-muted-foreground">
+          <div className="h-1 w-24 bg-amber-400 mx-auto rounded-full mb-4" />
+          <p className="text-gray-500 text-sm sm:text-base">
             प्रत्येक जनावराच्या गरजेनुसार तयार केलेले संतुलित आणि पौष्टिक पशुखाद्य
           </p>
+        </motion.div>
+
+        {/* ─── Coverflow Carousel ─── */}
+        <div className="relative select-none">
+          {/* Cards stage */}
+          <div className="relative h-[340px] sm:h-[400px] flex items-center justify-center overflow-hidden">
+            {products.map((prod, i) => {
+              const { scale, opacity, x, zIndex } = getStyle(i);
+              const isActive = i === active;
+              return (
+                <motion.div
+                  key={i}
+                  animate={{ scale, opacity, x }}
+                  transition={{ duration: 0.55, ease: [0.32, 0.72, 0, 1] }}
+                  onClick={() => go(i, i > active ? 1 : -1)}
+                  className="absolute cursor-pointer"
+                  style={{ zIndex }}
+                >
+                  <div
+                    className={`relative w-48 sm:w-60 md:w-72 rounded-3xl overflow-hidden shadow-2xl border-2 ${
+                      isActive
+                        ? "border-emerald-400 shadow-emerald-200/60 shadow-2xl"
+                        : "border-white/60"
+                    } transition-all duration-300`}
+                  >
+                    <img
+                      src={prod.image}
+                      alt={prod.name}
+                      className="w-full aspect-square object-contain bg-white p-3"
+                      loading="lazy"
+                    />
+                    {/* Shine on active */}
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: [0, 0.25, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
+                        className="absolute inset-0 bg-gradient-to-tr from-transparent via-white to-transparent pointer-events-none"
+                      />
+                    )}
+                  </div>
+                  {/* Active label below card */}
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-center mt-3"
+                    >
+                      <div className="text-xs font-bold text-emerald-600 uppercase tracking-wider">
+                        {prod.tag}
+                      </div>
+                    </motion.div>
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Nav buttons */}
+          <button
+            onClick={prev}
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg border border-gray-100 hover:border-emerald-300 hover:shadow-emerald-100 flex items-center justify-center transition-all duration-200 hover:scale-110"
+          >
+            <ChevronLeft className="w-5 h-5 text-gray-600" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg border border-gray-100 hover:border-emerald-300 hover:shadow-emerald-100 flex items-center justify-center transition-all duration-200 hover:scale-110"
+          >
+            <ChevronRight className="w-5 h-5 text-gray-600" />
+          </button>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center gap-2 mt-4">
+            {products.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => go(i, i > active ? 1 : -1)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === active ? "w-8 bg-emerald-500" : "w-2 bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: (index % 3) * 0.1, duration: 0.6 }}
-              className="bg-card border border-border rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col"
-              data-testid={`card-product-${index}`}
-            >
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent"></div>
-                <div className="absolute bottom-4 left-5 right-5">
-                  <h3 className="text-xl font-bold text-white leading-tight">{product.name}</h3>
-                  <div className="text-green-200 text-xs mt-0.5">{product.nameEn}</div>
-                  <Badge className="mt-2 bg-accent text-accent-foreground border-none text-xs">
-                    {product.type}
-                  </Badge>
-                </div>
+        {/* ─── Active product detail card ─── */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+            className="mt-10 max-w-2xl mx-auto bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden"
+          >
+            {/* Coloured top bar */}
+            <div className={`h-1.5 w-full bg-gradient-to-r ${p.color}`} />
+
+            <div className="p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+              {/* Mini thumbnail */}
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-gray-100 shadow-md bg-white shrink-0 flex items-center justify-center p-2">
+                <img src={p.image} alt={p.name} className="w-full h-full object-contain" />
               </div>
 
-              <div className="p-6 flex flex-col flex-1 gap-4">
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-muted p-3 rounded-lg">
-                    <div className="text-xs text-muted-foreground mb-0.5">उपयोग</div>
-                    <div className="font-semibold text-sm">{product.specs.use}</div>
-                  </div>
-                  <div className="bg-muted p-3 rounded-lg">
-                    <div className="text-xs text-muted-foreground mb-0.5">वजन</div>
-                    <div className="font-semibold text-sm">{product.specs.weight}</div>
-                  </div>
-                  {product.specs.protein && (
-                    <div className="bg-muted p-3 rounded-lg">
-                      <div className="text-xs text-muted-foreground mb-0.5">प्रथिने</div>
-                      <div className="font-semibold text-sm text-primary">{product.specs.protein}</div>
-                    </div>
-                  )}
-                  {product.specs.fat && (
-                    <div className="bg-muted p-3 rounded-lg">
-                      <div className="text-xs text-muted-foreground mb-0.5">फॅट</div>
-                      <div className="font-semibold text-sm text-primary">{product.specs.fat}</div>
-                    </div>
-                  )}
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className={`text-xs font-bold text-white px-3 py-1 rounded-full bg-gradient-to-r ${p.color}`}>
+                    {p.tag}
+                  </span>
+                  <span className="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-full">
+                    📦 {p.weight}
+                  </span>
                 </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-gray-800">{p.name}</h3>
+                <div className="text-xs text-gray-400 mb-3">{p.nameEn}</div>
 
-                <div>
-                  <h4 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">
-                    मात्रा / उपयुक्तता
-                  </h4>
-                  <p className="text-sm font-medium text-foreground bg-green-50 dark:bg-green-900/30 p-3 rounded-lg border border-green-100 dark:border-green-800 leading-relaxed">
-                    {product.specs.dosage || product.specs.utility}
-                  </p>
-                </div>
-
-                {product.details.length > 0 && (
-                  <div>
-                    <h4 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">
-                      तपशील (BIS Type 1)
-                    </h4>
-                    <div className="grid grid-cols-2 gap-y-1.5 gap-x-3 text-xs">
-                      {product.details.map((detail, idx) => (
-                        <div key={idx} className="flex justify-between border-b border-border pb-1">
-                          <span className="text-muted-foreground">{detail.label}</span>
-                          <span className="font-semibold">{detail.value}</span>
-                        </div>
-                      ))}
-                    </div>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="bg-emerald-50 rounded-xl p-3 border border-emerald-100">
+                    <div className="text-xs text-emerald-600 font-bold uppercase tracking-wider mb-1">⚗️ पोषण तपशील</div>
+                    <div className="text-sm font-semibold text-gray-700">{p.specs}</div>
                   </div>
-                )}
+                  <div className="bg-amber-50 rounded-xl p-3 border border-amber-100">
+                    <div className="text-xs text-amber-600 font-bold uppercase tracking-wider mb-1">💊 मात्रा</div>
+                    <div className="text-sm font-semibold text-gray-700">{p.dosage}</div>
+                  </div>
+                </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+
+            {/* CTA */}
+            <div className="px-6 sm:px-8 pb-6 sm:pb-8">
+              <button
+                onClick={() => window.open(WA_URL, "_blank")}
+                className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl py-3.5 font-bold text-sm sm:text-base transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-emerald-600/20"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                या उत्पादनाबद्दल चौकशी करा
+              </button>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

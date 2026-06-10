@@ -47,20 +47,6 @@ export default function Hero() {
 
           {/* ── Left: text ── */}
           <div className="flex flex-col gap-5">
-            {/* Live badge */}
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.55, delay: 0.1 }}
-              className="flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 px-4 py-2 rounded-full w-fit"
-            >
-              <span className="w-2 h-2 rounded-full bg-green-300 animate-pulse" />
-              <Leaf className="w-3.5 h-3.5 text-green-300" />
-              <span className="text-green-100 text-sm font-semibold tracking-wide">
-                २०१६ पासून महाराष्ट्रात सेवेत
-              </span>
-            </motion.div>
-
             {/* Heading */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold leading-tight drop-shadow-lg">
               {words.map((word, wi) => (
