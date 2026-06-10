@@ -1,9 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Phone, Milk, Leaf, Award } from "lucide-react";
+import { ChevronDown, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import productCatalog from "@assets/WhatsApp_Image_2026-06-09_at_12.48.21_(4)_1780997454734.jpeg";
 
 /* Confirmed Pexels dairy-cow image — Holstein cows on green pasture */
 const COW_BG = "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop";
@@ -43,10 +42,10 @@ export default function Hero() {
         className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-28 pb-20"
         style={{ y: textY, opacity }}
       >
-        <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
+        <div className="max-w-3xl mx-auto">
 
-          {/* ── Left: text ── */}
-          <div className="flex flex-col gap-5">
+          {/* ── Text ── */}
+          <div className="flex flex-col gap-5 text-center items-center">
             {/* Heading */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold leading-tight drop-shadow-lg">
               {words.map((word, wi) => (
@@ -119,7 +118,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className="flex flex-wrap gap-2 pt-1"
+              className="flex flex-wrap justify-center gap-2 pt-1"
             >
               {[
                 { icon: "🏅", label: "BIS Certified" },
@@ -136,55 +135,6 @@ export default function Hero() {
               ))}
             </motion.div>
           </div>
-
-          {/* ── Right: floating product card ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 50, rotate: 4 }}
-            animate={{ opacity: 1, x: 0, rotate: -1.5 }}
-            transition={{ duration: 1, delay: 0.35, ease: "easeOut" }}
-            className="relative hidden sm:flex justify-center items-center"
-          >
-            <div className="absolute -inset-8 bg-gradient-to-r from-green-500/20 to-yellow-400/15 blur-3xl rounded-full" />
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
-            >
-              <img
-                src={productCatalog}
-                alt="सरस्वती अॅग्रो फीड्स उत्पादने"
-                className="w-full max-w-sm xl:max-w-md h-auto rounded-3xl shadow-2xl border-2 border-white/20 object-cover"
-              />
-              <div className="absolute -inset-px rounded-3xl border border-green-400/25 pointer-events-none" />
-            </motion.div>
-
-            {/* Stat chips — positioned inside, won't overflow */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.3, type: "spring" }}
-              className="absolute top-2 left-2 bg-white rounded-2xl shadow-xl px-3 py-2 flex items-center gap-2"
-            >
-              <Milk className="w-5 h-5 text-primary" />
-              <div>
-                <div className="text-xl font-extrabold text-primary leading-none">10K+</div>
-                <div className="text-xs text-muted-foreground font-medium">शेतकरी</div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.5, type: "spring" }}
-              className="absolute bottom-2 right-2 bg-green-600 text-white rounded-2xl shadow-xl px-3 py-2 flex items-center gap-2"
-            >
-              <Award className="w-5 h-5 text-green-200" />
-              <div>
-                <div className="text-xl font-extrabold leading-none">50+</div>
-                <div className="text-xs opacity-85 font-medium">वितरक</div>
-              </div>
-            </motion.div>
-          </motion.div>
         </div>
 
         {/* Scroll indicator */}
