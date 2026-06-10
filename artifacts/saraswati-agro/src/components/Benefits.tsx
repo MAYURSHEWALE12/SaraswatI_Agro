@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import benefitsBrochure from "@assets/WhatsApp_Image_2026-06-09_at_12.48.21_(3)_1780997454734.jpeg";
 
-/* HD Pexels — Holstein dairy cows in green pasture */
-const COW_GRAZE = "https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop";
+/* HD Pexels 735968 — dairy cow portrait, tall crop for portrait column */
+const COW_GRAZE = "https://images.pexels.com/photos/735968/pexels-photo-735968.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop";
 
 const benefits = [
   "दुधात व दुधातील फॅट आणि एस.एन.एफ. मध्ये वाढ होते",

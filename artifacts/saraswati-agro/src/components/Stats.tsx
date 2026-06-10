@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Clock, Users, Network, ShieldCheck } from "lucide-react";
 
-/* Confirmed Pexels — herd of dairy cattle on green field */
-const COW_BG = "https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop";
+/* HD Pexels 422218 — Holstein dairy cows on green pasture, wide crop */
+const COW_BG = "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop";
 
 interface StatProps {
   end: number;

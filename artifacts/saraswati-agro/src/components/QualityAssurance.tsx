@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Microscope, Award, CheckCircle } from "lucide-react";
 
-/* Confirmed Pexels — cows being fed on dairy farm */
-const COW_FARM = "https://images.pexels.com/photos/2255459/pexels-photo-2255459.jpeg?auto=compress&cs=tinysrgb&w=900&h=900&fit=crop";
+/* HD Pexels 735968 — close-up dairy cow portrait */
+const COW_FARM = "https://images.pexels.com/photos/735968/pexels-photo-735968.jpeg?auto=compress&cs=tinysrgb&w=900&h=900&fit=crop";
 
 const qualityPoints = [
   { icon: Microscope, emoji: "🔬", title: "आधुनिक प्रयोगशाळा",    desc: "आधुनिक प्रयोगशाळेमध्ये प्रत्येक कच्च्या मालाची व तयार उत्पादनाची तपासणी" },

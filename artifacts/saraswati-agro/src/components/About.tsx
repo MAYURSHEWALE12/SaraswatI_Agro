@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Target, Eye, Heart, CheckCircle2 } from "lucide-react";
 
-/* Confirmed Pexels — dairy farm exterior with cows */
-const FARM_IMG = "https://images.pexels.com/photos/2255459/pexels-photo-2255459.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&fit=crop";
-/* Confirmed Pexels — close-up cow portrait */
+/* HD Pexels 422218 — Holstein dairy cows grazing in green pasture */
+const FARM_IMG = "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&fit=crop";
+/* HD Pexels 735968 — close-up dairy cow portrait */
 const COW_PORTRAIT = "https://images.pexels.com/photos/735968/pexels-photo-735968.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop";
 
 const pillars = [

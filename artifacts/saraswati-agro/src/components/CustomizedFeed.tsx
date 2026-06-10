@@ -7,7 +7,7 @@ import { Beaker, Send, User, Phone, Beef, Milk, Wheat, Hash } from "lucide-react
 const BANNER_COW =
   "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1920&h=700&fit=crop";
 const TAGLINE_COW =
-  "https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop";
+  "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop";
 
 const checkpoints = [
   "दूध उत्पादन वाढण्यास मदत",
