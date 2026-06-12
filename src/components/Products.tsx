@@ -97,8 +97,9 @@ export default function Products() {
   const getStyle = (i: number) => {
     const diff = mod(i - active + Math.floor(total / 2), total) - Math.floor(total / 2);
     const absDiff = Math.abs(diff);
-    const scale   = absDiff === 0 ? 1.12 : absDiff === 1 ? 0.82 : 0.64;
-    const opacity = absDiff === 0 ? 1    : absDiff === 1 ? 0.7  : 0.35;
+    // Hide cards that are beyond 1 step from active to maintain perfect symmetry
+    const scale   = absDiff === 0 ? 1.12 : absDiff === 1 ? 0.82 : 0;
+    const opacity = absDiff === 0 ? 1    : absDiff === 1 ? 0.7  : 0;
     const x       = diff * getXSpacing();
     const zIndex  = 10 - absDiff;
     return { scale, opacity, x, zIndex };
