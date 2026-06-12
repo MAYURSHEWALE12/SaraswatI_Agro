@@ -44,29 +44,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-green-950/60 to-green-900/50" />
       </motion.div>
 
-      {/* Floating leaf particles */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          aria-hidden="true"
-          className="absolute z-[1] text-green-400/20 pointer-events-none select-none text-3xl"
-          initial={{ x: `${10 + i * 15}%`, y: "110%", rotate: 0, opacity: 0.3 }}
-          animate={{
-            y: ["110%", "-10%"],
-            x: [`${10 + i * 15}%`, `${5 + i * 18}%`, `${15 + i * 12}%`],
-            rotate: [0, 180, 360],
-            opacity: [0.2, 0.5, 0],
-          }}
-          transition={{
-            duration: 10 + i * 3,
-            repeat: Infinity,
-            delay: i * 2.5,
-            ease: "linear",
-          }}
-        >
-          <Leaf className="w-8 h-8 drop-shadow-md text-green-400/80 fill-green-400/80" />
-        </motion.div>
-      ))}
+
 
       <motion.div
         className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-28 pb-20"
