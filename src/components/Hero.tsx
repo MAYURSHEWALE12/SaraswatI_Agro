@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/hooks/useLanguage";
+import { PEXELS_COW_GRAZING, PHONE_PRIMARY, getWhatsAppInquiryUrl } from "@/lib/constants";
 
 /* Confirmed Pexels dairy-cow image — Holstein cows on green pasture */
-const COW_BG = "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop";
-const WA_URL =
-  "https://wa.me/919552398974?text=नमस्कार%2C%0Aमला%20सरस्वती%20ॲग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.";
+const COW_BG = PEXELS_COW_GRAZING;
+const WA_URL = getWhatsAppInquiryUrl();
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -113,7 +113,7 @@ export default function Hero() {
                 className="bg-white/15 hover:bg-white/25 text-white border border-white/30 rounded-full px-6 py-5 font-bold backdrop-blur-sm hover:-translate-y-0.5 transition-all duration-300 gap-2"
                 asChild
               >
-                <a href="tel:+919552398974">
+                <a href={`tel:${PHONE_PRIMARY}`}>
                   <Phone className="w-4 h-4" />
                   {t({ mr: "कॉल करा", en: "Call Us" })}
                 </a>

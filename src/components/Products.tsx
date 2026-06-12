@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/hooks/useLanguage";
+import { WA_NUMBER_FULL } from "@/lib/constants";
 
-import ratnai      from "@assets/ratnai.png";
-import amrutdhara  from "@assets/amrutdhara.png";
-import janayitri   from "@assets/janayitri.png";
-import caf_go_boost from "@assets/caf_go_boost.png";
+import ratnai      from "@assets/ratnai.webp";
+import amrutdhara  from "@assets/amrutdhara.webp";
+import janayitri   from "@assets/janayitri.webp";
+import caf_go_boost from "@assets/caf_go_boost.webp";
 
 export default function Products() {
   const [active, setActive] = useState(0);
@@ -71,14 +72,14 @@ export default function Products() {
     timerRef.current = setInterval(() => {
       setDir(1);
       setActive((p) => mod(p + 1, total));
-    }, 2000);
+    }, 5000);
   }, [total]);
 
   useEffect(() => {
     timerRef.current = setInterval(() => {
       setDir(1);
       setActive((p) => mod(p + 1, total));
-    }, 2000);
+    }, 5000);
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [total]);
 
@@ -272,7 +273,7 @@ export default function Products() {
                       ? `नमस्कार, मला सरस्वती ॲग्रो फीड्सच्या "${p.name}" या उत्पादनाबद्दल अधिक माहिती हवी आहे.`
                       : `Hello, I want to know more about Saraswati Agro Feeds' "${p.name}" product.`
                   );
-                  window.open(`https://wa.me/919552398974?text=${msg}`, "_blank");
+                  window.open(`https://wa.me/${WA_NUMBER_FULL}?text=${msg}`, "_blank");
                 }}
                 className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl py-3.5 font-bold text-sm sm:text-base transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-emerald-600/20"
               >

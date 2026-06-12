@@ -1,10 +1,17 @@
 import { FaWhatsapp, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Phone, Mail, MapPin } from "lucide-react";
-import safLogo from "@assets/image_1781081387145.png";
+import safLogo from "@assets/image_1781081387145.webp";
 import { useLanguage } from "@/hooks/useLanguage";
-
-const WA_NUMBER = "919552398974";
-const WA_URL = `https://wa.me/${WA_NUMBER}?text=नमस्कार%2C%0Aमला%20सरस्वती%20ॲग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.`;
+import {
+  PHONE_PRIMARY,
+  PHONE_SECONDARY,
+  PHONE_PRIMARY_DISPLAY,
+  PHONE_SECONDARY_DISPLAY,
+  CONTACT_EMAIL,
+  ADDRESS_TAKALKARWADI_MR,
+  ADDRESS_TAKALKARWADI_EN,
+  getWhatsAppInquiryUrl,
+} from "@/lib/constants";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -42,7 +49,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 mt-2">
               <a
-                href={WA_URL}
+                href={getWhatsAppInquiryUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-green-600 hover:bg-green-500 flex items-center justify-center text-white transition-colors"
@@ -103,26 +110,26 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
                 <span className="text-sm leading-relaxed">
                   {t({
-                    mr: "टाकळकरवाडी, राजगुरूनगर, ता. खेड, जि. पुणे – 410505",
-                    en: "Takalkarwadi, Rajgurunagar, Tal. Khed, Dist. Pune – 410505",
+                    mr: ADDRESS_TAKALKARWADI_MR,
+                    en: ADDRESS_TAKALKARWADI_EN,
                   })}
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
                 <div className="text-sm">
-                  <a href="tel:+919552398974" className="hover:text-primary transition-colors">9552398974</a>
+                  <a href={`tel:${PHONE_PRIMARY}`} className="hover:text-primary transition-colors">{PHONE_PRIMARY_DISPLAY}</a>
                   <span className="mx-1">/</span>
-                  <a href="tel:+919921937353" className="hover:text-primary transition-colors">9921937353</a>
+                  <a href={`tel:${PHONE_SECONDARY}`} className="hover:text-primary transition-colors">{PHONE_SECONDARY_DISPLAY}</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
                 <a
-                  href="mailto:saraswatiagrofeeds2215@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-sm hover:text-primary transition-colors break-all"
                 >
-                  saraswatiagrofeeds2215@gmail.com
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </div>

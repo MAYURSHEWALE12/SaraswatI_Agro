@@ -3,10 +3,10 @@ import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/hooks/useLanguage";
-import safLogo from "@assets/image_1781081387145.png";
+import safLogo from "@assets/image_1781081387145.webp";
+import { getWhatsAppInquiryUrl } from "@/lib/constants";
 
-const WA_URL =
-  "https://wa.me/919552398974?text=नमस्कार%2C%0Aमला%20सरस्वती%20ॲग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.";
+const WA_URL = getWhatsAppInquiryUrl();
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

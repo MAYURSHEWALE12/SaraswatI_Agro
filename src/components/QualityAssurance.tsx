@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Microscope, Award, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { PEXELS_COW_PORTRAIT } from "@/lib/constants";
 
 /* HD Pexels 735968 — close-up dairy cow portrait */
-const COW_FARM = "https://images.pexels.com/photos/735968/pexels-photo-735968.jpeg?auto=compress&cs=tinysrgb&w=900&h=900&fit=crop";
+const COW_FARM = PEXELS_COW_PORTRAIT;
 
 const qualityPointsDict = {
   mr: [

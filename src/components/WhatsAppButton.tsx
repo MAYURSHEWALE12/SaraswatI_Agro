@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { X, User, Phone, MessageSquare, HelpCircle } from "lucide-react";
-import safLogo from "@assets/image_1781081387145.png";
+import safLogo from "@assets/image_1781081387145.webp";
 import { useLanguage } from "@/hooks/useLanguage";
+import { WA_NUMBER_FULL } from "@/lib/constants";
 
-const WA_NUMBER = "919552398974";
+const WA_NUMBER = WA_NUMBER_FULL;
 
 function LeftTooltip({ text, visible }: { text: string; visible: boolean }) {
   return (
@@ -38,6 +39,54 @@ export default function WhatsAppButton() {
   const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState(t({ mr: "पशुखाद्य उत्पादने", en: "Cattle Feed Products" }));
   const [message, setMessage] = useState("");
+
+  const firstInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsModalOpen(false);
+        return;
+      }
+
+      if (e.key === "Tab" && isModalOpen) {
+        const modalElement = document.getElementById("whatsapp-modal");
+        if (!modalElement) return;
+        const focusableElements = modalElement.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length === 0) return;
+        const firstElement = focusableElements[0] as HTMLElement;
+        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    };
+
+    if (isModalOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden"; // lock scroll
+      // autofocus first field
+      setTimeout(() => firstInputRef.current?.focus(), 100);
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isModalOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -136,6 +185,7 @@ export default function WhatsAppButton() {
 
             {/* Modal Card */}
             <motion.div
+              id="whatsapp-modal"
               initial={{ scale: 0.95, opacity: 0, y: 15 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 15 }}
@@ -171,6 +221,7 @@ export default function WhatsAppButton() {
                   <div className="relative">
                     <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                     <input
+                      ref={firstInputRef}
                       required
                       type="text"
                       placeholder={t({ mr: "शेतकऱ्याचे/व्यवसायाचे नाव *", en: "Farmer/Business Name *" })}

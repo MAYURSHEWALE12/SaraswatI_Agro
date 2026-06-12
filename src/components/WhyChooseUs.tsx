@@ -1,9 +1,10 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Wheat, ShieldCheck, TrendingUp, Users, Award, TestTube } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { PEXELS_COW_PORTRAIT } from "@/lib/constants";
 
 /* Confirmed Pexels — close portrait of a dairy cow */
-const COW_IMG = "https://images.pexels.com/photos/735968/pexels-photo-735968.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop";
+const COW_IMG = PEXELS_COW_PORTRAIT;
 
 const featuresDict = {
   mr: [
@@ -25,7 +26,7 @@ const featuresDict = {
 };
 
 const container = { hidden: {}, visible: { transition: { staggerChildren: 0.09 } } };
-const card: any = {
+const card: Variants = {
   hidden:  { opacity: 0, y: 26 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.42, ease: "easeOut" } },
 };

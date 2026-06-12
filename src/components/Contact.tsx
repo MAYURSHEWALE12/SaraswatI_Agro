@@ -3,9 +3,14 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
-
-const WA_URL =
-  "https://wa.me/919552398974?text=नमस्कार%2C%0Aमला%20सरस्वती%20ॲग्रो%20फीड्सच्या%20पशुखाद्य%20उत्पादनांबद्दल%20अधिक%20माहिती%20हवी%20आहे.";
+import {
+  PHONE_PRIMARY,
+  PHONE_SECONDARY,
+  PHONE_PRIMARY_DISPLAY,
+  PHONE_SECONDARY_DISPLAY,
+  CONTACT_EMAIL,
+  getWhatsAppInquiryUrl,
+} from "@/lib/constants";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -58,18 +63,18 @@ export default function Contact() {
                 <h4 className="font-bold text-foreground text-lg mb-3">{t({ mr: "मोबाईल", en: "Mobile" })}</h4>
                 <div className="flex flex-col gap-2">
                   <a
-                    href="tel:+919552398974"
+                    href={`tel:${PHONE_PRIMARY}`}
                     className="text-primary font-semibold text-lg hover:underline"
                     data-testid="link-phone-1"
                   >
-                    +91 9552398974
+                    +91 ${PHONE_PRIMARY_DISPLAY}
                   </a>
                   <a
-                    href="tel:+919921937353"
+                    href={`tel:${PHONE_SECONDARY}`}
                     className="text-primary font-semibold text-lg hover:underline"
                     data-testid="link-phone-2"
                   >
-                    +91 9921937353
+                    +91 ${PHONE_SECONDARY_DISPLAY}
                   </a>
                 </div>
               </div>
@@ -82,11 +87,11 @@ export default function Contact() {
               <div>
                 <h4 className="font-bold text-foreground text-lg mb-1">{t({ mr: "ईमेल", en: "Email" })}</h4>
                 <a
-                  href="mailto:saraswatiagrofeeds2215@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-primary font-medium hover:underline break-all"
                   data-testid="link-email"
                 >
-                  saraswatiagrofeeds2215@gmail.com
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </div>
@@ -95,7 +100,7 @@ export default function Contact() {
               <Button
                 size="lg"
                 className="flex-1 gap-2 bg-green-600 hover:bg-green-700 text-white rounded-full"
-                onClick={() => window.open(WA_URL, "_blank")}
+                onClick={() => window.open(getWhatsAppInquiryUrl(), "_blank")}
                 data-testid="button-whatsapp-contact"
               >
                 <FaWhatsapp className="w-5 h-5" />
@@ -107,7 +112,7 @@ export default function Contact() {
                 className="flex-1 gap-2 rounded-full border-2"
                 asChild
               >
-                <a href="tel:+919552398974" data-testid="button-call-contact">
+                <a href={`tel:${PHONE_PRIMARY}`} data-testid="button-call-contact">
                   <Phone className="w-4 h-4" />
                   {t({ mr: "आत्ता कॉल करा", en: "Call Now" })}
                 </a>

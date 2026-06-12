@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { Target, Eye, Heart, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { PEXELS_COW_GRAZING, PEXELS_COW_PORTRAIT } from "@/lib/constants";
 
 /* HD Pexels 422218 — Holstein dairy cows grazing in green pasture */
-const FARM_IMG = "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&fit=crop";
+const FARM_IMG = PEXELS_COW_GRAZING;
 /* HD Pexels 735968 — close-up dairy cow portrait */
-const COW_PORTRAIT = "https://images.pexels.com/photos/735968/pexels-photo-735968.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop";
+const COW_PORTRAIT = PEXELS_COW_PORTRAIT;
 
 const pillarsDict = {
   mr: [

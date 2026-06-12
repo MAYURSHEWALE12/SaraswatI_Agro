@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { Beaker, Send, User, Phone, Beef, Milk, Wheat, Hash, CheckCircle, ChevronRight, Award, Target } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { WA_NUMBER_FULL, PEXELS_COW_GRAZING } from "@/lib/constants";
 
 /* HD Pexels — cow grazing/eating in green field */
-const BANNER_COW =
-  "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1920&h=700&fit=crop";
-const TAGLINE_COW =
-  "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop";
+const BANNER_COW = PEXELS_COW_GRAZING;
+const TAGLINE_COW = PEXELS_COW_GRAZING;
 
 const featuresDict = {
   mr: [
@@ -113,12 +112,12 @@ export default function CustomizedFeed() {
       (language === "mr" ? `🌾 सध्याचे खाद्य: ` : `🌾 Current Feed: `) + `${form.currentFeed}\n` +
       (language === "mr" ? `📝 आवश्यकता: ` : `📝 Requirement: `) + `${form.requirement}`
     );
-    window.open(`https://wa.me/919552398974?text=${msg}`, "_blank");
+    window.open(`https://wa.me/${WA_NUMBER_FULL}?text=${msg}`, "_blank");
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
   };
 
-  const fadeUp: any = {
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 15 },
     show: (i: number) => ({
       opacity: 1, y: 0,

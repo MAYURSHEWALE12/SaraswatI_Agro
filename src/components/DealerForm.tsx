@@ -6,10 +6,16 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import { CheckCircle2, TrendingUp, Headphones, Truck, BarChart3, Send } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import {
+  PHONE_PRIMARY_DISPLAY,
+  PHONE_SECONDARY_DISPLAY,
+  CONTACT_EMAIL,
+  ADDRESS_TAKALKARWADI_MR,
+  ADDRESS_TAKALKARWADI_EN,
+} from "@/lib/constants";
 
 const dealerSchema = z.object({
   name: z.string().min(2, "नाव किमान २ अक्षरे असणे आवश्यक आहे"),
@@ -107,7 +113,6 @@ ${data.message || "N/A"}
 
   return (
     <section id="dealer" className="py-24 bg-background">
-      <Toaster />
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
@@ -155,18 +160,18 @@ ${data.message || "N/A"}
               <div className="flex flex-col gap-3 text-foreground">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                  <span>9552398974 / 9921937353</span>
+                  <span>{PHONE_PRIMARY_DISPLAY} / {PHONE_SECONDARY_DISPLAY}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                  <span>saraswatiagrofeeds2215@gmail.com</span>
+                  <span>{CONTACT_EMAIL}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                   <span>
                     {t({
-                      mr: "टाकळकरवाडी, राजगुरूनगर, जि. पुणे – 410505",
-                      en: "Takalkarwadi, Rajgurunagar, Dist. Pune – 410505",
+                      mr: ADDRESS_TAKALKARWADI_MR,
+                      en: ADDRESS_TAKALKARWADI_EN,
                     })}
                   </span>
                 </div>
