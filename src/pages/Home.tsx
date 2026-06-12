@@ -13,6 +13,7 @@ import DealerForm from "@/components/DealerForm";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function Home() {
   return (
@@ -20,14 +21,17 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <SectionDivider />
         <Stats />
         <WhyChooseUs />
         <Products />
+        <SectionDivider />
         <CustomizedFeed />
         <Benefits />
         <ProductionProcess />
         <QualityAssurance />
         <About />
+        <SectionDivider />
         <Testimonials />
         <DealerForm />
         <Contact />

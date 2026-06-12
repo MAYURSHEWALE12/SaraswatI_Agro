@@ -5,15 +5,19 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/hooks/useLanguage";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import BackToTop from "@/components/BackToTop";
 
 const queryClient = new QueryClient();
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+      <BackToTop />
+    </>
   );
 }
 
