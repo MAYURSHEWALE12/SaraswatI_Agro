@@ -28,7 +28,7 @@ export default function ProductionProcess() {
   const steps = t(stepsDict);
 
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-emerald-50/60 overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-28 bg-emerald-50/60 dark:bg-slate-950 overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -36,15 +36,15 @@ export default function ProductionProcess() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <span className="inline-block bg-emerald-100 text-emerald-700 border border-emerald-200 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             {t({ mr: "🏭 प्रक्रिया", en: "🏭 Process" })}
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors">
             {t({ mr: "आमची ", en: "Our " })}
-            <span className="text-emerald-600">{t({ mr: "उत्पादन प्रक्रिया", en: "Production Process" })}</span>
+            <span className="text-emerald-600 dark:text-emerald-500">{t({ mr: "उत्पादन प्रक्रिया", en: "Production Process" })}</span>
           </h2>
           <div className="h-1 w-24 bg-amber-400 mx-auto rounded-full mb-4" />
-          <p className="text-gray-500">{t({ mr: "प्रत्येक टप्प्यावर गुणवत्तेची हमी", en: "Quality assurance at every stage" })}</p>
+          <p className="text-gray-500 dark:text-gray-400 transition-colors">{t({ mr: "प्रत्येक टप्प्यावर गुणवत्तेची हमी", en: "Quality assurance at every stage" })}</p>
         </motion.div>
 
         {/* Desktop horizontal timeline */}
@@ -58,7 +58,7 @@ export default function ProductionProcess() {
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.14, duration: 0.4 }}
-                    className="absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-emerald-400/70 to-emerald-200/40 origin-left"
+                    className="absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-emerald-400/70 dark:from-emerald-600/50 to-emerald-200/40 dark:to-emerald-900/40 origin-left"
                   />
                 )}
                 <motion.div
@@ -66,7 +66,7 @@ export default function ProductionProcess() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, type: "spring", stiffness: 200 }}
-                  className="relative z-10 w-16 h-16 rounded-full bg-white border-4 border-emerald-100 shadow-lg flex items-center justify-center hover:border-emerald-500 hover:scale-110 transition-all duration-300 cursor-default text-2xl"
+                  className="relative z-10 w-16 h-16 rounded-full bg-white dark:bg-slate-900 border-4 border-emerald-100 dark:border-slate-800 shadow-lg flex items-center justify-center hover:border-emerald-500 dark:hover:border-emerald-500 hover:scale-110 transition-all duration-300 cursor-default text-2xl"
                 >
                   {step.emoji}
                   <div className="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full bg-emerald-600 text-white text-[10px] font-bold flex items-center justify-center shadow">
@@ -80,8 +80,8 @@ export default function ProductionProcess() {
                   transition={{ delay: i * 0.1 + 0.2 }}
                   className="mt-4 text-center px-1"
                 >
-                  <div className="font-bold text-gray-700 text-sm">{step.label}</div>
-                  <div className="text-gray-400 text-xs mt-1 leading-tight">{step.desc}</div>
+                  <div className="font-bold text-gray-700 dark:text-gray-300 text-sm transition-colors">{step.label}</div>
+                  <div className="text-gray-400 dark:text-gray-500 text-xs mt-1 leading-tight transition-colors">{step.desc}</div>
                 </motion.div>
               </div>
             );
@@ -100,17 +100,14 @@ export default function ProductionProcess() {
               className="flex gap-4 relative pl-2"
             >
               {i < steps.length - 1 && (
-                <div className="absolute left-7 top-14 bottom-0 w-0.5 bg-emerald-200" />
+                <div className="absolute top-10 left-[1.375rem] bottom-[-1.5rem] w-0.5 bg-emerald-200 dark:bg-emerald-900/50" />
               )}
-              <div className="relative z-10 w-12 h-12 rounded-full bg-white border-2 border-emerald-200 shadow flex items-center justify-center shrink-0 text-xl">
+              <div className="relative z-10 w-10 h-10 shrink-0 rounded-full bg-white dark:bg-slate-900 border-[3px] border-emerald-100 dark:border-slate-800 flex items-center justify-center text-lg shadow-sm">
                 {step.emoji}
-                <div className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-emerald-600 text-white text-[10px] font-bold flex items-center justify-center">
-                  {i + 1}
-                </div>
               </div>
-              <div className="pb-6 pt-2">
-                <div className="font-bold text-gray-700 text-sm">{step.label}</div>
-                <div className="text-gray-400 text-xs mt-0.5">{step.desc}</div>
+              <div className="pb-8 pt-1">
+                <div className="font-bold text-gray-800 dark:text-gray-200 text-sm transition-colors">{step.label}</div>
+                <div className="text-gray-500 dark:text-gray-400 text-xs mt-1 leading-snug pr-4 transition-colors">{step.desc}</div>
               </div>
             </motion.div>
           ))}

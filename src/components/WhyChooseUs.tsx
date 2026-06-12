@@ -36,7 +36,7 @@ export default function WhyChooseUs() {
   const features = t(featuresDict);
 
   return (
-    <section id="why-choose-us" className="py-16 sm:py-20 md:py-28 bg-white overflow-hidden">
+    <section id="why-choose-us" className="py-16 sm:py-20 md:py-28 bg-white dark:bg-slate-950 overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
@@ -45,12 +45,12 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
         >
-          <span className="inline-block bg-emerald-50 text-emerald-700 border border-emerald-200 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             {t({ mr: "आमची वैशिष्ट्ये", en: "Our Features" })}
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors">
             {t({ mr: "सरस्वती ॲग्रो ", en: "Why Choose " })}
-            <span className="text-emerald-600">{t({ mr: "का निवडावे?", en: "Saraswati Agro?" })}</span>
+            <span className="text-emerald-600 dark:text-emerald-500">{t({ mr: "का निवडावे?", en: "Saraswati Agro?" })}</span>
           </h2>
           <div className="h-1 w-24 bg-amber-400 mx-auto rounded-full" />
         </motion.div>
@@ -64,7 +64,7 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.75 }}
             className="lg:col-span-2 relative flex flex-col h-full"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl flex-1 min-h-[450px] w-full max-w-xs mx-auto lg:max-w-none">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl dark:shadow-none dark:border dark:border-emerald-900/40 flex-1 min-h-[450px] w-full max-w-xs mx-auto lg:max-w-none">
               <img
                 src={COW_IMG}
                 alt="Healthy dairy cow"
@@ -102,15 +102,17 @@ export default function WhyChooseUs() {
               <motion.div
                 key={i}
                 variants={card}
-                whileHover={{ scale: 1.03, y: -4 }}
-                className="bg-white border border-gray-100 shadow-sm hover:shadow-lg p-5 rounded-2xl transition-all duration-300 group cursor-default"
-                data-testid={`card-feature-${i}`}
+                className="bg-white dark:bg-slate-900 border border-emerald-50 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl hover:shadow-emerald-100 dark:hover:shadow-emerald-900/20 hover:border-emerald-200 dark:hover:border-emerald-800 transition-all duration-300 group"
               >
-                <div className="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center mb-3 group-hover:bg-emerald-600 group-hover:scale-110 transition-all duration-300">
-                  <feature.icon className="w-5 h-5 text-emerald-600 group-hover:text-white transition-colors duration-300" />
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-800/60 transition-all duration-300">
+                  <feature.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-gray-800 mb-1.5">{feature.title}</h3>
-                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </motion.div>

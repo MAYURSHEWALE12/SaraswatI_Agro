@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useTheme } from "@/hooks/useTheme";
 import safLogo from "@assets/image_1781081387145.webp";
 import { getWhatsAppInquiryUrl } from "@/lib/constants";
 
@@ -13,6 +14,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { theme, setTheme, isDark } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,41 +34,40 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { name: t({ mr: "मुख्यपृष्ठ", en: "Home" }), href: "#hero" },
+    { name: t({ mr: "होम", en: "Home" }), href: "#hero" },
+    { name: t({ mr: "आमची वैशिष्ट्ये", en: "Features" }), href: "#why-choose-us" },
     { name: t({ mr: "उत्पादने", en: "Products" }), href: "#products" },
     { name: t({ mr: "फायदे", en: "Benefits" }), href: "#benefits" },
-    { name: t({ mr: "आमच्याबद्दल", en: "About" }), href: "#about" },
+    { name: t({ mr: "आमच्याबद्दल", en: "About Us" }), href: "#about" },
     { name: t({ mr: "संपर्क", en: "Contact" }), href: "#contact" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-xl shadow-lg border-b border-gray-100 py-2.5"
-          : "bg-black/30 backdrop-blur-md py-4"
+          ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
+          : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo + Brand */}
-          <div className="flex items-center gap-2.5">
-            <img
-              src={safLogo}
-              alt="SAF Logo"
-              className="w-10 h-10 rounded-full object-cover shadow-md ring-2 ring-white/30"
-            />
-            <span className={`font-bold text-xl md:text-2xl tracking-tight transition-colors duration-300 ${isScrolled ? "text-gray-800" : "text-white"}`}>
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)] overflow-hidden border-2 border-white/90 group-hover:scale-105 transition-transform duration-300">
+              <img src={safLogo} alt="Saraswati Agro Logo" className="w-10 h-10 object-contain drop-shadow-sm" />
+            </div>
+            <span className={`text-xl sm:text-2xl font-black tracking-tight ${isScrolled ? "text-gray-800" : "text-white"}`}>
               {t({ mr: "सरस्वती", en: "Saraswati" })}{" "}
               <span className={isScrolled ? "text-emerald-600" : "text-emerald-400"}>
                 {t({ mr: "ॲग्रो", en: "Agro" })}
               </span>
             </span>
-          </div>
+          </a>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-8 mr-2">
               <ul className="flex items-center gap-6">
                 {navLinks.map((link) => (
                   <li key={link.href}>
@@ -83,6 +84,19 @@ export default function Navbar() {
                 ))}
               </ul>
             </nav>
+
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className={`p-2 rounded-full transition-all duration-300 ${
+                isScrolled 
+                  ? "bg-gray-100 text-gray-600 hover:bg-gray-200" 
+                  : "bg-white/10 text-white/90 hover:bg-white/20 backdrop-blur-sm"
+              }`}
+              aria-label="Toggle Dark Mode"
+            >
+              {isDark ? <Sun className="w-4 h-4 sm:w-5 sm:h-5" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5" />}
+            </button>
 
             {/* Language Switcher */}
             <div className={`flex items-center gap-1 rounded-full p-1 shrink-0 transition-all duration-300 ${
