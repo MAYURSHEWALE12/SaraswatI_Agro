@@ -55,22 +55,54 @@ export default function DealerForm() {
     },
   });
 
-  const onSubmit = (data: DealerFormValues) => {
-    const subject = encodeURIComponent(
-      language === "mr"
-        ? "सरस्वती ॲग्रो फीड्स - नवीन चौकशी"
-        : "Saraswati Agro Feeds - New Inquiry"
-    );
-    const body = encodeURIComponent(
-      language === "mr"
-        ? `नमस्कार,\n\nनवीन चौकशी तपशील खालीलप्रमाणे आहेत:\n\nनाव: ${data.name}\nव्यवसाय: ${data.businessName}\nमोबाईल: ${data.mobile}\nईमेल: ${data.email || "उपलब्ध नाही"}\nजिल्हा: ${data.district}\nराज्य: ${data.state}\nसंदेश: ${data.message || "उपलब्ध नाही"}`
-        : `Hello,\n\nHere are the new inquiry details:\n\nName: ${data.name}\nBusiness: ${data.businessName}\nMobile: ${data.mobile}\nEmail: ${data.email || "N/A"}\nDistrict: ${data.district}\nState: ${data.state}\nMessage: ${data.message || "N/A"}`
-    );
-    window.location.href = `mailto:mvshewale2003@gmail.com?subject=${subject}&body=${body}`;
-    toast.success(t({ mr: "चौकशी यशस्वीरित्या पाठवली!", en: "Inquiry Sent Successfully!" }), {
-      description: t({ mr: "आम्ही लवकरच आपल्याशी संपर्क साधू.", en: "We will contact you soon." }),
-    });
-    form.reset();
+  const onSubmit = async (data: DealerFormValues) => {
+    const toastId = toast.loading(t({ mr: "चौकशी पाठवली जात आहे...", en: "Sending inquiry..." }));
+
+    try {
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "d512b5ff-c3c9-4913-8ab2-827520f7c3fc";
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: data.name,
+          email: data.email || "no-reply@saraswatiagro.com",
+          subject: `Saraswati Agro Inquiry - ${data.businessName}`,
+          from_name: "Saraswati Agro Website",
+          message: `
+New Inquiry Details:
+----------------------------------------
+Full Name: ${data.name}
+Business Name: ${data.businessName}
+Mobile Number: ${data.mobile}
+Email Address: ${data.email || "N/A"}
+District: ${data.district}
+State: ${data.state}
+
+Additional Message:
+${data.message || "N/A"}
+          `,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        toast.success(t({ mr: "चौकशी यशस्वीरित्या पाठवली!", en: "Inquiry Sent Successfully!" }), {
+          id: toastId,
+          description: t({ mr: "आम्ही लवकरच आपल्याशी संपर्क साधू.", en: "We will contact you soon." }),
+        });
+        form.reset();
+      } else {
+        throw new Error(result.message || "Failed to submit form");
+      }
+    } catch (error) {
+      toast.error(t({ mr: "काहीतरी चूक झाली. कृपया पुन्हा प्रयत्न करा.", en: "Something went wrong. Please try again." }), {
+        id: toastId,
+      });
+    }
   };
 
   return (
