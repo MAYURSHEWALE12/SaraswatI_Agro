@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Phone } from "lucide-react";
+import { ChevronDown, Phone, Leaf } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/hooks/useLanguage";
 import { PEXELS_COW_GRAZING, PHONE_PRIMARY, getWhatsAppInquiryUrl } from "@/lib/constants";
@@ -63,7 +63,7 @@ export default function Hero() {
             ease: "linear",
           }}
         >
-          🌿
+          <Leaf className="w-8 h-8 drop-shadow-md text-green-400/80 fill-green-400/80" />
         </motion.div>
       ))}
 
@@ -123,7 +123,9 @@ export default function Hero() {
                 className="bg-green-500 hover:bg-green-400 text-white rounded-full px-6 py-5 font-bold shadow-lg shadow-green-600/30 hover:-translate-y-0.5 transition-all duration-300"
                 asChild
               >
-                <a href="#products">🌿 {t({ mr: "उत्पादने पहा", en: "View Products" })}</a>
+                <a href="#products" className="flex items-center gap-2">
+                  <Leaf className="w-5 h-5 fill-white" /> {t({ mr: "उत्पादने पहा", en: "View Products" })}
+                </a>
               </Button>
               <Button
                 size="lg"
