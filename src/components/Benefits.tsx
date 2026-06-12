@@ -82,12 +82,14 @@ export default function Benefits() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-800/50 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 text-white">
-                <div className="text-base sm:text-lg font-bold drop-shadow whitespace-nowrap">
-                  {t({ mr: "🐄 गायी म्हशींच्या उत्तम आरोग्यासाठी", en: "🐄 Healthy Cattle" })}
-                </div>
-                <div className="text-emerald-200 text-xs sm:text-sm mt-0.5 whitespace-nowrap">
-                  {t({ mr: "शुद्ध, सकस आणि भरपूर दुधासाठी", en: "More Milk ➔ Farmers' Prosperity" })}
+              <div className="absolute bottom-5 left-4 right-4">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-emerald-100 text-center">
+                  <div className="text-emerald-700 font-bold text-sm sm:text-base whitespace-nowrap">
+                    {t({ mr: "🐄 गायी म्हशींच्या उत्तम आरोग्यासाठी", en: "🐄 Healthy Cattle" })}
+                  </div>
+                  <div className="text-gray-600 text-[10px] sm:text-xs mt-1.5 font-semibold whitespace-nowrap">
+                    {t({ mr: "शुद्ध, सकस आणि भरपूर दुधासाठी", en: "More Milk ➔ Farmers' Prosperity" })}
+                  </div>
                 </div>
               </div>
             </div>
