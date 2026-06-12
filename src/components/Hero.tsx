@@ -91,7 +91,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 1.0 }}
-              className="flex flex-wrap gap-3"
+              className="flex flex-col sm:flex-row justify-center gap-3 max-w-xs sm:max-w-none mx-auto"
             >
               <Button
                 size="lg"
