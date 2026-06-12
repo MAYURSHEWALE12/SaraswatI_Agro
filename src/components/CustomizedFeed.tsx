@@ -238,7 +238,7 @@ export default function CustomizedFeed() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65 }}
-              className="lg:col-span-4 bg-emerald-900 dark:bg-emerald-950 rounded-3xl p-7 sm:p-10 shadow-2xl overflow-hidden relative flex flex-col justify-between transition-colors"
+              className="lg:col-span-7 bg-emerald-900 dark:bg-emerald-950 text-white rounded-3xl p-7 sm:p-9 border border-emerald-800 dark:border-emerald-900 shadow-xl flex flex-col justify-between transition-colors"
             >
               <div>
                 <div className="flex items-center gap-3 mb-6">
