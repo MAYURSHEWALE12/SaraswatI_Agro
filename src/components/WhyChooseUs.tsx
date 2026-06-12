@@ -76,8 +76,8 @@ export default function WhyChooseUs() {
               <div className="absolute bottom-5 left-5 right-5">
                 <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-emerald-100">
                   <div className="text-emerald-700 font-bold text-base">{t({ mr: "🐄 निरोगी जनावरे", en: "🐄 Healthy Cattle" })}</div>
-                  <div className="text-gray-500 text-xs mt-0.5">
-                    {t({ mr: "= अधिक दूध = शेतकऱ्यांची समृद्धी", en: "= More Milk = Farmers' Prosperity" })}
+                  <div className="text-gray-500 text-xs mt-1 font-medium">
+                    {t({ mr: "अधिक दूध ➔ समृद्ध शेतकरी", en: "More Milk ➔ Farmers' Prosperity" })}
                   </div>
                 </div>
               </div>
