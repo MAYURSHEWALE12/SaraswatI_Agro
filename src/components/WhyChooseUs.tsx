@@ -73,10 +73,12 @@ export default function WhyChooseUs() {
               {/* Light green tint at bottom, not black */}
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-800/55 via-transparent to-transparent" />
 
-              <div className="absolute bottom-5 left-5 right-5">
-                <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-emerald-100">
-                  <div className="text-emerald-700 font-bold text-base">{t({ mr: "🐄 निरोगी जनावरे", en: "🐄 Healthy Cattle" })}</div>
-                  <div className="text-gray-500 text-xs mt-1 font-medium">
+              <div className="absolute bottom-5 left-4 right-4">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3.5 shadow-lg border border-emerald-100 text-center">
+                  <div className="text-emerald-700 font-bold text-sm sm:text-base whitespace-nowrap">
+                    {t({ mr: "🐄 निरोगी जनावरे", en: "🐄 Healthy Cattle" })}
+                  </div>
+                  <div className="text-gray-600 text-[10px] sm:text-xs mt-1 font-semibold whitespace-nowrap">
                     {t({ mr: "अधिक दूध ➔ समृद्ध शेतकरी", en: "More Milk ➔ Farmers' Prosperity" })}
                   </div>
                 </div>
