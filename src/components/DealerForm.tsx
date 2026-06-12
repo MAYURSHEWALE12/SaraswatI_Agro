@@ -66,7 +66,7 @@ export default function DealerForm() {
         ? `नमस्कार,\n\nनवीन चौकशी तपशील खालीलप्रमाणे आहेत:\n\nनाव: ${data.name}\nव्यवसाय: ${data.businessName}\nमोबाईल: ${data.mobile}\nईमेल: ${data.email || "उपलब्ध नाही"}\nजिल्हा: ${data.district}\nराज्य: ${data.state}\nसंदेश: ${data.message || "उपलब्ध नाही"}`
         : `Hello,\n\nHere are the new inquiry details:\n\nName: ${data.name}\nBusiness: ${data.businessName}\nMobile: ${data.mobile}\nEmail: ${data.email || "N/A"}\nDistrict: ${data.district}\nState: ${data.state}\nMessage: ${data.message || "N/A"}`
     );
-    window.location.href = `mailto:saraswatiagrofeeds2215@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:mvshewale2003@gmail.com?subject=${subject}&body=${body}`;
     toast.success(t({ mr: "चौकशी यशस्वीरित्या पाठवली!", en: "Inquiry Sent Successfully!" }), {
       description: t({ mr: "आम्ही लवकरच आपल्याशी संपर्क साधू.", en: "We will contact you soon." }),
     });
