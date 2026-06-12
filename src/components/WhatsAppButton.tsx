@@ -156,8 +156,12 @@ export default function WhatsAppButton() {
             onClick={() => setIsModalOpen(true)}
             whileHover={{ scale: 1.12 }}
             whileTap={{ scale: 0.92 }}
-            className="relative rounded-full overflow-hidden shadow-xl border-2 border-white hover:border-emerald-300 hover:shadow-emerald-200/60 transition-all duration-300 cursor-pointer focus:outline-none bg-white"
-            style={{ width: "56px", height: "56px" }}
+            className="relative rounded-full overflow-hidden shadow-xl border-2 border-white hover:border-emerald-300 hover:shadow-emerald-200/60 transition-all duration-300 cursor-pointer focus:outline-none"
+            style={{
+              width: "56px",
+              height: "56px",
+              background: "linear-gradient(135deg, #d1fae5 0%, #6ee7b7 50%, #34d399 100%)",
+            }}
             aria-label="Open inquiry form"
           >
             <motion.img
@@ -165,7 +169,7 @@ export default function WhatsAppButton() {
               alt="Cute Cow — Click to Inquire"
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-full h-full object-cover scale-125"
+              className="w-full h-full object-contain p-0.5"
               draggable={false}
             />
           </motion.button>
