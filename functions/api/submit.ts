@@ -14,7 +14,7 @@ export const onRequestPost = async (context: any) => {
       );
     }
 
-    const senderEmail = env.SENDER_EMAIL || "saraswatiagrofeeds2215@gmail.com";
+    const senderEmail = env.SENDER_EMAIL || "10ninjagod@gmail.com";
 
     // 2. Parse request JSON data
     const data = await request.json();
@@ -115,7 +115,7 @@ export const onRequestPost = async (context: any) => {
     }
 
     // 4. Send email via Brevo API
-    const targetEmail = env.NOTIFICATION_EMAIL || "saraswatiagrofeeds2215@gmail.com";
+    const targetEmail = env.NOTIFICATION_EMAIL || "mvshewale2003@gmail.com";
     const brevoResponse = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
