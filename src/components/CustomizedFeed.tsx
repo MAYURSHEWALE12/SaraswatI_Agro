@@ -166,6 +166,8 @@ export default function CustomizedFeed() {
           src={BANNER_COW}
           alt="Healthy dairy cows eating feed in green field"
           className="absolute inset-0 w-full h-full object-cover object-center scale-105"
+          width="1920"
+          height="1080"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -271,6 +273,9 @@ export default function CustomizedFeed() {
                   src="https://images.pexels.com/photos/735968/pexels-photo-735968.jpeg?auto=compress&cs=tinysrgb&w=800&h=240&fit=crop"
                   alt="Dairy cow close up"
                   className="w-full h-32 object-cover object-center"
+                  width="800"
+                  height="240"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-emerald-950/60" />
                 <div className="absolute inset-0 flex items-center justify-center p-4">
@@ -497,6 +502,8 @@ export default function CustomizedFeed() {
               src={TAGLINE_COW}
               alt="Dairy cattle herd in green pasture"
               className="absolute inset-0 w-full h-full object-cover object-center"
+              width="1920"
+              height="1080"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-black/60" />

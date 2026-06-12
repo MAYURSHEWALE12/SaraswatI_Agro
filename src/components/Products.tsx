@@ -161,6 +161,8 @@ export default function Products() {
                       alt={prod.name}
                       className="w-full aspect-square object-contain bg-white p-3 transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
+                      width="400"
+                      height="400"
                     />
                     {/* Shine on active */}
                     {isActive && (
@@ -233,7 +235,7 @@ export default function Products() {
             <div className="p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
               {/* Mini thumbnail */}
               <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-800 shadow-md bg-white shrink-0 flex items-center justify-center p-2">
-                <img src={p.image} alt={p.name} className="w-full h-full object-contain" />
+                <img src={p.image} alt={p.name} className="w-full h-full object-contain" width="200" height="200" loading="lazy" />
               </div>
 
               <div className="flex-1 min-w-0">

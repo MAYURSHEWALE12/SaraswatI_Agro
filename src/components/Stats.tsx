@@ -82,6 +82,9 @@ export default function Stats() {
           src={COW_BG}
           alt="Dairy cattle herd"
           className="w-full h-full object-cover"
+          width="1920"
+          height="600"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-green-700/88 via-emerald-700/82 to-green-800/90 dark:from-green-950/95 dark:via-emerald-950/90 dark:to-green-900/95" />
       </div>

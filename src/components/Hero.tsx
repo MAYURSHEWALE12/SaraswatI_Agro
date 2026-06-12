@@ -35,6 +35,8 @@ export default function Hero() {
           src={COW_BG}
           alt="Dairy cows on green pasture"
           className="w-full h-full object-cover"
+          width="1920"
+          height="1080"
           loading="eager"
           fetchPriority="high"
         />

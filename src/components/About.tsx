@@ -109,6 +109,9 @@ export default function About() {
                 src={FARM_IMG}
                 alt="Dairy farm with cattle"
                 className="w-full h-full object-cover"
+                width="800"
+                height="600"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-emerald-800/35 dark:from-emerald-950/70 to-transparent" />
             </div>
@@ -125,6 +128,9 @@ export default function About() {
                 src={COW_PORTRAIT}
                 alt="Close-up healthy dairy cow"
                 className="w-full h-full object-cover"
+                width="300"
+                height="300"
+                loading="lazy"
               />
             </motion.div>
 

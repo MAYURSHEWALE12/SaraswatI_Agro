@@ -79,6 +79,8 @@ export default function Benefits() {
                 src={COW_GRAZE}
                 alt="Cow grazing"
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                width="900"
+                height="1100"
                 loading="lazy"
               />
               {/* Premium gradient overlay */}
