@@ -140,6 +140,61 @@ export const onRequestPost = async (context: any) => {
       );
     }
 
+    // 5. Send Auto-Responder to Customer (if email provided)
+    if (data.email) {
+      const customerEmailHtml = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f3f4f6; padding: 20px; color: #1f2937; }
+            .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+            .header { background: linear-gradient(135deg, #047857 0%, #065f46 100%); padding: 32px 24px; text-align: center; }
+            .header h1 { color: #ffffff; margin: 0; font-size: 24px; }
+            .content { padding: 32px 24px; text-align: center; }
+            .content p { font-size: 16px; line-height: 1.6; color: #4b5563; }
+            .content h2 { color: #047857; margin-bottom: 8px; }
+            .footer { background-color: #f9fafb; padding: 20px 24px; text-align: center; border-top: 1px solid #e5e7eb; font-size: 12px; color: #9ca3af; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Saraswati Agro Feeds</h1>
+            </div>
+            <div class="content">
+              <h2>Thank You for Your Inquiry!</h2>
+              <p>Hello ${data.name || "there"},</p>
+              <p>We have successfully received your inquiry. Our team is reviewing your details and will get back to you shortly to assist you further.</p>
+              <p>नमस्कार, तुमची चौकशी आम्हाला प्राप्त झाली आहे. आमची टीम लवकरच तुमच्याशी संपर्क साधेल.</p>
+              <br/>
+              <p><strong>Warm Regards,</strong><br/>The Saraswati Agro Feeds Team</p>
+            </div>
+            <div class="footer">
+              This is an automated message. Please do not reply to this email.
+            </div>
+          </div>
+        </body>
+      </html>
+      `;
+
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${resendApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "Saraswati Agro <onboarding@resend.dev>",
+          to: data.email,
+          subject: "Thank You for Contacting Saraswati Agro Feeds!",
+          html: customerEmailHtml,
+        }),
+      }).catch(err => console.error("Auto-responder failed:", err));
+    }
+
     return new Response(JSON.stringify({ success: true, id: resendResult.id }), {
       status: 200,
       headers: { "Content-Type": "application/json" },

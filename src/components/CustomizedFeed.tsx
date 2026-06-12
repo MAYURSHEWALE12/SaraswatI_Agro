@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
-import { Beaker, Send, User, Phone, Beef, Milk, Wheat, Hash, CheckCircle, ChevronRight, Award, Target } from "lucide-react";
+import { Beaker, Send, User, Phone, Mail, Beef, Milk, Wheat, Hash, CheckCircle, ChevronRight, Award, Target } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { WA_NUMBER_FULL, PEXELS_COW_GRAZING } from "@/lib/constants";
@@ -72,6 +72,7 @@ const methodologyDict = {
 type FormState = {
   name: string;
   phone: string;
+  email: string;
   animalType: string;
   animalCount: string;
   milkPerDay: string;
@@ -82,6 +83,7 @@ type FormState = {
 const initial: FormState = {
   name: "",
   phone: "",
+  email: "",
   animalType: "गाय",
   animalCount: "",
   milkPerDay: "",
@@ -113,6 +115,7 @@ export default function CustomizedFeed() {
           formType: "customized_feed",
           name: form.name,
           phone: form.phone,
+          email: form.email,
           animalType: form.animalType,
           animalCount: form.animalCount,
           milkPerDay: form.milkPerDay,
@@ -319,6 +322,18 @@ export default function CustomizedFeed() {
                     placeholder={t({ mr: "मोबाईल नंबर *", en: "Mobile Number *" })}
                     value={form.phone}
                     onChange={set("phone")}
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 placeholder:text-gray-400 transition"
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="relative">
+                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <input
+                    type="email"
+                    placeholder={t({ mr: "ईमेल आयडी (पर्यायी)", en: "Email ID (Optional)" })}
+                    value={form.email}
+                    onChange={set("email")}
                     className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 placeholder:text-gray-400 transition"
                   />
                 </div>
