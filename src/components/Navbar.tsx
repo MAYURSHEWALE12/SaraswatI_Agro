@@ -56,7 +56,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)] overflow-hidden border-2 border-white/90 group-hover:scale-105 transition-transform duration-300">
-              <img src={safLogo} alt="Saraswati Agro Logo" className="w-11 h-11 object-contain drop-shadow-sm mix-blend-multiply" />
+              <img src={safLogo} alt="Saraswati Agro Logo" className="w-full h-full object-cover scale-[1.35] drop-shadow-sm mix-blend-multiply" />
             </div>
             <span className={`text-xl sm:text-2xl font-black tracking-tight ${isScrolled ? "text-gray-800" : "text-white"}`}>
               {t({ mr: "सरस्वती", en: "Saraswati" })}{" "}
@@ -174,7 +174,9 @@ export default function Navbar() {
               {/* Drawer header */}
               <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100">
                 <div className="flex items-center gap-2">
-                  <img src={safLogo} alt="SAF" className="w-8 h-8 rounded-full object-cover mix-blend-multiply" />
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-white">
+                    <img src={safLogo} alt="SAF" className="w-full h-full object-cover scale-[1.35] mix-blend-multiply" />
+                  </div>
                   <span className="font-bold text-sm text-foreground">
                     {t({ mr: "सरस्वती", en: "Saraswati" })}{" "}
                     <span className="text-primary">{t({ mr: "ॲग्रो", en: "Agro" })}</span>
