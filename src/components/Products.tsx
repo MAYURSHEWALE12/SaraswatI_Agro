@@ -13,7 +13,7 @@ import caf_go_boost from "@assets/caf_go_boost.webp";
 export default function Products() {
   const [active, setActive] = useState(0);
   const [dir, setDir]       = useState(1);
-  const timerRef            = useRef<ReturnType<typeof setInterval> | null>(null);
+
   const { language, t } = useLanguage();
 
   const products = [
@@ -66,22 +66,18 @@ export default function Products() {
   }
 
   const go = useCallback((next: number, d: number) => {
-    if (timerRef.current) clearInterval(timerRef.current);
     setDir(d);
     setActive(mod(next, total));
-    timerRef.current = setInterval(() => {
-      setDir(1);
-      setActive((p) => mod(p + 1, total));
-    }, 5000);
   }, [total]);
 
+  // Single source of truth for auto-rotation timer
   useEffect(() => {
-    timerRef.current = setInterval(() => {
+    const timer = setInterval(() => {
       setDir(1);
       setActive((p) => mod(p + 1, total));
     }, 5000);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [total]);
+    return () => clearInterval(timer);
+  }, [active, total]);
 
   const prev = () => go(active - 1, -1);
   const next = () => go(active + 1,  1);
