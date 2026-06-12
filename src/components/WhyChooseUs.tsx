@@ -55,20 +55,20 @@ export default function WhyChooseUs() {
           <div className="h-1 w-24 bg-amber-400 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-8 md:gap-10 items-start">
+        <div className="grid lg:grid-cols-5 gap-8 md:gap-10 items-stretch">
           {/* Left — real HD cow portrait */}
           <motion.div
             initial={{ opacity: 0, x: -36 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.75 }}
-            className="lg:col-span-2 relative"
+            className="lg:col-span-2 relative flex flex-col h-full"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] max-w-xs mx-auto lg:max-w-none">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl flex-1 min-h-[450px] w-full max-w-xs mx-auto lg:max-w-none">
               <img
                 src={COW_IMG}
                 alt="Healthy dairy cow"
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
               {/* Light green tint at bottom, not black */}
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-800/55 via-transparent to-transparent" />
