@@ -48,6 +48,7 @@ export default function Hero() {
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
+          aria-hidden="true"
           className="absolute z-[1] text-green-400/20 pointer-events-none select-none text-3xl"
           initial={{ x: `${10 + i * 15}%`, y: "110%", rotate: 0, opacity: 0.3 }}
           animate={{
