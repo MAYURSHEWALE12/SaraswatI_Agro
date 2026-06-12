@@ -125,6 +125,7 @@ export const onRequestPost = async (context: any) => {
         to: targetEmail,
         subject: subject,
         html: htmlEmail,
+        text: `New Inquiry Received: ${subject}. Please view the HTML version for full details.`,
       }),
     });
 
@@ -191,6 +192,7 @@ export const onRequestPost = async (context: any) => {
           to: data.email,
           subject: "Thank You for Contacting Saraswati Agro Feeds!",
           html: customerEmailHtml,
+          text: `Hello ${data.name || "there"},\n\nThank you for your inquiry. We have successfully received it and our team will contact you shortly to assist you further.\n\nनमस्कार, तुमची चौकशी आम्हाला प्राप्त झाली आहे. आमची टीम लवकरच तुमच्याशी संपर्क साधेल.\n\nWarm Regards,\nThe Saraswati Agro Feeds Team`,
         }),
       }).catch(err => console.error("Auto-responder failed:", err));
     }
