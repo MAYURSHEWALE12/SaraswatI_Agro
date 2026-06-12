@@ -156,22 +156,24 @@ export default function WhatsAppButton() {
             onClick={() => setIsModalOpen(true)}
             whileHover={{ scale: 1.12 }}
             whileTap={{ scale: 0.92 }}
-            className="relative rounded-full overflow-hidden shadow-xl border-2 border-white hover:border-emerald-300 hover:shadow-emerald-200/60 transition-all duration-300 cursor-pointer focus:outline-none"
+            className="relative rounded-full flex items-center justify-center shadow-xl border-2 border-white hover:border-emerald-300 hover:shadow-emerald-200/60 transition-all duration-300 cursor-pointer focus:outline-none"
             style={{
-              width: "56px",
-              height: "56px",
-              background: "#ffffff",
+              width: "52px",
+              height: "52px",
+              background: "linear-gradient(135deg, #059669 0%, #047857 100%)",
             }}
             aria-label="Open inquiry form"
           >
-            <motion.img
-              src={animatedCow}
-              alt="Cute Cow — Click to Inquire"
-              animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-full h-full object-contain p-0.5"
-              draggable={false}
-            />
+            {/* Pulsing ring same as WA button */}
+            <span className="absolute rounded-full bg-emerald-400 opacity-20 animate-ping" style={{ width: "52px", height: "52px" }} />
+            <motion.span
+              animate={{ rotate: [0, -8, 8, -4, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.5 }}
+              className="text-2xl relative z-10 select-none"
+              style={{ lineHeight: 1 }}
+            >
+              🐄
+            </motion.span>
           </motion.button>
         </div>
       </div>
@@ -212,8 +214,9 @@ export default function WhatsAppButton() {
 
                 {/* Title */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 flex items-center justify-center shrink-0">
-                    <img src={animatedCow} alt="SAF Cow" className="w-12 h-12 object-contain" />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 text-2xl"
+                    style={{ background: "linear-gradient(135deg, #059669 0%, #047857 100%)" }}>
+                    🐄
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800">{t({ mr: "त्वरित चौकशी संदेश", en: "Quick Inquiry Form" })}</h3>
