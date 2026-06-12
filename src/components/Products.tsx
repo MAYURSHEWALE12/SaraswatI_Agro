@@ -86,13 +86,20 @@ export default function Products() {
   const prev = () => go(active - 1, -1);
   const next = () => go(active + 1,  1);
 
-  const getXSpacing = () => {
-    if (typeof window === "undefined") return 280;
-    if (window.innerWidth < 400) return 180;
-    if (window.innerWidth < 640) return 220;
-    if (window.innerWidth < 1024) return 270;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const getXSpacing = useCallback(() => {
+    if (windowWidth < 400) return 180;
+    if (windowWidth < 640) return 220;
+    if (windowWidth < 1024) return 270;
     return 320;
-  };
+  }, [windowWidth]);
 
   const getStyle = (i: number) => {
     const diff = mod(i - active + Math.floor(total / 2), total) - Math.floor(total / 2);
