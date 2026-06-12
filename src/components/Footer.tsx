@@ -140,6 +140,13 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} {t({ mr: "सरस्वती ॲग्रो फीड्स. सर्व हक्क राखीव.", en: "Saraswati Agro Feeds. All rights reserved." })}</p>
           <p>{t({ mr: "महाराष्ट्रातील शेतकऱ्यांसाठी, शेतकऱ्यांकडून", en: "For the Farmers, By the Farmers of Maharashtra" })}</p>
         </div>
+        <div className="mt-4 pb-2 text-center text-background/35 text-xs">
+          Designed &amp; Developed by{" "}
+          <span className="text-emerald-400 font-semibold tracking-wide">
+            Devotra Infotech LLP
+          </span>{" "}
+          © 2026
+        </div>
       </div>
     </footer>
   );
