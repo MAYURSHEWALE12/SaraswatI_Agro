@@ -67,14 +67,14 @@ export default function Contact() {
                     className="text-primary font-semibold text-lg hover:underline"
                     data-testid="link-phone-1"
                   >
-                    +91 ${PHONE_PRIMARY_DISPLAY}
+                    +91 {PHONE_PRIMARY_DISPLAY}
                   </a>
                   <a
                     href={`tel:${PHONE_SECONDARY}`}
                     className="text-primary font-semibold text-lg hover:underline"
                     data-testid="link-phone-2"
                   >
-                    +91 ${PHONE_SECONDARY_DISPLAY}
+                    +91 {PHONE_SECONDARY_DISPLAY}
                   </a>
                 </div>
               </div>
