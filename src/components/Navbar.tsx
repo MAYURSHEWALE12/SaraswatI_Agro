@@ -54,8 +54,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)] overflow-hidden border-2 border-white/90 group-hover:scale-105 transition-transform duration-300">
-              <img src={safLogo} alt="Saraswati Agro Logo" className="w-10 h-10 object-contain drop-shadow-sm" />
+            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm dark:shadow-[0_0_15px_rgba(255,255,255,0.3)] overflow-hidden border border-gray-200 dark:border-white/90 group-hover:scale-105 transition-transform duration-300 shrink-0">
+              <img src={safLogo} alt="Saraswati Agro Logo" className="w-full h-full object-cover scale-[1.2] drop-shadow-sm mix-blend-multiply" />
             </div>
             <span className={`text-xl sm:text-2xl font-black tracking-tight ${isScrolled ? "text-gray-800" : "text-white"}`}>
               {t({ mr: "सरस्वती", en: "Saraswati" })}{" "}
@@ -168,12 +168,14 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-              className="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-white shadow-2xl z-[55] lg:hidden flex flex-col"
+              className="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-white dark:bg-slate-950 shadow-2xl z-[55] lg:hidden flex flex-col transition-colors"
             >
               {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100">
+              <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100 dark:border-slate-800">
                 <div className="flex items-center gap-2">
-                  <img src={safLogo} alt="SAF" className="w-8 h-8 rounded-full object-cover" />
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-white border border-gray-200 shrink-0 shadow-sm">
+                    <img src={safLogo} alt="SAF" className="w-full h-full object-cover scale-[1.2] mix-blend-multiply" />
+                  </div>
                   <span className="font-bold text-sm text-foreground">
                     {t({ mr: "सरस्वती", en: "Saraswati" })}{" "}
                     <span className="text-primary">{t({ mr: "ॲग्रो", en: "Agro" })}</span>
@@ -181,7 +183,7 @@ export default function Navbar() {
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-1.5 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-50 transition"
+                  className="p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 rounded-full hover:bg-gray-50 dark:hover:bg-slate-800 transition"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -196,7 +198,7 @@ export default function Navbar() {
                       <a
                         href={link.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block px-4 py-3 text-foreground/80 hover:text-primary hover:bg-emerald-50 font-medium rounded-xl transition-all duration-200 text-base"
+                        className="block px-4 py-3 text-foreground/80 hover:text-primary hover:bg-emerald-50 dark:hover:bg-emerald-900/30 font-medium rounded-xl transition-all duration-200 text-base"
                       >
                         {link.name}
                       </a>
@@ -206,7 +208,7 @@ export default function Navbar() {
               </nav>
 
               {/* Bottom CTA */}
-              <div className="px-5 pb-6 pt-3 border-t border-gray-100">
+              <div className="px-5 pb-6 pt-3 border-t border-gray-100 dark:border-slate-800">
                 <Button
                   className="w-full bg-green-600 hover:bg-green-700 text-white gap-2 rounded-full py-5"
                   onClick={() => {
