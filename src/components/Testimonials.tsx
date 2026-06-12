@@ -38,6 +38,12 @@ const testimonialsDict = {
   ]
 };
 
+const variants = {
+  enter: (direction: number) => ({ x: direction > 0 ? 100 : -100, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (direction: number) => ({ x: direction < 0 ? 100 : -100, opacity: 0 })
+};
+
 function FloatingOrb({ color, size, x, y, delay }: { color: string; size: number; x: number; y: number; delay: number }) {
   return (
     <motion.div
@@ -78,7 +84,7 @@ export default function Testimonials() {
   const currentTestimonial = testimonials[current];
 
   return (
-    <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden bg-gradient-to-br from-emerald-800 via-green-700 to-emerald-900">
+    <section className="relative py-16 sm:py-20 md:py-28 overflow-hidden bg-gradient-to-br from-emerald-800 via-green-700 to-emerald-900 dark:from-slate-900 dark:via-slate-950 dark:to-emerald-950 transition-colors duration-500">
       {/* Animated floating orbs */}
       <FloatingOrb color="rgba(52,211,153,0.4)" size={400} x={-10} y={10} delay={0} />
       <FloatingOrb color="rgba(251,191,36,0.25)" size={300} x={80} y={60} delay={1.5} />
@@ -86,7 +92,7 @@ export default function Testimonials() {
 
       {/* Dot pattern overlay */}
       <div
-        className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        className="absolute inset-0 opacity-[0.05] dark:opacity-[0.02] pointer-events-none transition-opacity"
         style={{
           backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
           backgroundSize: "28px 28px",
@@ -95,10 +101,10 @@ export default function Testimonials() {
 
       {/* Subtle grid lines */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.01] pointer-events-none transition-opacity"
         style={{
           backgroundImage: "linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
+          backgroundSize: "60px 60px",
         }}
       />
 
@@ -107,14 +113,17 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <span className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-emerald-200 text-sm font-semibold px-5 py-2 rounded-full mb-5 shadow-lg">
-            <Sparkles className="w-3.5 h-3.5 inline-block mr-1.5 -mt-0.5" />
-            {t({ mr: "शेतकऱ्यांचे अनुभव", en: "Farmers' Testimonials" })}
+          <span className="inline-flex items-center gap-2 bg-white/10 dark:bg-black/30 backdrop-blur-md text-emerald-50 border border-white/20 dark:border-white/10 text-sm font-medium px-5 py-2 rounded-full mb-5 shadow-xl transition-colors">
+            <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+            {t({ mr: "शेतकऱ्यांचे मनोगत", en: "Farmers' Testimonials" })}
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            {t({ mr: "शेतकऱ्यांचे ", en: "Farmers' " })}<span className="text-emerald-300">{t({ mr: "अनुभव", en: "Experiences" })}</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight drop-shadow-md">
+            {t({ mr: "आमच्या उत्पादनांवर ", en: "Trusted by " })}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-400">
+              {t({ mr: "शेतकऱ्यांचा विश्वास", en: "Thousands of Farmers" })}
+            </span>
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-amber-400 to-amber-300 mx-auto rounded-full" />
         </motion.div>

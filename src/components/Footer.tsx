@@ -26,7 +26,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-slate-900 dark:bg-slate-950 text-slate-100 transition-colors duration-300">
       <div className="container mx-auto px-4 md:px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="flex flex-col gap-4 lg:col-span-2">
@@ -37,11 +37,11 @@ export default function Footer() {
                 className="w-12 h-12 rounded-full object-cover shadow-md shrink-0"
               />
               <div>
-                <div className="font-bold text-xl text-background">{t({ mr: "सरस्वती ॲग्रो फीड्स", en: "Saraswati Agro Feeds" })}</div>
-                <div className="text-background/60 text-sm">{t({ mr: "उत्तम पशुखाद्य, भरपूर दूध उत्पादन", en: "Quality Cattle Feed, Higher Milk Yield" })}</div>
+                <div className="font-bold text-xl text-slate-100">{t({ mr: "सरस्वती ॲग्रो फीड्स", en: "Saraswati Agro Feeds" })}</div>
+                <div className="text-slate-400 text-sm">{t({ mr: "उत्तम पशुखाद्य, भरपूर दूध उत्पादन", en: "Quality Cattle Feed, Higher Milk Yield" })}</div>
               </div>
             </div>
-            <p className="text-background/70 leading-relaxed max-w-sm">
+            <p className="text-slate-300 leading-relaxed max-w-sm">
               {t({
                 mr: "२०१६ पासून महाराष्ट्रातील शेतकऱ्यांच्या सेवेत. रत्नाई पशु आहार ब्रँडद्वारे जनावरांचे आरोग्य सुधारणे, दूध उत्पादन वाढवणे आणि शेतकऱ्यांची समृद्धी हे आमचे ध्येय आहे.",
                 en: "Serving the farmers of Maharashtra since 2016. Under the Ratnai Pashu Aahar brand, our goal is to improve cattle health, boost milk yields, and foster farmers' prosperity.",
@@ -88,13 +88,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-background text-lg mb-5">{t({ mr: "द्रुत दुवे", en: "Quick Links" })}</h4>
+            <h4 className="font-bold text-slate-100 text-lg mb-5">{t({ mr: "द्रुत दुवे", en: "Quick Links" })}</h4>
             <ul className="flex flex-col gap-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-background/70 hover:text-primary transition-colors"
+                    className="text-slate-300 hover:text-primary transition-colors"
                   >
                     {link.label}
                   </a>
@@ -104,8 +104,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-background text-lg mb-5">{t({ mr: "संपर्क", en: "Contact" })}</h4>
-            <div className="flex flex-col gap-4 text-background/70">
+            <h4 className="font-bold text-slate-100 text-lg mb-5">{t({ mr: "संपर्क", en: "Contact" })}</h4>
+            <div className="flex flex-col gap-4 text-slate-300">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
                 <span className="text-sm leading-relaxed">
@@ -136,11 +136,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-background/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-background/50 text-sm">
+        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-sm">
           <p>© {new Date().getFullYear()} {t({ mr: "सरस्वती ॲग्रो फीड्स. सर्व हक्क राखीव.", en: "Saraswati Agro Feeds. All rights reserved." })}</p>
           <p>{t({ mr: "महाराष्ट्रातील शेतकऱ्यांसाठी, शेतकऱ्यांकडून", en: "For the Farmers, By the Farmers of Maharashtra" })}</p>
         </div>
-        <div className="mt-4 pb-2 text-center text-background/35 text-xs">
+        <div className="mt-4 pb-2 text-center text-slate-600 text-xs">
           Designed &amp; Developed by{" "}
           <span className="text-emerald-400 font-semibold tracking-wide">
             Devotra Infotech LLP

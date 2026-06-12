@@ -41,7 +41,7 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="py-16 sm:py-20 md:py-28 bg-emerald-50/70 overflow-hidden"
+      className="py-16 sm:py-20 md:py-28 bg-emerald-50/70 dark:bg-slate-900 overflow-hidden transition-colors duration-300"
     >
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
@@ -50,46 +50,48 @@ export default function Benefits() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
         >
-          <span className="inline-block bg-emerald-100 text-emerald-700 border border-emerald-200 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             {t({ mr: "🌟 का वापरावे?", en: "🌟 Why Use Our Feed?" })}
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors">
             {t({ mr: "पशुखाद्याचे ", en: "Key Benefits of " })}
-            <span className="text-emerald-600">{t({ mr: "महत्त्वाचे फायदे", en: "Our Animal Feed" })}</span>
+            <span className="text-emerald-600 dark:text-emerald-500">{t({ mr: "महत्त्वाचे फायदे", en: "Our Animal Feed" })}</span>
           </h2>
           <div className="h-1 w-24 bg-amber-400 mx-auto rounded-full mb-4" />
-          <p className="text-gray-500 text-sm sm:text-base">
-            {t({
-              mr: "शास्त्रीय पद्धतीने तयार केलेले पशुखाद्य जनावरांचे आरोग्य व उत्पादकता वाढवते",
-              en: "Scientifically prepared animal feed enhances livestock health and productivity",
-            })}
-          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-start">
-          {/* Image column — real HD cow */}
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-14">
+          
+          {/* Left Column: Portrait HD Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.93, x: -28 }}
-            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.72 }}
-            className="relative order-2 lg:order-1"
+            transition={{ duration: 0.6 }}
+            className="w-full lg:w-5/12 max-w-sm mx-auto lg:max-w-none relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5]">
+            {/* Soft decorative background shape */}
+            <div className="absolute inset-0 bg-emerald-200 dark:bg-emerald-900/30 rounded-[3rem] transform rotate-3 scale-105 -z-10 transition-transform hover:rotate-6 duration-500" />
+            <div className="absolute inset-0 bg-amber-100 dark:bg-amber-900/20 rounded-[3rem] transform -rotate-2 scale-105 -z-20" />
+            
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-white dark:bg-slate-900 aspect-[4/5]">
               <img
                 src={COW_GRAZE}
-                alt="Cows grazing in green pasture"
-                className="w-full h-full object-cover"
+                alt="Cow grazing"
+                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald-800/50 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-4 right-4">
-                <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-emerald-100 text-center">
-                  <div className="text-emerald-700 font-bold text-sm sm:text-base whitespace-nowrap">
-                    {t({ mr: "🐄 गायी म्हशींच्या उत्तम आरोग्यासाठी", en: "🐄 Healthy Cattle" })}
-                  </div>
-                  <div className="text-gray-600 text-[10px] sm:text-xs mt-1.5 font-semibold whitespace-nowrap">
-                    {t({ mr: "शुद्ध, सकस आणि भरपूर दुधासाठी", en: "More Milk ➔ Farmers' Prosperity" })}
-                  </div>
+              {/* Premium gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-emerald-900/20 to-transparent" />
+              
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-2xl p-4 border border-white/20">
+                  <p className="text-white font-semibold leading-snug">
+                    {t({
+                      mr: "“आमच्या पशुखाद्यामुळे जनावरांचे आरोग्य सुधारते आणि दूध उत्पादन वाढते.”",
+                      en: "“Our feed improves cattle health and boosts milk yield.”"
+                    })}
+                  </p>
                 </div>
               </div>
             </div>
@@ -100,16 +102,16 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.35 }}
-              className="mt-4 bg-white rounded-2xl shadow-lg border border-emerald-100 p-4"
+              className="mt-4 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-emerald-100 dark:border-slate-800 p-4 transition-colors duration-300"
             >
-              <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2.5">
+              <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2.5">
                 {t({ mr: "मुख्य पोषण घटक", en: "Key Nutritional Elements" })}
               </div>
               <div className="flex flex-wrap gap-2">
                 {nutrients.map((n, i) => (
                   <span
                     key={i}
-                    className="bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold px-3 py-1.5 rounded-full"
+                    className="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 text-xs font-semibold px-3 py-1.5 rounded-full"
                   >
                     {n}
                   </span>
@@ -134,10 +136,10 @@ export default function Benefits() {
                   visible: { opacity: 1, x: 0, transition: { duration: 0.36 } },
                 }}
                 whileHover={{ x: 5 }}
-                className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3.5 shadow-sm hover:shadow-lg hover:border-emerald-200 transition-all duration-200 cursor-default"
+                className="flex items-start gap-3 bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-xl px-4 py-3.5 shadow-sm hover:shadow-lg hover:border-emerald-200 dark:hover:border-emerald-800 transition-all duration-200 cursor-default group"
               >
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
-                <span className="text-gray-700 text-sm sm:text-base leading-relaxed font-medium">
+                <CheckCircle2 className="w-5 h-5 text-emerald-500 dark:text-emerald-400 mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed font-medium transition-colors">
                   {benefit}
                 </span>
               </motion.div>
