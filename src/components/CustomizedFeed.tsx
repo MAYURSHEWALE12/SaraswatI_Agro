@@ -238,7 +238,7 @@ export default function CustomizedFeed() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65 }}
-              className="lg:col-span-7 bg-emerald-900 text-white rounded-3xl p-7 sm:p-9 border border-emerald-850 shadow-xl flex flex-col justify-between"
+              className="lg:col-span-4 bg-emerald-900 dark:bg-emerald-950 rounded-3xl p-7 sm:p-10 shadow-2xl overflow-hidden relative flex flex-col justify-between transition-colors"
             >
               <div>
                 <div className="flex items-center gap-3 mb-6">
@@ -287,15 +287,15 @@ export default function CustomizedFeed() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65 }}
-              className="lg:col-span-5 bg-white rounded-3xl border border-gray-100 shadow-xl p-7 sm:p-8"
+              className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-xl p-7 sm:p-8 transition-colors"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center shrink-0">
                   <Send className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800">{t({ mr: "Customized Feed चौकशी", en: "Customized Feed Inquiry" })}</h3>
-                  <p className="text-xs text-gray-400 mt-0.5">{t({ mr: "तुमच्या जनावरांची माहिती द्या आणि त्यानुसार तयार केलेले Customized Feed मिळवा.", en: "Provide details about your cattle to get customized feed recommendations." })}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100">{t({ mr: "Customized Feed चौकशी", en: "Customized Feed Inquiry" })}</h3>
+                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{t({ mr: "तुमच्या जनावरांची माहिती द्या आणि त्यानुसार तयार केलेले Customized Feed मिळवा.", en: "Provide details about your cattle to get customized feed recommendations." })}</p>
                 </div>
               </div>
 
@@ -309,7 +309,7 @@ export default function CustomizedFeed() {
                     placeholder={t({ mr: "शेतकऱ्याचे नाव *", en: "Farmer's Name *" })}
                     value={form.name}
                     onChange={set("name")}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 placeholder:text-gray-400 transition"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400 transition"
                   />
                 </div>
 
@@ -322,7 +322,7 @@ export default function CustomizedFeed() {
                     placeholder={t({ mr: "मोबाईल नंबर *", en: "Mobile Number *" })}
                     value={form.phone}
                     onChange={set("phone")}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 placeholder:text-gray-400 transition"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400 transition"
                   />
                 </div>
 
@@ -334,7 +334,7 @@ export default function CustomizedFeed() {
                     placeholder={t({ mr: "ईमेल आयडी (पर्यायी)", en: "Email ID (Optional)" })}
                     value={form.email}
                     onChange={set("email")}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 placeholder:text-gray-400 transition"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400 transition"
                   />
                 </div>
 
@@ -345,7 +345,7 @@ export default function CustomizedFeed() {
                     <select
                       value={form.animalType}
                       onChange={set("animalType")}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 bg-white appearance-none transition"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 dark:text-gray-200 appearance-none transition"
                     >
                       <option value="गाय">{t({ mr: "🐄 गाय", en: "🐄 Cow" })}</option>
                       <option value="म्हैस">{t({ mr: "🐃 म्हैस", en: "🐃 Buffalo" })}</option>
@@ -361,7 +361,7 @@ export default function CustomizedFeed() {
                       placeholder={t({ mr: "जनावरांची संख्या *", en: "Number of Cattle *" })}
                       value={form.animalCount}
                       onChange={set("animalCount")}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 placeholder:text-gray-400 transition"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400 transition"
                     />
                   </div>
                 </div>
@@ -374,7 +374,7 @@ export default function CustomizedFeed() {
                     placeholder={t({ mr: "दूध उत्पादन (लिटर/दिवस) — उदा. ३०–४०", en: "Milk Yield (Litres/Day) — e.g. 30-40" })}
                     value={form.milkPerDay}
                     onChange={set("milkPerDay")}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 placeholder:text-gray-400 transition"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400 transition"
                   />
                 </div>
 
@@ -386,7 +386,7 @@ export default function CustomizedFeed() {
                     placeholder={t({ mr: "सध्याचे खाद्य — उदा. मका, गहू भुसा…", en: "Current Feed — e.g. maize, wheat bran..." })}
                     value={form.currentFeed}
                     onChange={set("currentFeed")}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 placeholder:text-gray-400 transition"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400 transition"
                   />
                 </div>
 
@@ -396,7 +396,7 @@ export default function CustomizedFeed() {
                   placeholder={t({ mr: "इतर आवश्यकता किंवा प्रश्न…", en: "Any other requirements or comments..." })}
                   value={form.requirement}
                   onChange={set("requirement")}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 placeholder:text-gray-400 transition resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 outline-none text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400 transition resize-none"
                 />
 
                 {/* Submit */}
@@ -422,19 +422,19 @@ export default function CustomizedFeed() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              className="bg-white dark:bg-slate-900 rounded-3xl p-7 sm:p-9 border border-gray-100 dark:border-slate-800 shadow-sm transition-colors"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
-                  <Award className="w-5 h-5 text-emerald-700" />
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0">
+                  <Award className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-800">{t({ mr: "Customized Feed चे फायदे", en: "Benefits of Customized Feed" })}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100">{t({ mr: "Customized Feed चे फायदे", en: "Benefits of Customized Feed" })}</h3>
               </div>
               <ul className="space-y-4">
                 {benefits.map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
-                    <span className="text-gray-700 text-sm sm:text-base font-medium">{item}</span>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -445,13 +445,13 @@ export default function CustomizedFeed() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              className="bg-white dark:bg-slate-900 rounded-3xl p-7 sm:p-9 border border-gray-100 dark:border-slate-800 shadow-sm transition-colors"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center shrink-0">
-                  <ChevronRight className="w-5 h-5 text-amber-700" />
+                <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
+                  <ChevronRight className="w-5 h-5 text-amber-700 dark:text-amber-400" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-800">{t({ mr: "आमची कार्यपद्धती", en: "Our Working Process" })}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100">{t({ mr: "आमची कार्यपद्धती", en: "Our Working Process" })}</h3>
               </div>
               <div className="space-y-4">
                 {methodology.map((step, i) => (
@@ -459,7 +459,7 @@ export default function CustomizedFeed() {
                     <div className="w-8 h-8 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center shrink-0 text-sm">
                       {i + 1}
                     </div>
-                    <span className="text-gray-700 text-sm sm:text-base font-medium">{step}</span>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base font-medium">{step}</span>
                   </div>
                 ))}
               </div>
@@ -471,7 +471,7 @@ export default function CustomizedFeed() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-emerald-800 to-emerald-900 text-white rounded-3xl p-8 sm:p-10 shadow-lg text-center mb-16"
+            className="bg-gradient-to-r from-emerald-800 to-emerald-900 dark:from-slate-900 dark:to-emerald-950 text-white rounded-3xl p-8 sm:p-10 shadow-lg text-center mb-16 transition-colors"
           >
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-700/60 mb-4">
               <Target className="w-6 h-6 text-amber-300" />
