@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { X, User, Phone, MessageSquare, HelpCircle } from "lucide-react";
 import safLogo from "@assets/image_1781081387145.webp";
+import animatedCow from "@assets/animated_cow.webp";
 import { useLanguage } from "@/hooks/useLanguage";
 import { WA_NUMBER_FULL } from "@/lib/constants";
 
@@ -140,7 +141,7 @@ export default function WhatsAppButton() {
           </motion.a>
         </div>
 
-        {/* ── 2. SAF Logo button (bottom) ── */}
+        {/* ── 2. Animated Cow button (bottom) ── */}
         <div className="relative flex items-center">
           <LeftTooltip
             text={logoTooltip}
@@ -153,17 +154,18 @@ export default function WhatsAppButton() {
             onHoverStart={() => setLogoHovered(true)}
             onHoverEnd={() => setLogoHovered(false)}
             onClick={() => setIsModalOpen(true)}
-            whileHover={{ scale: 1.15 }}
+            whileHover={{ scale: 1.12 }}
             whileTap={{ scale: 0.92 }}
-            className="relative rounded-full overflow-hidden shadow-xl border-2 border-white hover:border-emerald-300 hover:shadow-emerald-200/60 transition-all duration-300 cursor-pointer focus:outline-none"
-            style={{ width: "60px", height: "60px" }}
+            className="relative rounded-full overflow-hidden shadow-xl border-2 border-white hover:border-emerald-300 hover:shadow-emerald-200/60 transition-all duration-300 cursor-pointer focus:outline-none bg-white"
+            style={{ width: "56px", height: "56px" }}
+            aria-label="Open inquiry form"
           >
             <motion.img
-              src={safLogo}
-              alt="Saraswati Agro Feeds"
+              src={animatedCow}
+              alt="Cute Cow — Click to Inquire"
               animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-              className="w-full h-full object-cover rounded-full"
+              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+              className="w-full h-full object-cover scale-125"
               draggable={false}
             />
           </motion.button>
@@ -206,8 +208,8 @@ export default function WhatsAppButton() {
 
                 {/* Title */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
-                    <img src={safLogo} alt="SAF" className="w-7 h-7 rounded-full object-cover" />
+                  <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                    <img src={animatedCow} alt="SAF Cow" className="w-12 h-12 object-contain" />
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800">{t({ mr: "त्वरित चौकशी संदेश", en: "Quick Inquiry Form" })}</h3>
