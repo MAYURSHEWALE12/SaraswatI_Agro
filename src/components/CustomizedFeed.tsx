@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { Beaker, Send, User, Phone, Beef, Milk, Wheat, Hash, CheckCircle, ChevronRight, Award, Target } from "lucide-react";
+import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { WA_NUMBER_FULL, PEXELS_COW_GRAZING } from "@/lib/constants";
 
@@ -100,8 +101,30 @@ export default function CustomizedFeed() {
   const set = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // 1. Send Email Notification via API
+    try {
+      await fetch("/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          formType: "customized_feed",
+          name: form.name,
+          phone: form.phone,
+          animalType: form.animalType,
+          animalCount: form.animalCount,
+          milkPerDay: form.milkPerDay,
+          currentFeed: form.currentFeed,
+          requirement: form.requirement,
+        }),
+      });
+    } catch (err) {
+      console.error("Failed to send email notification:", err);
+    }
+
+    // 2. Open WhatsApp Message
     const msg = encodeURIComponent(
       (language === "mr" ? `नमस्कार, मला Customized Feed बद्दल माहिती हवी आहे.\n\n` : `Hello, I need information about Customized Feed.\n\n`) +
       (language === "mr" ? `👤 नाव: ` : `👤 Name: `) + `${form.name}\n` +
@@ -113,8 +136,14 @@ export default function CustomizedFeed() {
       (language === "mr" ? `📝 आवश्यकता: ` : `📝 Requirement: `) + `${form.requirement}`
     );
     window.open(`https://wa.me/${WA_NUMBER_FULL}?text=${msg}`, "_blank");
+    
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    toast.success(language === "mr" ? "चौकशी यशस्वीरित्या पाठवली!" : "Inquiry Sent Successfully!");
+    
+    setTimeout(() => {
+      setSubmitted(false);
+      setForm(initial); // Reset form
+    }, 4000);
   };
 
   const fadeUp: Variants = {

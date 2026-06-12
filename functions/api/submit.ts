@@ -3,7 +3,6 @@ export const onRequestPost = async (context: any) => {
     const { request, env } = context;
 
     // 1. Get Resend API Key from Cloudflare environment variables
-    // Fallback to a development key if set, or check if it exists
     const resendApiKey = env.RESEND_API_KEY;
     if (!resendApiKey) {
       return new Response(
@@ -17,159 +16,101 @@ export const onRequestPost = async (context: any) => {
 
     // 2. Parse request JSON data
     const data = await request.json();
-    const { name, businessName, mobile, email, district, state, message } = data;
+    const formType = data.formType || "dealer"; // default for backward compatibility
+    
+    let subject = "";
+    let htmlEmail = "";
 
-    // 3. Build a beautiful responsive HTML email template
-    const htmlEmail = `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>New Dealer Inquiry</title>
-        <style>
-          body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f3f4f6;
-            margin: 0;
-            padding: 20px;
-            color: #1f2937;
-          }
-          .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
-          }
-          .header {
-            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
-            padding: 32px 24px;
-            text-align: center;
-          }
-          .header h1 {
-            color: #ffffff;
-            margin: 0;
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-          }
-          .header p {
-            color: #a7f3d0;
-            margin: 8px 0 0 0;
-            font-size: 14px;
-            font-weight: 500;
-          }
-          .content {
-            padding: 32px 24px;
-          }
-          .section-title {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #9ca3af;
-            margin-bottom: 16px;
-            border-bottom: 2px solid #f3f4f6;
-            padding-bottom: 8px;
-          }
-          .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 28px;
-          }
-          .info-table td {
-            padding: 12px 0;
-            border-bottom: 1px solid #f3f4f6;
-            vertical-align: top;
-          }
-          .info-table td.label {
-            width: 35%;
-            font-size: 13px;
-            font-weight: 600;
-            color: #6b7280;
-            padding-right: 12px;
-          }
-          .info-table td.value {
-            font-size: 14px;
-            font-weight: 700;
-            color: #111827;
-          }
-          .message-box {
-            background-color: #f9fafb;
-            border-left: 4px solid #10b981;
-            padding: 16px;
-            border-radius: 0 8px 8px 0;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #4b5563;
-            font-style: italic;
-          }
-          .footer {
-            background-color: #f9fafb;
-            padding: 20px 24px;
-            text-align: center;
-            border-top: 1px solid #e5e7eb;
-            font-size: 12px;
-            color: #9ca3af;
-          }
-          .footer a {
-            color: #10b981;
-            text-decoration: none;
-            font-weight: 600;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <div class="header">
-            <h1>Saraswati Agro Feeds</h1>
-            <p>New Dealer Inquiry Submitted / नवीन वितरक चौकशी</p>
-          </div>
-          <div class="content">
-            <div class="section-title">Inquiry Details / चौकशी माहिती</div>
-            <table class="info-table">
-              <tr>
-                <td class="label">Full Name<br><span style="font-weight:normal; font-size:11px;">संपूर्ण नाव</span></td>
-                <td class="value">${name}</td>
-              </tr>
-              <tr>
-                <td class="label">Business Name<br><span style="font-weight:normal; font-size:11px;">व्यवसायाचे नाव</span></td>
-                <td class="value">${businessName}</td>
-              </tr>
-              <tr>
-                <td class="label">Mobile Number<br><span style="font-weight:normal; font-size:11px;">मोबाईल क्रमांक</span></td>
-                <td class="value">${mobile}</td>
-              </tr>
-              <tr>
-                <td class="label">Email Address<br><span style="font-weight:normal; font-size:11px;">ईमेल पत्ता</span></td>
-                <td class="value">${email || "Not Provided"}</td>
-              </tr>
-              <tr>
-                <td class="label">District<br><span style="font-weight:normal; font-size:11px;">जिल्हा</span></td>
-                <td class="value">${district}</td>
-              </tr>
-              <tr>
-                <td class="label">State<br><span style="font-weight:normal; font-size:11px;">राज्य</span></td>
-                <td class="value">${state}</td>
-              </tr>
-            </table>
-
-            <div class="section-title">Additional Message / अतिरिक्त संदेश</div>
-            <div class="message-box">
-              ${message ? message.replace(/\n/g, "<br>") : "No message provided / कोणताही संदेश नाही."}
+    if (formType === "customized_feed") {
+      const { name, phone, animalType, animalCount, milkPerDay, currentFeed, requirement } = data;
+      subject = `🐄 New Customized Feed Inquiry: ${name}`;
+      htmlEmail = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f3f4f6; padding: 20px; color: #1f2937; }
+            .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+            .header { background: linear-gradient(135deg, #047857 0%, #065f46 100%); padding: 32px 24px; text-align: center; }
+            .header h1 { color: #ffffff; margin: 0; font-size: 24px; }
+            .header p { color: #a7f3d0; margin: 8px 0 0 0; font-size: 14px; }
+            .content { padding: 32px 24px; }
+            .info-table { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+            .info-table td { padding: 12px 0; border-bottom: 1px solid #f3f4f6; }
+            .info-table td.label { width: 45%; font-weight: 600; color: #6b7280; font-size: 13px; }
+            .info-table td.value { font-weight: 700; color: #111827; font-size: 14px; }
+            .message-box { background-color: #f9fafb; border-left: 4px solid #10b981; padding: 16px; border-radius: 0 8px 8px 0; font-style: italic; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Saraswati Agro Feeds</h1>
+              <p>New Customized Feed Inquiry / नवीन कस्टमाईज्ड फीड चौकशी</p>
+            </div>
+            <div class="content">
+              <table class="info-table">
+                <tr><td class="label">Full Name</td><td class="value">${name || "-"}</td></tr>
+                <tr><td class="label">Mobile Number</td><td class="value">${phone || "-"}</td></tr>
+                <tr><td class="label">Animal Type</td><td class="value">${animalType || "-"}</td></tr>
+                <tr><td class="label">Number of Animals</td><td class="value">${animalCount || "-"}</td></tr>
+                <tr><td class="label">Milk Production (Liters/Day)</td><td class="value">${milkPerDay || "-"}</td></tr>
+                <tr><td class="label">Current Feed</td><td class="value">${currentFeed || "-"}</td></tr>
+              </table>
+              <div class="message-box">${requirement ? requirement.replace(/\n/g, "<br>") : "No specific requirements provided."}</div>
             </div>
           </div>
-          <div class="footer">
-            This inquiry was sent from the official portal at 
-            <a href="https://saraswatiagro.pages.dev" target="_blank">saraswatiagro.pages.dev</a>.
+        </body>
+      </html>
+      `;
+    } else {
+      // Default Dealer Form
+      const { name, businessName, mobile, email, district, state, message } = data;
+      subject = `🌱 New Dealer Inquiry: ${businessName || name} (${district || "Unknown"})`;
+      htmlEmail = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f3f4f6; padding: 20px; color: #1f2937; }
+            .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+            .header { background: linear-gradient(135deg, #047857 0%, #065f46 100%); padding: 32px 24px; text-align: center; }
+            .header h1 { color: #ffffff; margin: 0; font-size: 24px; }
+            .header p { color: #a7f3d0; margin: 8px 0 0 0; font-size: 14px; }
+            .content { padding: 32px 24px; }
+            .info-table { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+            .info-table td { padding: 12px 0; border-bottom: 1px solid #f3f4f6; }
+            .info-table td.label { width: 35%; font-weight: 600; color: #6b7280; font-size: 13px; }
+            .info-table td.value { font-weight: 700; color: #111827; font-size: 14px; }
+            .message-box { background-color: #f9fafb; border-left: 4px solid #10b981; padding: 16px; border-radius: 0 8px 8px 0; font-style: italic; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Saraswati Agro Feeds</h1>
+              <p>New Dealer Inquiry Submitted / नवीन वितरक चौकशी</p>
+            </div>
+            <div class="content">
+              <table class="info-table">
+                <tr><td class="label">Full Name</td><td class="value">${name || "-"}</td></tr>
+                <tr><td class="label">Business Name</td><td class="value">${businessName || "-"}</td></tr>
+                <tr><td class="label">Mobile Number</td><td class="value">${mobile || "-"}</td></tr>
+                <tr><td class="label">Email Address</td><td class="value">${email || "Not Provided"}</td></tr>
+                <tr><td class="label">District</td><td class="value">${district || "-"}</td></tr>
+                <tr><td class="label">State</td><td class="value">${state || "-"}</td></tr>
+              </table>
+              <div class="message-box">${message ? message.replace(/\n/g, "<br>") : "No message provided."}</div>
+            </div>
           </div>
-        </div>
-      </body>
-    </html>
-    `;
+        </body>
+      </html>
+      `;
+    }
 
     // 4. Send email via Resend API
     const targetEmail = env.NOTIFICATION_EMAIL || "saraswatiagrofeeds2215@gmail.com";
@@ -182,7 +123,7 @@ export const onRequestPost = async (context: any) => {
       body: JSON.stringify({
         from: "Saraswati Agro Portal <onboarding@resend.dev>",
         to: targetEmail,
-        subject: `🌱 New Dealer Inquiry: ${businessName} (${district})`,
+        subject: subject,
         html: htmlEmail,
       }),
     });
