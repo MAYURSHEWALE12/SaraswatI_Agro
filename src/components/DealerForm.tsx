@@ -56,12 +56,17 @@ export default function DealerForm() {
   });
 
   const onSubmit = (data: DealerFormValues) => {
-    const msg = encodeURIComponent(
+    const subject = encodeURIComponent(
       language === "mr"
-        ? `नमस्कार,\nमला सरस्वती ॲग्रो फीड्सचा वितरक बनायचे आहे.\nनाव: ${data.name}\nव्यवसाय: ${data.businessName}\nजिल्हा: ${data.district}, ${data.state}\nमोबाईल: ${data.mobile}`
-        : `Hello,\nI want to become a dealer of Saraswati Agro Feeds.\nName: ${data.name}\nBusiness: ${data.businessName}\nDistrict: ${data.district}, ${data.state}\nMobile: ${data.mobile}`
+        ? "सरस्वती ॲग्रो फीड्स - नवीन चौकशी"
+        : "Saraswati Agro Feeds - New Inquiry"
     );
-    window.open(`https://wa.me/919921937353?text=${msg}`, "_blank");
+    const body = encodeURIComponent(
+      language === "mr"
+        ? `नमस्कार,\n\nनवीन चौकशी तपशील खालीलप्रमाणे आहेत:\n\nनाव: ${data.name}\nव्यवसाय: ${data.businessName}\nमोबाईल: ${data.mobile}\nईमेल: ${data.email || "उपलब्ध नाही"}\nजिल्हा: ${data.district}\nराज्य: ${data.state}\nसंदेश: ${data.message || "उपलब्ध नाही"}`
+        : `Hello,\n\nHere are the new inquiry details:\n\nName: ${data.name}\nBusiness: ${data.businessName}\nMobile: ${data.mobile}\nEmail: ${data.email || "N/A"}\nDistrict: ${data.district}\nState: ${data.state}\nMessage: ${data.message || "N/A"}`
+    );
+    window.location.href = `mailto:saraswatiagrofeeds2215@gmail.com?subject=${subject}&body=${body}`;
     toast.success(t({ mr: "चौकशी यशस्वीरित्या पाठवली!", en: "Inquiry Sent Successfully!" }), {
       description: t({ mr: "आम्ही लवकरच आपल्याशी संपर्क साधू.", en: "We will contact you soon." }),
     });
