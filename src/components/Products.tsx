@@ -149,18 +149,20 @@ export default function Products() {
                   onClick={() => go(i, i > active ? 1 : -1)}
                   className="absolute cursor-pointer"
                   style={{ zIndex }}
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <div
                     className={`relative w-48 sm:w-60 md:w-72 rounded-3xl overflow-hidden shadow-2xl border-2 ${
                       isActive
-                        ? "border-emerald-400 shadow-emerald-200/60 shadow-2xl"
-                        : "border-white/60"
+                        ? "border-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.3)] shadow-2xl scale-100"
+                        : "border-white/60 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:border-emerald-200 scale-95"
                     } transition-all duration-300`}
                   >
                     <img
                       src={prod.image}
                       alt={prod.name}
-                      className="w-full aspect-square object-contain bg-white p-3"
+                      className="w-full aspect-square object-contain bg-white p-3 transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                     {/* Shine on active */}
@@ -169,7 +171,7 @@ export default function Products() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: [0, 0.25, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-                        className="absolute inset-0 bg-gradient-to-tr from-transparent via-white to-transparent pointer-events-none"
+                        className="absolute inset-0 bg-gradient-to-tr from-transparent via-emerald-100 to-transparent pointer-events-none"
                       />
                     )}
                   </div>
