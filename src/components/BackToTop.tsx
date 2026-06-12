@@ -22,7 +22,7 @@ export default function BackToTop() {
           exit={{ opacity: 0, scale: 0.6, y: 20 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 left-6 z-50 w-11 h-11 rounded-full bg-emerald-600 text-white shadow-lg hover:bg-emerald-500 hover:shadow-emerald-400/40 flex items-center justify-center transition-all duration-300"
+          className="fixed max-lg:bottom-28 lg:bottom-6 left-4 lg:left-6 z-50 w-11 h-11 rounded-full bg-emerald-600 text-white shadow-lg hover:bg-emerald-500 hover:shadow-emerald-400/40 flex items-center justify-center transition-all duration-300"
           aria-label="Back to top"
         >
           <ChevronUp className="w-5 h-5" />
