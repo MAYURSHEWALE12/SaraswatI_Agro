@@ -106,7 +106,7 @@ export default function Navbar() {
               <Globe className={`w-3.5 h-3.5 ml-1.5 hidden sm:inline transition-colors ${isScrolled ? "text-gray-400" : "text-white/70"}`} />
               <button
                 onClick={() => setLanguage("mr")}
-                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
+                className={`px-2 sm:px-3 py-1 rounded-full text-xs font-bold transition-all ${
                   language === "mr"
                     ? "bg-emerald-600 text-white shadow-sm"
                     : isScrolled ? "text-gray-500 hover:text-emerald-600" : "text-white/80 hover:text-white"
@@ -116,7 +116,7 @@ export default function Navbar() {
               </button>
               <button
                 onClick={() => setLanguage("en")}
-                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
+                className={`px-2 sm:px-3 py-1 rounded-full text-xs font-bold transition-all ${
                   language === "en"
                     ? "bg-emerald-600 text-white shadow-sm"
                     : isScrolled ? "text-gray-500 hover:text-emerald-600" : "text-white/80 hover:text-white"
@@ -136,9 +136,9 @@ export default function Navbar() {
               {t({ mr: "व्हॉट्सॲप करा", en: "WhatsApp Us" })}
             </Button>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - HIDDEN FOR BOTTOM NAV TEST */}
             <button
-              className={`lg:hidden p-2 relative z-[60] transition-colors ${isScrolled ? "text-gray-700" : "text-white"}`}
+              className={`hidden p-2 relative z-[60] transition-colors ${isScrolled ? "text-gray-700" : "text-white"}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               data-testid="button-mobile-menu"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
