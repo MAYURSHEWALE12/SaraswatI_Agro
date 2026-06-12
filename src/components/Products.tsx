@@ -285,9 +285,6 @@ export default function Products() {
                      `*मात्रा / वापर:*`,
                      `${p.dosage}`,
                      ``,
-                     `*उत्पादनाचा फोटो:*`,
-                     `https://saraswatiagro.pages.dev${p.image}`,
-                     ``,
                      `कृपया किंमत, उपलब्धता आणि जवळच्या विक्रेत्याची माहिती द्यावी.`,
                      ``,
                      `धन्यवाद!`
