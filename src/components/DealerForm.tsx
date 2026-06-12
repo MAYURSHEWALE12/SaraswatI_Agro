@@ -74,23 +74,15 @@ export default function DealerForm() {
         },
         body: JSON.stringify({
           access_key: accessKey,
-          name: data.name,
-          email: data.email || "no-reply@saraswatiagro.com",
-          subject: `Saraswati Agro Inquiry - ${data.businessName}`,
-          from_name: "Saraswati Agro Website",
-          message: `
-New Inquiry Details:
-----------------------------------------
-Full Name: ${data.name}
-Business Name: ${data.businessName}
-Mobile Number: ${data.mobile}
-Email Address: ${data.email || "N/A"}
-District: ${data.district}
-State: ${data.state}
-
-Additional Message:
-${data.message || "N/A"}
-          `,
+          subject: `🌱 New Dealer Inquiry: ${data.businessName} (${data.district})`,
+          from_name: "Saraswati Agro Portal",
+          "Full Name / संपूर्ण नाव": data.name,
+          "Business Name / व्यवसायाचे नाव": data.businessName,
+          "Mobile Number / मोबाईल क्रमांक": data.mobile,
+          "Email Address / ईमेल पत्ता": data.email || "Not Provided",
+          "District / जिल्हा": data.district,
+          "State / राज्य": data.state,
+          "Message / संदेश": data.message || "No message provided",
         }),
       });
 
