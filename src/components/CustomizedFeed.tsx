@@ -205,7 +205,7 @@ export default function CustomizedFeed() {
       </div>
 
       {/* ─── Body ─── */}
-      <div className="bg-slate-50 py-14 sm:py-16 md:py-20">
+      <div className="bg-slate-50 dark:bg-slate-950 py-14 sm:py-16 md:py-20 transition-colors">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
 
           {/* Intro Description */}
@@ -213,15 +213,15 @@ export default function CustomizedFeed() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-16 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm"
+            className="text-center max-w-3xl mx-auto mb-16 bg-white dark:bg-slate-900 p-8 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-sm transition-colors"
           >
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4">
+            <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-4 transition-colors">
               {t({
                 mr: "दूध उत्पादन वाढवण्यासाठी फक्त खाद्य पुरेसे नसते, तर योग्य पोषण आवश्यक असते. प्रत्येक गाई-म्हशीची दूध देण्याची क्षमता, वय, वजन, आरोग्य आणि खाद्याची गरज वेगवेगळी असते.",
                 en: "To increase milk production, just feed is not enough; proper nutrition is essential. Every cow or buffalo has different milk-producing capacity, age, weight, health, and feed requirements.",
               })}
             </p>
-            <p className="text-emerald-800 text-base sm:text-lg font-semibold">
+            <p className="text-emerald-800 dark:text-emerald-400 text-base sm:text-lg font-semibold transition-colors">
               {t({
                 mr: "म्हणूनच सरस्वती ॲग्रो फीड्स घेऊन आले आहे तुमच्या डेअरीसाठी खास तयार केलेले Customized Feed.",
                 en: "That is why Saraswati Agro Feeds brings you Customized Feed, specially prepared for your dairy.",
