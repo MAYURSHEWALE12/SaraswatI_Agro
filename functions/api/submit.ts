@@ -2,17 +2,19 @@ export const onRequestPost = async (context: any) => {
   try {
     const { request, env } = context;
 
-    // 1. Get Resend API Key from Cloudflare environment variables
-    const resendApiKey = env.RESEND_API_KEY;
-    if (!resendApiKey) {
+    // 1. Get Brevo API Key from Cloudflare environment variables
+    const brevoApiKey = env.BREVO_API_KEY;
+    if (!brevoApiKey) {
       return new Response(
         JSON.stringify({
           success: false,
-          message: "Resend API Key is not configured on Cloudflare. Please set RESEND_API_KEY in your Pages dashboard.",
+          message: "Brevo API Key is not configured on Cloudflare. Please set BREVO_API_KEY in your Pages dashboard.",
         }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
     }
+
+    const senderEmail = env.SENDER_EMAIL || "saraswatiagrofeeds2215@gmail.com";
 
     // 2. Parse request JSON data
     const data = await request.json();
@@ -112,32 +114,32 @@ export const onRequestPost = async (context: any) => {
       `;
     }
 
-    // 4. Send email via Resend API
+    // 4. Send email via Brevo API
     const targetEmail = env.NOTIFICATION_EMAIL || "saraswatiagrofeeds2215@gmail.com";
-    const resendResponse = await fetch("https://api.resend.com/emails", {
+    const brevoResponse = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${resendApiKey}`,
+        "api-key": brevoApiKey,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Saraswati Agro Portal <onboarding@resend.dev>",
-        to: targetEmail,
+        sender: { name: "Saraswati Agro Portal", email: senderEmail },
+        to: [{ email: targetEmail }],
         subject: subject,
-        html: htmlEmail,
-        text: `New Inquiry Received: ${subject}. Please view the HTML version for full details.`,
+        htmlContent: htmlEmail,
+        textContent: `New Inquiry Received: ${subject}. Please view the HTML version for full details.`,
       }),
     });
 
-    const resendResult: any = await resendResponse.json();
+    const brevoResult: any = await brevoResponse.json().catch(() => ({}));
 
-    if (!resendResponse.ok) {
+    if (!brevoResponse.ok) {
       return new Response(
         JSON.stringify({
           success: false,
-          message: resendResult.message || "Failed to send email via Resend",
+          message: brevoResult.message || "Failed to send email via Brevo",
         }),
-        { status: resendResponse.status, headers: { "Content-Type": "application/json" } }
+        { status: brevoResponse.status, headers: { "Content-Type": "application/json" } }
       );
     }
 
@@ -181,23 +183,23 @@ export const onRequestPost = async (context: any) => {
       </html>
       `;
 
-      await fetch("https://api.resend.com/emails", {
+      await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${resendApiKey}`,
+          "api-key": brevoApiKey,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Saraswati Agro <onboarding@resend.dev>",
-          to: data.email,
+          sender: { name: "Saraswati Agro", email: senderEmail },
+          to: [{ email: data.email }],
           subject: "Thank You for Contacting Saraswati Agro Feeds!",
-          html: customerEmailHtml,
-          text: `Hello ${data.name || "there"},\n\nThank you for your inquiry. We have successfully received it and our team will contact you shortly to assist you further.\n\nनमस्कार, तुमची चौकशी आम्हाला प्राप्त झाली आहे. आमची टीम लवकरच तुमच्याशी संपर्क साधेल.\n\nWarm Regards,\nThe Saraswati Agro Feeds Team`,
+          htmlContent: customerEmailHtml,
+          textContent: `Hello ${data.name || "there"},\n\nThank you for your inquiry. We have successfully received it and our team will contact you shortly to assist you further.\n\nनमस्कार, तुमची चौकशी आम्हाला प्राप्त झाली आहे. आमची टीम लवकरच तुमच्याशी संपर्क साधेल.\n\nWarm Regards,\nThe Saraswati Agro Feeds Team`,
         }),
       }).catch(err => console.error("Auto-responder failed:", err));
     }
 
-    return new Response(JSON.stringify({ success: true, id: resendResult.id }), {
+    return new Response(JSON.stringify({ success: true, messageId: brevoResult.messageId }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
