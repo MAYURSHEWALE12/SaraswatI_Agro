@@ -16,6 +16,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return (saved as Language) || "mr"; // Default to Marathi
   });
 
+  React.useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("saf-language", lang);
