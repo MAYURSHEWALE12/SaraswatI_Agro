@@ -88,18 +88,19 @@ export default function Products() {
 
   /* Position of each card relative to active — responsive spacing */
   const getXSpacing = () => {
-    if (typeof window === "undefined") return 200;
-    if (window.innerWidth < 400) return 150;
-    if (window.innerWidth < 640) return 175;
-    return 220;
+    if (typeof window === "undefined") return 280;
+    if (window.innerWidth < 400) return 180;
+    if (window.innerWidth < 640) return 220;
+    if (window.innerWidth < 1024) return 270;
+    return 320;
   };
 
   const getStyle = (i: number) => {
     const diff = mod(i - active + Math.floor(total / 2), total) - Math.floor(total / 2);
     const absDiff = Math.abs(diff);
-    // Hide cards that are beyond 1 step from active to maintain perfect symmetry
-    const scale   = absDiff === 0 ? 1.12 : absDiff === 1 ? 0.82 : 0;
-    const opacity = absDiff === 0 ? 1    : absDiff === 1 ? 0.7  : 0;
+    // Adjacent cards peek from behind — no longer hidden
+    const scale   = absDiff === 0 ? 1.12 : absDiff === 1 ? 0.82 : 0.6;
+    const opacity = absDiff === 0 ? 1    : absDiff === 1 ? 0.6  : 0.25;
     const x       = diff * getXSpacing();
     const zIndex  = 10 - absDiff;
     return { scale, opacity, x, zIndex };
@@ -269,17 +270,60 @@ export default function Products() {
             <div className="px-6 sm:px-8 pb-6 sm:pb-8">
               <button
                 onClick={() => {
-                  const msg = encodeURIComponent(
-                    language === "mr"
-                      ? `नमस्कार, मला सरस्वती ॲग्रो फीड्सच्या "${p.name}" या उत्पादनाबद्दल अधिक माहिती हवी आहे.`
-                      : `Hello, I want to know more about Saraswati Agro Feeds' "${p.name}" product.`
-                  );
-                  window.open(`https://wa.me/${WA_NUMBER_FULL}?text=${msg}`, "_blank");
-                }}
-                className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl py-3.5 font-bold text-sm sm:text-base transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-emerald-600/20"
-              >
-                <FaWhatsapp className="w-5 h-5" />
-                {t({ mr: "या उत्पादनाबद्दल चौकशी करा", en: "Inquire About This Product" })}
+                   const sep = "─────────────────────";
+                   const msg = language === "mr"
+                     ? [
+                         `🙏 *नमस्कार सरस्वती ॲग्रो फीड्स टीम!*`,
+                         ``,
+                         `मला खालील उत्पादनाबद्दल अधिक माहिती हवी आहे:`,
+                         ``,
+                         sep,
+                         `🌾 *उत्पादनाचे नाव:* ${p.name}`,
+                         `🏷️ *प्रकार:* ${p.tag}`,
+                         `⚖️ *वजन:* ${p.weight}`,
+                         sep,
+                         ``,
+                         `🔬 *पोषण तपशील:*`,
+                         `${p.specs}`,
+                         ``,
+                         `💊 *मात्रा / वापर:*`,
+                         `${p.dosage}`,
+                         ``,
+                         sep,
+                         ``,
+                         `कृपया किंमत, उपलब्धता आणि जवळच्या विक्रेत्याची माहिती द्यावी.`,
+                         ``,
+                         `धन्यवाद 🙏`,
+                       ].join("\n")
+                     : [
+                         `🙏 *Hello Saraswati Agro Feeds Team!*`,
+                         ``,
+                         `I would like to know more about the following product:`,
+                         ``,
+                         sep,
+                         `🌾 *Product Name:* ${p.name} (${p.nameEn})`,
+                         `🏷️ *Type:* ${p.tag}`,
+                         `⚖️ *Pack Weight:* ${p.weight}`,
+                         sep,
+                         ``,
+                         `🔬 *Nutrition Specs:*`,
+                         `${p.specs}`,
+                         ``,
+                         `💊 *Dosage / Usage:*`,
+                         `${p.dosage}`,
+                         ``,
+                         sep,
+                         ``,
+                         `Please share pricing, availability, and nearest dealer info.`,
+                         ``,
+                         `Thank you! 🙏`,
+                       ].join("\n");
+                   window.open(`https://wa.me/${WA_NUMBER_FULL}?text=${encodeURIComponent(msg)}`, "_blank");
+                 }}
+                 className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl py-3.5 font-bold text-sm sm:text-base transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-emerald-600/20"
+               >
+                 <FaWhatsapp className="w-5 h-5" />
+                 {t({ mr: "या उत्पादनाबद्दल चौकशी करा", en: "Inquire About This Product" })}
               </button>
             </div>
           </motion.div>
