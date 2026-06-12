@@ -31,7 +31,7 @@ export default function QualityAssurance() {
   });
 
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-white overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-28 bg-white dark:bg-slate-900 overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -39,14 +39,14 @@ export default function QualityAssurance() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
         >
-          <span className="inline-block bg-emerald-50 text-emerald-700 border border-emerald-200 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             {t({ mr: "🏅 गुणवत्ता", en: "🏅 Quality" })}
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
-            {t({ mr: "गुणवत्तेची ", en: "Quality " })}<span className="text-emerald-600">{t({ mr: "हमी", en: "Assurance" })}</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors">
+            {t({ mr: "गुणवत्तेची ", en: "Quality " })}<span className="text-emerald-600 dark:text-emerald-500">{t({ mr: "हमी", en: "Assurance" })}</span>
           </h2>
           <div className="h-1 w-24 bg-amber-400 mx-auto rounded-full mb-4" />
-          <p className="text-gray-500 text-sm sm:text-base">
+          <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base transition-colors">
             {t({ mr: "आमचे प्रत्येक उत्पादन गुणवत्तेच्या कठोर मानकांमधून जाते", en: "Every product of ours passes through stringent quality standards" })}
           </p>
         </motion.div>
@@ -64,16 +64,16 @@ export default function QualityAssurance() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.09 }}
                   whileHover={{ scale: 1.03, y: -4 }}
-                  className="flex flex-col gap-3 p-5 bg-white border border-gray-100 shadow-sm hover:shadow-lg rounded-2xl transition-all duration-300 group cursor-default"
+                  className="flex flex-col gap-3 p-5 bg-white dark:bg-slate-950 border border-gray-100 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:shadow-emerald-900/20 rounded-2xl transition-all duration-300 group cursor-default"
                   data-testid={`card-quality-${i}`}
                 >
-                  <div className="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center text-xl group-hover:bg-emerald-600 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-11 h-11 bg-emerald-50 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center text-xl group-hover:bg-emerald-600 group-hover:scale-110 transition-all duration-300">
                     <span className="group-hover:hidden">{point.emoji}</span>
                     <Icon className="w-5 h-5 text-white hidden group-hover:block" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-gray-800 mb-1.5">{point.title}</h3>
-                    <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{point.desc}</p>
+                    <h3 className="text-sm sm:text-base font-bold text-gray-800 dark:text-gray-100 mb-1.5 transition-colors">{point.title}</h3>
+                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm leading-relaxed transition-colors">{point.desc}</p>
                   </div>
                 </motion.div>
               );
