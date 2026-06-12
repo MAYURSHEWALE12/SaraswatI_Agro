@@ -160,7 +160,7 @@ export default function WhatsAppButton() {
             style={{
               width: "56px",
               height: "56px",
-              background: "linear-gradient(135deg, #d1fae5 0%, #6ee7b7 50%, #34d399 100%)",
+              background: "#ffffff",
             }}
             aria-label="Open inquiry form"
           >
