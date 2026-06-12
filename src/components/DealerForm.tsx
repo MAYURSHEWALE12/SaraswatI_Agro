@@ -65,24 +65,20 @@ export default function DealerForm() {
     const toastId = toast.loading(t({ mr: "चौकशी पाठवली जात आहे...", en: "Sending inquiry..." }));
 
     try {
-      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "d512b5ff-c3c9-4913-8ab2-827520f7c3fc";
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: accessKey,
-          subject: `🌱 New Dealer Inquiry: ${data.businessName} (${data.district})`,
-          from_name: "Saraswati Agro Portal",
-          "Full Name / संपूर्ण नाव": data.name,
-          "Business Name / व्यवसायाचे नाव": data.businessName,
-          "Mobile Number / मोबाईल क्रमांक": data.mobile,
-          "Email Address / ईमेल पत्ता": data.email || "Not Provided",
-          "District / जिल्हा": data.district,
-          "State / राज्य": data.state,
-          "Message / संदेश": data.message || "No message provided",
+          name: data.name,
+          businessName: data.businessName,
+          mobile: data.mobile,
+          email: data.email,
+          district: data.district,
+          state: data.state,
+          message: data.message,
         }),
       });
 
