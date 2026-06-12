@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useCallback, useMemo } from "react";
 
 export type Language = "mr" | "en";
 
@@ -16,17 +16,19 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return (saved as Language) || "mr"; // Default to Marathi
   });
 
-  const setLanguage = (lang: Language) => {
+  const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("saf-language", lang);
-  };
+  }, []);
 
-  const t = <T extends Record<Language, any>>(dict: T): T[Language] => {
+  const t = useCallback(<T extends Record<Language, any>>(dict: T): T[Language] => {
     return dict[language];
-  };
+  }, [language]);
+
+  const value = useMemo(() => ({ language, setLanguage, t }), [language, setLanguage, t]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
