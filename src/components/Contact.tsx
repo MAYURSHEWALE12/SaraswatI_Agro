@@ -99,7 +99,7 @@ export default function Contact() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Button
                 size="lg"
-                className="flex-1 gap-2 bg-green-600 hover:bg-green-700 text-white rounded-full"
+                className="flex-1 gap-2 bg-green-600 hover:bg-green-700 text-white border-0 rounded-full"
                 onClick={() => window.open(getWhatsAppInquiryUrl(), "_blank")}
                 data-testid="button-whatsapp-contact"
               >

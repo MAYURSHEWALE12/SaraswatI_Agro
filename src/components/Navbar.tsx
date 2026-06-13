@@ -127,7 +127,7 @@ export default function Navbar() {
 
             {/* Desktop WhatsApp Button */}
             <Button
-              className="hidden lg:flex bg-green-600 hover:bg-green-500 text-white gap-2 rounded-full px-5 shadow-lg shadow-green-900/20 font-semibold"
+              className="hidden lg:flex bg-green-600 hover:bg-green-500 text-white border-0 gap-2 rounded-full px-5 shadow-lg shadow-green-900/20 font-semibold"
               onClick={() => window.open(WA_URL, "_blank")}
               data-testid="button-nav-whatsapp"
             >
@@ -210,7 +210,7 @@ export default function Navbar() {
               {/* Bottom CTA */}
               <div className="px-5 pb-6 pt-3 border-t border-gray-100 dark:border-slate-800">
                 <Button
-                  className="w-full bg-green-600 hover:bg-green-700 text-white gap-2 rounded-full py-5"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white border-0 gap-2 rounded-full py-5"
                   onClick={() => {
                     window.open(WA_URL, "_blank");
                     setMobileMenuOpen(false);
