@@ -9,20 +9,20 @@ import { WA_NUMBER_FULL } from "@/lib/constants";
 
 const WA_NUMBER = WA_NUMBER_FULL;
 
-function LeftTooltip({ text, visible }: { text: string; visible: boolean }) {
+function TopTooltip({ text, visible }: { text: string; visible: boolean }) {
   return (
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ opacity: 0, x: 10, scale: 0.92 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          exit={{ opacity: 0, x: 10, scale: 0.92 }}
+          initial={{ opacity: 0, y: 10, scale: 0.92 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 10, scale: 0.92 }}
           transition={{ duration: 0.2 }}
-          className="absolute right-[calc(100%+12px)] top-1/2 -translate-y-1/2 bg-white text-gray-800 text-xs font-semibold px-3.5 py-2.5 rounded-xl shadow-lg border border-gray-100 pointer-events-none"
-          style={{ maxWidth: 220, whiteSpace: "normal" }}
+          className="absolute bottom-[calc(100%+12px)] right-0 origin-bottom-right bg-white text-gray-800 text-xs font-semibold px-3.5 py-2.5 rounded-xl shadow-lg border border-gray-100 pointer-events-none"
+          style={{ width: "max-content", maxWidth: 220, whiteSpace: "normal" }}
         >
           {text}
-          <span className="absolute right-[-5px] top-1/2 -translate-y-1/2 w-3 h-3 bg-white border-r border-t border-gray-100 rotate-45 block" />
+          <span className="absolute bottom-[-6px] right-[20px] w-3 h-3 bg-white border-b border-r border-gray-100 rotate-45 block" />
         </motion.div>
       )}
     </AnimatePresence>
@@ -111,10 +111,10 @@ export default function WhatsAppButton() {
 
   return (
     <>
-      <div className="fixed max-lg:bottom-28 lg:bottom-6 right-4 lg:right-6 z-50 flex flex-col items-center gap-3">
-        {/* ── 1. WhatsApp button (top) ── */}
+      <div className="fixed max-lg:bottom-28 lg:bottom-6 right-4 lg:right-6 z-50 flex flex-row items-center gap-3">
+        {/* ── 1. WhatsApp button (left) ── */}
         <div className="relative flex items-center">
-          <LeftTooltip
+          <TopTooltip
             text={waTooltip}
             visible={waHovered}
           />
@@ -141,9 +141,9 @@ export default function WhatsAppButton() {
           </motion.a>
         </div>
 
-        {/* ── 2. Animated Cow button (bottom) ── */}
+        {/* ── 2. Animated Cow button (right) ── */}
         <div className="relative flex items-center">
-          <LeftTooltip
+          <TopTooltip
             text={logoTooltip}
             visible={logoHovered}
           />
