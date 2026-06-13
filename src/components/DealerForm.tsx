@@ -18,6 +18,7 @@ import {
   CONTACT_EMAIL,
   ADDRESS_TAKALKARWADI_MR,
   ADDRESS_TAKALKARWADI_EN,
+  WA_NUMBER_FULL,
 } from "@/lib/constants";
 
 const dealerSchema = z.object({
@@ -98,6 +99,11 @@ export default function DealerForm() {
           id: toastId,
           description: t({ mr: "आम्ही लवकरच आपल्याशी संपर्क साधू.", en: "We will contact you soon." }),
         });
+
+        const waText = `*नवीन डीलर चौकशी* 🌾\n\n*नाव:* ${data.name}\n*व्यवसायाचे नाव:* ${data.businessName}\n*मोबाईल:* ${data.mobile}\n*ईमेल:* ${data.email || "N/A"}\n*जिल्हा:* ${data.district}\n*राज्य:* ${data.state}\n*संदेश:* ${data.message || "N/A"}`;
+        const waUrl = `https://wa.me/${WA_NUMBER_FULL}?text=${encodeURIComponent(waText)}`;
+        window.open(waUrl, "_blank");
+
         form.reset();
       } else {
         throw new Error(result.message || "Failed to submit form");
