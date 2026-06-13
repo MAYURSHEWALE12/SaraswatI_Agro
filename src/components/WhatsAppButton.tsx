@@ -33,6 +33,7 @@ export default function WhatsAppButton() {
   const [waHovered, setWaHovered] = useState(false);
   const [logoHovered, setLogoHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalStep, setModalStep] = useState<"greeting" | "form">("greeting");
   const { language, t } = useLanguage();
 
   // Form State
@@ -88,6 +89,16 @@ export default function WhatsAppButton() {
       document.body.style.overflow = "";
     };
   }, [isModalOpen]);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isModalOpen && modalStep === "greeting") {
+      timer = setTimeout(() => {
+        setModalStep("form");
+      }, 2000);
+    }
+    return () => clearTimeout(timer);
+  }, [isModalOpen, modalStep]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -153,7 +164,10 @@ export default function WhatsAppButton() {
             transition={{ delay: 1.3, type: "spring", stiffness: 260, damping: 20 }}
             onHoverStart={() => setLogoHovered(true)}
             onHoverEnd={() => setLogoHovered(false)}
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              setModalStep("greeting");
+              setIsModalOpen(true);
+            }}
             whileHover={{ scale: 1.12 }}
             whileTap={{ scale: 0.92 }}
             className="relative rounded-full overflow-hidden shadow-xl border-2 border-white hover:border-emerald-300 hover:shadow-emerald-200/60 transition-all duration-300 cursor-pointer focus:outline-none"
@@ -201,14 +215,48 @@ export default function WhatsAppButton() {
               {/* Header colored bar */}
               <div className="h-2 w-full bg-gradient-to-r from-green-700 to-emerald-500" />
 
-              <div className="p-6 sm:p-8">
-                {/* Close button */}
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-50 transition"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+              {/* Close button - persistent across states */}
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-50 transition z-50"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <AnimatePresence mode="wait">
+                {modalStep === "greeting" ? (
+                  <motion.div
+                    key="greeting"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="p-10 flex flex-col items-center justify-center text-center min-h-[350px]"
+                  >
+                    <motion.img 
+                      src={animatedCow} 
+                      alt="Cow" 
+                      className="w-32 h-32 mb-6 object-contain drop-shadow-xl"
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                      {t({ mr: "नमस्कार!", en: "Hello!" })}
+                    </h3>
+                    <p className="text-emerald-700 font-semibold text-lg">
+                      {t({ mr: "मी तुम्हाला कशी मदत करू शकतो?", en: "How may I help you today?" })}
+                    </p>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="form"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="p-6 sm:p-8 pt-10"
+                  >
+
 
                 {/* Title */}
                 <div className="flex items-center gap-3 mb-6">
@@ -286,8 +334,10 @@ export default function WhatsAppButton() {
                     {t({ mr: "WhatsApp वर चौकशी पाठवा", en: "Send Inquiry on WhatsApp" })}
                   </button>
                 </form>
-              </div>
-            </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
           </div>
         )}
       </AnimatePresence>
