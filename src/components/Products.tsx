@@ -16,7 +16,7 @@ export default function Products() {
 
   const { language, t } = useLanguage();
 
-  const products = [
+  const baseProducts = [
     {
       image: ratnai,
       name: t({ mr: "रत्नाई पशु आहार", en: "Ratnai Cattle Feed" }),
@@ -59,6 +59,8 @@ export default function Products() {
     },
   ];
 
+  const products = [...baseProducts, ...baseProducts];
+
   const total = products.length;
 
   function mod(n: number, m: number) {
@@ -75,7 +77,7 @@ export default function Products() {
     const timer = setInterval(() => {
       setDir(1);
       setActive((p) => mod(p + 1, total));
-    }, 5000);
+    }, 1300);
     return () => clearInterval(timer);
   }, [active, total]);
 
