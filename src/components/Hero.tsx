@@ -134,9 +134,9 @@ export default function Hero() {
               className="flex flex-wrap justify-center gap-2 pt-1"
             >
               {[
-                { icon: "🏅", label: "BIS Certified" },
-                { icon: "🌿", label: "Pure Veg Feed" },
-                { icon: "🔬", label: "Lab Tested" },
+                { icon: "🏅", label: t({ mr: "BIS प्रमाणित", en: "BIS Certified" }) },
+                { icon: "🌿", label: t({ mr: "शाकाहारी आहार", en: "Pure Veg Feed" }) },
+                { icon: "🔬", label: t({ mr: "लॅब टेस्टेड", en: "Lab Tested" }) },
                 { icon: "🐄", label: t({ mr: "महाराष्ट्र ब्रँड", en: "Maharashtra Brand" }) },
               ].map((b, i) => (
                 <span
