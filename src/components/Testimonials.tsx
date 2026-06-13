@@ -142,20 +142,17 @@ export default function Testimonials() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -20, scale: 0.96 }}
                 transition={{ duration: 0.45, ease: [0.32, 0.72, 0, 1] }}
-                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl shadow-black/10 overflow-hidden"
+                className="bg-[#12683b] rounded-3xl shadow-[12px_12px_24px_rgba(0,0,0,0.35),_-12px_-12px_24px_rgba(255,255,255,0.08)] overflow-hidden"
               >
-                {/* Top accent bar */}
-                <div className="h-1.5 w-full bg-gradient-to-r from-emerald-400 via-amber-400 to-emerald-300" />
 
                 <div className="p-7 sm:p-10 md:p-12">
                   {/* Quote icon */}
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-amber-400/20 border border-amber-400/30 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-amber-300" fill="currentColor" viewBox="0 0 24 24">
+                    <div className="w-12 h-12 rounded-xl bg-[#12683b] shadow-[inset_4px_4px_8px_rgba(0,0,0,0.3),_inset_-4px_-4px_8px_rgba(255,255,255,0.1)] flex items-center justify-center">
+                      <svg className="w-5 h-5 text-emerald-300/80" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                       </svg>
                     </div>
-                    <div className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
                   </div>
 
                   {/* Testimonial text */}
@@ -170,10 +167,8 @@ export default function Testimonials() {
                         <img
                           src={currentTestimonial.avatar}
                           alt={currentTestimonial.name}
-                          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover shadow-lg shadow-emerald-900/30 border-2 border-white/20"
+                          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover shadow-[4px_4px_10px_rgba(0,0,0,0.3),_-4px_-4px_10px_rgba(255,255,255,0.1)] border-2 border-[#12683b]"
                         />
-                        <div className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-emerald-300/40 to-amber-400/40 blur-sm -z-10" />
-                        <div className="absolute -inset-0.5 rounded-full border border-white/10" />
                       </div>
                       <div>
                         <div className="font-bold text-white text-base sm:text-lg">{currentTestimonial.name}</div>
@@ -194,7 +189,7 @@ export default function Testimonials() {
                         </div>
                       </div>
                     </div>
-                    <div className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 text-emerald-200 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full self-start sm:self-auto hover:bg-white/15 transition-colors">
+                    <div className="inline-flex items-center gap-1.5 bg-[#12683b] shadow-[inset_3px_3px_6px_rgba(0,0,0,0.25),_inset_-3px_-3px_6px_rgba(255,255,255,0.08)] text-emerald-100 text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full self-start sm:self-auto transition-colors">
                       <span className="text-amber-400">🌿</span>
                       {currentTestimonial.product}
                     </div>
@@ -208,10 +203,10 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-5 mt-8">
             <button
               onClick={() => go((current - 1 + testimonials.length) % testimonials.length, -1)}
-              className="group w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg"
+              className="group w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#12683b] text-emerald-100 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 shadow-[6px_6px_12px_rgba(0,0,0,0.3),_-6px_-6px_12px_rgba(255,255,255,0.1)] active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.3),_inset_-4px_-4px_8px_rgba(255,255,255,0.1)]"
               aria-label={t({ mr: "मागील", en: "Previous" })}
             >
-              <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+              <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
             </button>
 
             <div className="flex items-center gap-2.5">
@@ -235,10 +230,10 @@ export default function Testimonials() {
 
             <button
               onClick={() => go((current + 1) % testimonials.length, 1)}
-              className="group w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg"
+              className="group w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#12683b] text-emerald-100 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 shadow-[6px_6px_12px_rgba(0,0,0,0.3),_-6px_-6px_12px_rgba(255,255,255,0.1)] active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.3),_inset_-4px_-4px_8px_rgba(255,255,255,0.1)]"
               aria-label={t({ mr: "पुढील", en: "Next" })}
             >
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+              <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
             </button>
           </div>
         </div>
