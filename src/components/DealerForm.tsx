@@ -6,6 +6,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { INDIA_STATES_CITIES, STATES } from "@/lib/india-data";
 import { toast } from "sonner";
 import { CheckCircle2, TrendingUp, Headphones, Truck, BarChart3, Send } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -60,6 +62,13 @@ export default function DealerForm() {
       message: "",
     },
   });
+
+  const selectedState = form.watch("state");
+  const availableDistricts = selectedState && INDIA_STATES_CITIES[selectedState] ? INDIA_STATES_CITIES[selectedState] : [];
+
+  React.useEffect(() => {
+    form.setValue("district", "");
+  }, [selectedState, form]);
 
   const onSubmit = async (data: DealerFormValues) => {
     const toastId = toast.loading(t({ mr: "चौकशी पाठवली जात आहे...", en: "Sending inquiry..." }));
@@ -236,26 +245,48 @@ export default function DealerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
-                    name="district"
+                    name="state"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t({ mr: "जिल्हा *", en: "District *" })}</FormLabel>
-                        <FormControl>
-                          <Input placeholder={t({ mr: "जिल्ह्याचे नाव", en: "District name" })} data-testid="input-dealer-district" {...field} />
-                        </FormControl>
+                        <FormLabel>{t({ mr: "राज्य *", en: "State *" })}</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger data-testid="select-dealer-state">
+                              <SelectValue placeholder={t({ mr: "राज्य निवडा", en: "Select State" })} />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {STATES.map((state) => (
+                              <SelectItem key={state} value={state}>
+                                {state}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
                   <FormField
                     control={form.control}
-                    name="state"
+                    name="district"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t({ mr: "राज्य *", en: "State *" })}</FormLabel>
-                        <FormControl>
-                          <Input placeholder={t({ mr: "राज्य", en: "State" })} data-testid="input-dealer-state" {...field} />
-                        </FormControl>
+                        <FormLabel>{t({ mr: "जिल्हा *", en: "District *" })}</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value} disabled={!selectedState || availableDistricts.length === 0}>
+                          <FormControl>
+                            <SelectTrigger data-testid="select-dealer-district">
+                              <SelectValue placeholder={t({ mr: "जिल्हा निवडा", en: "Select District" })} />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {availableDistricts.map((district) => (
+                              <SelectItem key={district} value={district}>
+                                {district}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
