@@ -138,9 +138,9 @@ export default function Testimonials() {
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={current}
-                initial={{ opacity: 0, y: 30, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.96 }}
+                initial={{ opacity: 0, x: direction > 0 ? 50 : -50, scale: 0.96 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: direction > 0 ? -50 : 50, scale: 0.96 }}
                 transition={{ duration: 0.45, ease: [0.32, 0.72, 0, 1] }}
                 className="bg-[#12683b] rounded-3xl shadow-[12px_12px_24px_rgba(0,0,0,0.35),_-12px_-12px_24px_rgba(255,255,255,0.08)] overflow-hidden"
               >
