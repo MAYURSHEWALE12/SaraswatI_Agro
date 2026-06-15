@@ -90,6 +90,104 @@ const KafGoBoostDosageTableEN = (
   </div>
 );
 
+const RatnaiSpecsMR = (
+  <div className="flex flex-col gap-3">
+    <div className="whitespace-pre-line text-sm text-gray-700">
+      • उच्च उत्पादन क्षमतेच्या (२० लिटर च्या पुढच्या गायींसाठी व १० लिटर च्या पुढच्या म्हशींसाठी) प्रतिदिन{"\n"}
+      • हिरवा व सुका चारा असणाऱ्या दूध उत्पादकांसाठी अत्यंत फायदेशीर
+    </div>
+    
+    <div className="font-bold text-emerald-700 mt-2 text-xs uppercase text-center border-b border-emerald-200 pb-1">
+      Specification as per BIS Type 1
+    </div>
+    <div className="overflow-x-auto -mx-2 sm:mx-0">
+      <table className="w-full text-left text-[11px] sm:text-xs min-w-[340px]">
+        <tbody className="divide-y divide-emerald-100/50">
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Moisture (Max)</td>
+            <td className="p-1.5 text-gray-800">: 10%</td>
+            <td className="p-1.5 font-medium text-gray-600">Calcium (Min)</td>
+            <td className="p-1.5 text-gray-800">: 0.80%</td>
+          </tr>
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Crude Protein (Min)</td>
+            <td className="p-1.5 text-gray-800">: 25%</td>
+            <td className="p-1.5 font-medium text-gray-600">Total Phosphorus (Min)</td>
+            <td className="p-1.5 text-gray-800">: 0.50%</td>
+          </tr>
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Crude Fat (Min)</td>
+            <td className="p-1.5 text-gray-800">: 6%</td>
+            <td className="p-1.5 font-medium text-gray-600">Available Phosphorus (Min)</td>
+            <td className="p-1.5 text-gray-800">: 0.25%</td>
+          </tr>
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Crude Fibre (Max)</td>
+            <td className="p-1.5 text-gray-800">: 10%</td>
+            <td className="p-1.5 font-medium text-gray-600">Aflotoxin B1 (Max)</td>
+            <td className="p-1.5 text-gray-800">: 20 PPB</td>
+          </tr>
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Acid Insoluble Ash (Max)</td>
+            <td className="p-1.5 text-gray-800">: 2.50%</td>
+            <td className="p-1.5 font-medium text-gray-600">Urea if Present (Max)</td>
+            <td className="p-1.5 text-gray-800">: 1%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
+
+const RatnaiSpecsEN = (
+  <div className="flex flex-col gap-3">
+    <div className="whitespace-pre-line text-sm text-gray-700">
+      • Highly beneficial for high yielding cattle (cows above 20L & buffaloes above 10L per day){"\n"}
+      • Extremely beneficial for dairy farmers using green & dry fodder
+    </div>
+    
+    <div className="font-bold text-emerald-700 mt-2 text-xs uppercase text-center border-b border-emerald-200 pb-1">
+      Specification as per BIS Type 1
+    </div>
+    <div className="overflow-x-auto -mx-2 sm:mx-0">
+      <table className="w-full text-left text-[11px] sm:text-xs min-w-[340px]">
+        <tbody className="divide-y divide-emerald-100/50">
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Moisture (Max)</td>
+            <td className="p-1.5 text-gray-800">: 10%</td>
+            <td className="p-1.5 font-medium text-gray-600">Calcium (Min)</td>
+            <td className="p-1.5 text-gray-800">: 0.80%</td>
+          </tr>
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Crude Protein (Min)</td>
+            <td className="p-1.5 text-gray-800">: 25%</td>
+            <td className="p-1.5 font-medium text-gray-600">Total Phosphorus (Min)</td>
+            <td className="p-1.5 text-gray-800">: 0.50%</td>
+          </tr>
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Crude Fat (Min)</td>
+            <td className="p-1.5 text-gray-800">: 6%</td>
+            <td className="p-1.5 font-medium text-gray-600">Available Phosphorus (Min)</td>
+            <td className="p-1.5 text-gray-800">: 0.25%</td>
+          </tr>
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Crude Fibre (Max)</td>
+            <td className="p-1.5 text-gray-800">: 10%</td>
+            <td className="p-1.5 font-medium text-gray-600">Aflotoxin B1 (Max)</td>
+            <td className="p-1.5 text-gray-800">: 20 PPB</td>
+          </tr>
+          <tr className="hover:bg-emerald-100/30">
+            <td className="p-1.5 font-medium text-gray-600">Acid Insoluble Ash (Max)</td>
+            <td className="p-1.5 text-gray-800">: 2.50%</td>
+            <td className="p-1.5 font-medium text-gray-600">Urea if Present (Max)</td>
+            <td className="p-1.5 text-gray-800">: 1%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
+
 export default function Products() {
   const [active, setActive] = useState(0);
   const [dir, setDir]       = useState(1);
@@ -101,10 +199,13 @@ export default function Products() {
       image: ratnai,
       name: t({ mr: "रत्नाई पशु आहार", en: "Ratnai Cattle Feed" }),
       nameEn: "Ratnai Pashu Aahar",
-      tag: t({ mr: "उच्च दूध उत्पादन", en: "High Milk Yield" }),
+      tag: t({ mr: "गाय व म्हैस", en: "Cow & Buffalo" }),
       color: "from-amber-600 to-yellow-500",
-      specs: t({ mr: "प्रथिने २५% • फॅट ६% • BIS Type 1", en: "Protein 25% • Fat 6% • BIS Type 1" }),
-      dosage: t({ mr: "गाय: ३०० ग्रॅम / लिटर दुधासाठी | म्हैस: ४०० ग्रॅम / लिटर दुधासाठी", en: "Cow: 300g / Litre of milk | Buffalo: 400g / Litre of milk" }),
+      specs: t({ mr: RatnaiSpecsMR, en: RatnaiSpecsEN }),
+      dosage: t({ 
+        mr: "उत्पादनासाठी:\nगाय - ३०० ग्रॅम प्रति लिटर दुधासाठी\nम्हैस - ४०० ग्रॅम प्रति लिटर दुधासाठी\n\nशरीराच्या देखभालीसाठी वापरण्याची शिफारस:\nगाय - १ ते १.५ किलो प्रति दिवस प्रति प्राणी\nम्हैस - २ किलो प्रति दिवस प्रति प्राणी", 
+        en: "For Production:\nCow - 300g per liter of milk\nBuffalo - 400g per liter of milk\n\nRecommended for Body Maintenance:\nCow - 1 to 1.5 kg per day per animal\nBuffalo - 2 kg per day per animal" 
+      }),
       weight: t({ mr: "५० किलो", en: "50 Kg" }),
     },
     {
