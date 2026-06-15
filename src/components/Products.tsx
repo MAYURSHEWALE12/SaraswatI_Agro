@@ -273,11 +273,12 @@ const KafGoBoostFlyerEN = KafGoBoostFlyerMR;
 // -------------------------------------------------------------
 const JanayitriFlyerMR = (
   <div className="bg-white text-gray-800 relative w-full p-4 sm:p-6 border-4 border-green-500 rounded-3xl shadow-sm">
-    <div className="flex items-center justify-end gap-2 sm:gap-4 mb-6">
-      <div className="h-[2px] bg-green-500 flex-1 max-w-[150px] sm:max-w-[250px]"></div>
+    <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6">
+      <div className="h-[2px] bg-green-500 flex-1 max-w-[50px] sm:max-w-[100px]"></div>
       <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-green-800">
         जनयित्री
       </h2>
+      <div className="h-[2px] bg-green-500 flex-1 max-w-[50px] sm:max-w-[100px]"></div>
     </div>
     
     <div className="max-w-lg space-y-6 pl-2 sm:pl-4">
