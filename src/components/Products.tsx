@@ -10,6 +10,86 @@ import amrutdhara  from "@assets/amrutdhara.webp";
 import janayitri   from "@assets/janayitri.webp";
 import caf_go_boost from "@assets/caf_go_boost.webp";
 
+const KafGoBoostDosageTableMR = (
+  <div className="overflow-x-auto mt-2 -mx-3 sm:mx-0">
+    <table className="w-full text-left text-xs sm:text-sm min-w-[380px]">
+      <thead className="bg-amber-100 text-amber-900 border-b border-amber-200">
+        <tr>
+          <th className="p-2 font-bold">आठवडा</th>
+          <th className="p-2 font-bold">दूध (लिटर)</th>
+          <th className="p-2 font-bold">गो-बुस्ट (ग्रॅम)</th>
+          <th className="p-2 font-bold">चारा</th>
+          <th className="p-2 font-bold">पाणी (लिटर)</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-amber-100/50">
+        {[
+          ["१", "४ ते ५", "-", "-", "५ ते ६"],
+          ["२", "४ ते ५", "-", "-", "५ ते ६"],
+          ["३", "३ ते ४", "५०", "३००", "५ ते ६"],
+          ["४", "३", "३५० (१ माप)", "५००", "६ ते ७"],
+          ["५", "२.५", "३५० (१ माप)", "५५०", "६ ते ७"],
+          ["६", "२", "७०० (२ मापे)", "६००", "७ ते ८"],
+          ["७", "१.५", "१०५० (३ मापे)", "७००", "८ ते ९"],
+          ["८", "१", "१०५० (३ मापे)", "८००", "९ ते १०"],
+          ["९", "-", "१०५० (३ मापे)", "१०००", "८ ते १०"],
+          ["१०", "-", "१४०० (४ मापे)", "११००", "८ ते १०"],
+          ["११", "-", "१४०० (४ मापे)", "१२००", "८ ते १०"],
+          ["१२", "-", "१४०० (४ मापे)", "१४००", "११ ते १२"],
+          ["१३", "-", "१७५० (५ मापे)", "१९००", "१२ ते १५"],
+          ["१४ पुढे", "-", "२००० (६ मापे)", "पोटभर", "१२ ते १५"],
+        ].map((row, idx) => (
+          <tr key={idx} className="hover:bg-amber-100/30">
+            {row.map((cell, cellIdx) => (
+              <td key={cellIdx} className="p-2 whitespace-nowrap text-gray-700 font-medium">{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
+
+const KafGoBoostDosageTableEN = (
+  <div className="overflow-x-auto mt-2 -mx-3 sm:mx-0">
+    <table className="w-full text-left text-xs sm:text-sm min-w-[380px]">
+      <thead className="bg-amber-100 text-amber-900 border-b border-amber-200">
+        <tr>
+          <th className="p-2 font-bold">Week</th>
+          <th className="p-2 font-bold">Milk (L)</th>
+          <th className="p-2 font-bold">Go-Boost (g)</th>
+          <th className="p-2 font-bold">Fodder</th>
+          <th className="p-2 font-bold">Water (L)</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-amber-100/50">
+        {[
+          ["1", "4 to 5", "-", "-", "5 to 6"],
+          ["2", "4 to 5", "-", "-", "5 to 6"],
+          ["3", "3 to 4", "50", "300", "5 to 6"],
+          ["4", "3", "350 (1 scoop)", "500", "6 to 7"],
+          ["5", "2.5", "350 (1 scoop)", "550", "6 to 7"],
+          ["6", "2", "700 (2 scoops)", "600", "7 to 8"],
+          ["7", "1.5", "1050 (3 scoops)", "700", "8 to 9"],
+          ["8", "1", "1050 (3 scoops)", "800", "9 to 10"],
+          ["9", "-", "1050 (3 scoops)", "1000", "8 to 10"],
+          ["10", "-", "1400 (4 scoops)", "1100", "8 to 10"],
+          ["11", "-", "1400 (4 scoops)", "1200", "8 to 10"],
+          ["12", "-", "1400 (4 scoops)", "1400", "11 to 12"],
+          ["13", "-", "1750 (5 scoops)", "1900", "12 to 15"],
+          ["14+", "-", "2000 (6 scoops)", "Full belly", "12 to 15"],
+        ].map((row, idx) => (
+          <tr key={idx} className="hover:bg-amber-100/30">
+            {row.map((cell, cellIdx) => (
+              <td key={cellIdx} className="p-2 whitespace-nowrap text-gray-700 font-medium">{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
+
 export default function Products() {
   const [active, setActive] = useState(0);
   const [dir, setDir]       = useState(1);
@@ -49,12 +129,12 @@ export default function Products() {
     },
     {
       image: caf_go_boost,
-      name: t({ mr: "काफ गो-बूस्ट", en: "Kaf Go-Boost" }),
+      name: t({ mr: "काफ गो-बुस्ट", en: "Kaf Go-Boost" }),
       nameEn: "Kaf Go-Boost (Calf Growth)",
-      tag: t({ mr: "वासरांसाठी", en: "For Calves" }),
+      tag: t({ mr: "वासरे", en: "For Calves" }),
       color: "from-red-700 to-orange-500",
-      specs: t({ mr: "वजन वाढ • अवयव विकास • मजबूत हाडे", en: "Weight Gain • Organ Development • Strong Bones" }),
-      dosage: t({ mr: "वय आणि वजनानुसार (तक्त्यानुसार)", en: "According to age and weight chart" }),
+      specs: t({ mr: "वजन वाढण्यास आणि अवयवांच्या विकासास मदत होते.", en: "Helps in weight gain and development of organs." }),
+      dosage: t({ mr: KafGoBoostDosageTableMR, en: KafGoBoostDosageTableEN }),
       weight: t({ mr: "२५ किलो", en: "25 Kg" }),
     },
   ];
