@@ -5,6 +5,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "../hooks/useLanguage";
 import { WA_NUMBER_FULL } from "@/lib/constants";
+import amrutdhara  from "@assets/amrutdhara.webp";
+import ratnai      from "@assets/ratnai.webp";
+import janayitri   from "@assets/janayitri.webp";
+import caf_go_boost from "@assets/caf_go_boost.webp";
 
 // -------------------------------------------------------------
 // AMRUTDHARA FLYER TEMPLATES
@@ -319,24 +323,28 @@ export default function Products() {
 
   const baseProducts = [
     {
+      image: ratnai,
       name: t({ mr: "रत्नाई पशु आहार", en: "Ratnai Cattle Feed" }),
       nameEn: "Ratnai Pashu Aahar",
       color: "from-green-700 to-green-500",
       flyer: t({ mr: RatnaiFlyerMR, en: RatnaiFlyerEN }),
     },
     {
+      image: amrutdhara,
       name: t({ mr: "अमृतधारा पशु आहार", en: "Amrutdhara Cattle Feed" }),
       nameEn: "Amrutdhara Pashu Aahar",
       color: "from-pink-600 to-pink-400",
       flyer: t({ mr: AmrutdharaFlyerMR, en: AmrutdharaFlyerEN }),
     },
     {
+      image: janayitri,
       name: t({ mr: "जनयित्री", en: "Janayitri (Pregnant Cattle)" }),
       nameEn: "Janayitri (Pregnant Cattle)",
       color: "from-green-800 to-green-500",
       flyer: t({ mr: JanayitriFlyerMR, en: JanayitriFlyerEN }),
     },
     {
+      image: caf_go_boost,
       name: t({ mr: "काफ गो-बुस्ट", en: "Kaf Go-Boost" }),
       nameEn: "Kaf Go-Boost (Calf Growth)",
       color: "from-pink-700 to-pink-500",
@@ -436,13 +444,13 @@ export default function Products() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <div
-                    className={`relative w-40 sm:w-48 aspect-video rounded-2xl overflow-hidden shadow-lg border-[3px] flex flex-col items-center justify-center p-3 bg-gradient-to-br ${prod.color} ${
+                    className={`relative w-40 sm:w-48 aspect-square rounded-3xl overflow-hidden shadow-lg border-[4px] bg-white flex flex-col items-center justify-center p-3 ${
                       isActive
-                        ? "border-white shadow-xl scale-100"
-                        : "border-white/50 scale-95"
+                        ? "border-green-500 shadow-xl scale-100"
+                        : "border-gray-200 scale-95"
                     } transition-all duration-300`}
                   >
-                     <h3 className="text-base sm:text-lg font-black text-white text-center drop-shadow-sm">{prod.name}</h3>
+                     <img src={prod.image} alt={prod.name} className="w-full h-full object-contain hover:scale-105 transition-transform" />
                   </div>
                 </motion.div>
               );
