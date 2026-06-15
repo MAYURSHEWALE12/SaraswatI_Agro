@@ -39,12 +39,12 @@ export default function Products() {
     },
     {
       image: janayitri,
-      name: t({ mr: "जनयित्री", en: "Janayitri (Heifer Feed)" }),
+      name: t({ mr: "जनयित्री", en: "Janayitri (Pregnant Cattle)" }),
       nameEn: "Janayitri (Pregnant Cattle)",
-      tag: t({ mr: "गाभण जनावरांसाठी", en: "For Pregnant Animals" }),
+      tag: t({ mr: "गाभण गाय आणि म्हैस", en: "Pregnant Cow & Buffalo" }),
       color: "from-teal-700 to-cyan-500",
-      specs: t({ mr: "विशेष फॉर्म्युला • सुलभ प्रसूती", en: "Special Formula • Easy Delivery Support" }),
-      dosage: t({ mr: "७ वा महिना: २ किलो | ८ वा महिना: ३ किलो | ९ वा महिना: ४ किलो", en: "7th Month: 2 Kg | 8th Month: 3 Kg | 9th Month: 4 Kg" }),
+      specs: t({ mr: "सुलभ प्रसूती व वेताची भक्कम सुरुवात करण्यासाठी अतिशय उपयुक्त", en: "Highly useful for easy delivery and a strong start to lactation" }),
+      dosage: t({ mr: "गाभण कालवडीसाठी ७ व्या महिन्या पर्यंत - २ किलो प्रतिदिन\nगायींसाठी ८ वा महिना - ३ किलो. प्रती दिन\nगायींसाठी ९ वा महिना - ४ किलो. प्रती दिन", en: "Heifers up to 7th month - 2kg per day\nCows 8th month - 3kg per day\nCows 9th month - 4kg per day" }),
       weight: t({ mr: "५० किलो", en: "50 Kg" }),
     },
     {
@@ -258,15 +258,15 @@ export default function Products() {
                 <div className="grid sm:grid-cols-2 gap-3">
                   <div className="bg-emerald-50 rounded-xl p-3 border border-emerald-100">
                     <div className="text-xs text-emerald-600 font-bold uppercase tracking-wider mb-1">
-                      {t({ mr: "⚗️ पोषण तपशील", en: "⚗️ Nutrition Specs" })}
+                      {t({ mr: "⚗️ उपयोगिता", en: "⚗️ Utility & Benefits" })}
                     </div>
-                    <div className="text-sm font-semibold text-gray-700">{p.specs}</div>
+                    <div className="text-sm font-semibold text-gray-700 whitespace-pre-line leading-snug">{p.specs}</div>
                   </div>
                   <div className="bg-amber-50 rounded-xl p-3 border border-amber-100">
                     <div className="text-xs text-amber-600 font-bold uppercase tracking-wider mb-1">
                       {t({ mr: "💊 मात्रा", en: "💊 Dosage / Usage" })}
                     </div>
-                    <div className="text-sm font-semibold text-gray-700">{p.dosage}</div>
+                    <div className="text-sm font-semibold text-gray-700 whitespace-pre-line leading-snug">{p.dosage}</div>
                   </div>
                 </div>
               </div>
