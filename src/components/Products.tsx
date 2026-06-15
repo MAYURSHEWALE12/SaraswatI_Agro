@@ -10,83 +10,85 @@ import { WA_NUMBER_FULL } from "@/lib/constants";
 // AMRUTDHARA FLYER TEMPLATES
 // -------------------------------------------------------------
 const AmrutdharaFlyerMR = (
-  <div className="bg-white text-gray-800 relative z-10 w-full h-full p-4 sm:p-8">
-    <div className="flex justify-center mb-6 sm:mb-10">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#e41e6c] border-b-[3px] border-[#e41e6c] pb-1 inline-block">
+  <div className="bg-[#fafafa] text-gray-800 relative z-10 w-full h-full p-6 sm:p-10 border-[6px] border-[#e41e6c] rounded-3xl">
+    <div className="flex items-center justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
+      <div className="h-[2px] bg-[#e41e6c] flex-1 max-w-[80px] sm:max-w-[150px]"></div>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#e41e6c]">
         अमृतधारा पशु आहार
       </h2>
+      <div className="h-[2px] bg-[#e41e6c] flex-1 max-w-[80px] sm:max-w-[150px]"></div>
     </div>
     
     <div className="grid sm:grid-cols-2 gap-8 relative">
-      <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 border-l-[3px] border-dashed border-gray-300 transform -translate-x-1/2"></div>
+      <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 border-l-2 border-dashed border-gray-400 transform -translate-x-1/2"></div>
       
-      <div className="space-y-6 sm:pr-4">
+      <div className="space-y-8 sm:pr-6">
         <div>
-          <h3 className="text-xl font-bold text-[#e41e6c] mb-2">उपयोग: गाय व म्हैस</h3>
-          <ul className="text-sm md:text-base space-y-1 font-medium text-gray-700">
-            <li>गाय - ३५० ग्रॅम पर्यंत. प्रति लिटर दुधासाठी</li>
-            <li>म्हैस - ४०० ते ५०० ग्रॅम पर्यंत. प्रति लिटर दुधासाठी</li>
-          </ul>
+          <h3 className="text-xl sm:text-2xl font-black text-[#e41e6c] mb-2">उपयोग: गाय व म्हैस</h3>
+          <div className="text-sm md:text-base space-y-1 font-semibold text-[#424242]">
+            <p>गाय - ३५० ग्रॅम पर्यंत. प्रति लिटर दुधासाठी</p>
+            <p>म्हैस - ४०० ते ५०० ग्रॅम पर्यंत. प्रति लिटर दुधासाठी</p>
+          </div>
         </div>
         <div>
-          <h3 className="text-xl font-bold text-[#e41e6c] mb-2">उपयुक्तता:</h3>
-          <ul className="text-sm md:text-base space-y-1 text-gray-700 list-disc list-outside ml-4 font-medium">
+          <h3 className="text-xl sm:text-2xl font-black text-[#e41e6c] mb-2">उपयुक्तता:</h3>
+          <ul className="text-sm md:text-base space-y-2 text-[#424242] list-disc list-outside ml-5 font-semibold">
             <li>उच्च उत्पादन क्षमतेच्या गायी व म्हशींसाठी उपयुक्त</li>
             <li>हिरवा चारा असणाऱ्या दूध उत्पादकांसाठी अत्यंत फायदेशीर</li>
           </ul>
         </div>
       </div>
       
-      <div className="space-y-6 sm:pl-4">
+      <div className="space-y-8 sm:pl-6">
         <div>
-          <h3 className="text-xl font-bold text-[#e41e6c] mb-2 leading-tight">शरीराच्या देखभालीसाठी<br/>वापरण्याची शिफारस</h3>
-          <ul className="text-sm md:text-base space-y-1 font-medium text-gray-700">
-            <li>गाय - १ ते १.५ किलो. प्रति दिवस प्रति प्राणी</li>
-            <li>म्हैस - २ किलो. प्रति दिवस प्रति प्राणी</li>
-          </ul>
+          <h3 className="text-xl sm:text-2xl font-black text-[#e41e6c] mb-2 leading-tight">शरीराच्या देखभालीसाठी<br/>वापरण्याची शिफारस</h3>
+          <div className="text-sm md:text-base space-y-1 font-semibold text-[#424242]">
+            <p>गाय - १ ते १.५ किलो. प्रति दिवस प्रति प्राणी</p>
+            <p>म्हैस - २ किलो. प्रति दिवस प्रति प्राणी</p>
+          </div>
         </div>
         <div>
-          <h3 className="text-xl font-bold text-[#e41e6c] mb-1">पॅकिंग करताना एकूण वजन</h3>
-          <p className="text-xl md:text-2xl font-bold text-gray-800">५० किलो</p>
+          <h3 className="text-xl sm:text-2xl font-black text-[#e41e6c] mb-1">पॅकिंग करताना एकूण वजन</h3>
+          <p className="text-2xl md:text-3xl font-black text-[#424242]">५० किलो</p>
         </div>
       </div>
     </div>
     
-    <div className="mt-10 sm:mt-14 max-w-2xl mx-auto">
-      <h3 className="text-lg md:text-xl font-black text-[#e41e6c] mb-3 uppercase tracking-wide">
+    <div className="mt-12 sm:mt-16 max-w-3xl mx-auto">
+      <h3 className="text-xl md:text-2xl font-black text-[#e41e6c] mb-3 uppercase tracking-wide">
         SPECIFICATION AS PER BIS TYPE 1
       </h3>
       <div className="overflow-x-auto">
-        <table className="w-full text-xs md:text-sm font-bold border-2 border-gray-400">
-          <tbody className="divide-y divide-gray-400">
+        <table className="w-full text-sm md:text-base font-bold border-2 border-gray-600 bg-white">
+          <tbody className="divide-y divide-gray-600">
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Moisture (Max)</td>
-              <td className="p-2 border-r border-gray-400">: 10%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Calcium (Min)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Moisture (Max)</td>
+              <td className="p-2 border-r border-gray-600">: 10%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Calcium (Min)</td>
               <td className="p-2">: 0.80%</td>
             </tr>
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Crude Protein (Min)</td>
-              <td className="p-2 border-r border-gray-400">: 22%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Total Phosphorus (Min)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Crude Protein (Min)</td>
+              <td className="p-2 border-r border-gray-600">: 22%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Total Phosphorus (Min)</td>
               <td className="p-2">: 0.50%</td>
             </tr>
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Crude Fat (Min)</td>
-              <td className="p-2 border-r border-gray-400">: 5%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Available Phosphorus (Min)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Crude Fat (Min)</td>
+              <td className="p-2 border-r border-gray-600">: 5%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Available Phosphorus (Min)</td>
               <td className="p-2">: 0.25%</td>
             </tr>
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Crude Fibre (Max)</td>
-              <td className="p-2 border-r border-gray-400">: 10%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Aflotoxin B1 (Max)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Crude Fibre (Max)</td>
+              <td className="p-2 border-r border-gray-600">: 10%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Aflotoxin B1 (Max)</td>
               <td className="p-2">: 20 PPB</td>
             </tr>
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Acid Insoluble Ash (Max)</td>
-              <td className="p-2 border-r border-gray-400">: 2.50%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Urea if Present (Max)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Acid Insoluble Ash (Max)</td>
+              <td className="p-2 border-r border-gray-600">: 2.50%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Urea if Present (Max)</td>
               <td className="p-2">: 1%</td>
             </tr>
           </tbody>
@@ -96,89 +98,91 @@ const AmrutdharaFlyerMR = (
   </div>
 );
 
-const AmrutdharaFlyerEN = AmrutdharaFlyerMR; // Reusing MR design for simplicity as flyers are in MR
+const AmrutdharaFlyerEN = AmrutdharaFlyerMR; 
 
 // -------------------------------------------------------------
 // RATNAI FLYER TEMPLATES
 // -------------------------------------------------------------
 const RatnaiFlyerMR = (
-  <div className="bg-white text-gray-800 relative z-10 w-full h-full p-4 sm:p-8">
-    <div className="flex justify-center mb-6 sm:mb-10">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#2e7d32] border-b-[3px] border-[#2e7d32] pb-1 inline-block">
+  <div className="bg-[#fafafa] text-gray-800 relative z-10 w-full h-full p-6 sm:p-10 border-[6px] border-[#2e7d32] rounded-3xl">
+    <div className="flex items-center justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
+      <div className="h-[2px] bg-[#2e7d32] flex-1 max-w-[80px] sm:max-w-[150px]"></div>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#2e7d32]">
         रत्नाई पशु आहार
       </h2>
+      <div className="h-[2px] bg-[#2e7d32] flex-1 max-w-[80px] sm:max-w-[150px]"></div>
     </div>
     
     <div className="grid sm:grid-cols-2 gap-8 relative">
-      <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 border-l-[3px] border-dashed border-gray-300 transform -translate-x-1/2"></div>
+      <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 border-l-2 border-dashed border-gray-400 transform -translate-x-1/2"></div>
       
-      <div className="space-y-6 sm:pr-4">
+      <div className="space-y-8 sm:pr-6">
         <div>
-          <h3 className="text-xl font-bold text-[#2e7d32] mb-2">उपयोग: गाय व म्हैस</h3>
-          <ul className="text-sm md:text-base space-y-1 font-medium text-gray-700">
-            <li>गाय - ३०० ग्रॅम. प्रति लिटर दुधासाठी</li>
-            <li>म्हैस - ४०० ग्रॅम. प्रति लिटर दुधासाठी</li>
-          </ul>
+          <h3 className="text-xl sm:text-2xl font-black text-[#2e7d32] mb-2">उपयोग: गाय व म्हैस</h3>
+          <div className="text-sm md:text-base space-y-1 font-semibold text-[#424242]">
+            <p>गाय - ३०० ग्रॅम. प्रति लिटर दुधासाठी</p>
+            <p>म्हैस - ४०० ग्रॅम. प्रति लिटर दुधासाठी</p>
+          </div>
         </div>
         <div>
-          <h3 className="text-xl font-bold text-[#2e7d32] mb-2">उपयुक्तता:</h3>
-          <ul className="text-sm md:text-base space-y-1 text-gray-700 list-disc list-outside ml-4 font-medium">
+          <h3 className="text-xl sm:text-2xl font-black text-[#2e7d32] mb-2">उपयुक्तता:</h3>
+          <ul className="text-sm md:text-base space-y-2 text-[#424242] list-disc list-outside ml-5 font-semibold">
             <li>उच्च उत्पादन क्षमतेच्या (२० लिटर च्या पुढच्या गायींसाठी व १० लिटर च्या पुढच्या म्हशींसाठी) प्रतिदिन</li>
             <li>हिरवा व सुका चारा असणाऱ्या दूध उत्पादकांसाठी अत्यंत फायदेशीर</li>
           </ul>
         </div>
       </div>
       
-      <div className="space-y-6 sm:pl-4">
+      <div className="space-y-8 sm:pl-6">
         <div>
-          <h3 className="text-xl font-bold text-[#2e7d32] mb-2 leading-tight">शरीराच्या देखभालीसाठी<br/>वापरण्याची शिफारस</h3>
-          <ul className="text-sm md:text-base space-y-1 font-medium text-gray-700">
-            <li>गाय - १ ते १.५ किलो. प्रति दिवस प्रति प्राणी</li>
-            <li>म्हैस - २ किलो. प्रति दिवस प्रति प्राणी</li>
-          </ul>
+          <h3 className="text-xl sm:text-2xl font-black text-[#2e7d32] mb-2 leading-tight">शरीराच्या देखभालीसाठी<br/>वापरण्याची शिफारस</h3>
+          <div className="text-sm md:text-base space-y-1 font-semibold text-[#424242]">
+            <p>गाय - १ ते १.५ किलो. प्रति दिवस प्रति प्राणी</p>
+            <p>म्हैस - २ किलो. प्रति दिवस प्रति प्राणी</p>
+          </div>
         </div>
         <div>
-          <h3 className="text-xl font-bold text-[#2e7d32] mb-1">पॅकिंग करताना एकूण वजन</h3>
-          <p className="text-xl md:text-2xl font-bold text-gray-800">५० किलो</p>
+          <h3 className="text-xl sm:text-2xl font-black text-[#2e7d32] mb-1">पॅकिंग करताना एकूण वजन</h3>
+          <p className="text-2xl md:text-3xl font-black text-[#424242]">५० किलो</p>
         </div>
       </div>
     </div>
     
-    <div className="mt-10 sm:mt-14 max-w-2xl mx-auto">
-      <h3 className="text-lg md:text-xl font-black text-[#2e7d32] mb-3 uppercase tracking-wide">
+    <div className="mt-12 sm:mt-16 max-w-3xl mx-auto">
+      <h3 className="text-xl md:text-2xl font-black text-[#2e7d32] mb-3 uppercase tracking-wide">
         SPECIFICATION AS PER BIS TYPE 1
       </h3>
       <div className="overflow-x-auto">
-        <table className="w-full text-xs md:text-sm font-bold border-2 border-gray-400">
-          <tbody className="divide-y divide-gray-400">
+        <table className="w-full text-sm md:text-base font-bold border-2 border-gray-600 bg-white">
+          <tbody className="divide-y divide-gray-600">
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Moisture (Max)</td>
-              <td className="p-2 border-r border-gray-400">: 10%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Calcium (Min)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Moisture (Max)</td>
+              <td className="p-2 border-r border-gray-600">: 10%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Calcium (Min)</td>
               <td className="p-2">: 0.80%</td>
             </tr>
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Crude Protein (Min)</td>
-              <td className="p-2 border-r border-gray-400">: 25%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Total Phosphorus (Min)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Crude Protein (Min)</td>
+              <td className="p-2 border-r border-gray-600">: 25%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Total Phosphorus (Min)</td>
               <td className="p-2">: 0.50%</td>
             </tr>
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Crude Fat (Min)</td>
-              <td className="p-2 border-r border-gray-400">: 6%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Available Phosphorus (Min)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Crude Fat (Min)</td>
+              <td className="p-2 border-r border-gray-600">: 6%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Available Phosphorus (Min)</td>
               <td className="p-2">: 0.25%</td>
             </tr>
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Crude Fibre (Max)</td>
-              <td className="p-2 border-r border-gray-400">: 10%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Aflotoxin B1 (Max)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Crude Fibre (Max)</td>
+              <td className="p-2 border-r border-gray-600">: 10%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Aflotoxin B1 (Max)</td>
               <td className="p-2">: 20 PPB</td>
             </tr>
             <tr>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Acid Insoluble Ash (Max)</td>
-              <td className="p-2 border-r border-gray-400">: 2.50%</td>
-              <td className="p-2 border-r border-gray-400 bg-gray-100">Urea if Present (Max)</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Acid Insoluble Ash (Max)</td>
+              <td className="p-2 border-r border-gray-600">: 2.50%</td>
+              <td className="p-2 border-r border-gray-600 bg-[#e0e0e0]">Urea if Present (Max)</td>
               <td className="p-2">: 1%</td>
             </tr>
           </tbody>
@@ -194,28 +198,30 @@ const RatnaiFlyerEN = RatnaiFlyerMR;
 // KAF GO-BOOST FLYER TEMPLATES
 // -------------------------------------------------------------
 const KafGoBoostFlyerMR = (
-  <div className="bg-white text-gray-800 relative z-10 w-full h-full p-4 sm:p-8">
-    <div className="flex justify-center mb-6 sm:mb-10">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#d81b60] border-b-[3px] border-[#d81b60] pb-1 inline-block">
+  <div className="bg-[#fafafa] text-gray-800 relative z-10 w-full h-full p-6 sm:p-10 border-[6px] border-[#d81b60] rounded-3xl">
+    <div className="flex items-center justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
+      <div className="h-[2px] bg-[#d81b60] flex-1 max-w-[80px] sm:max-w-[150px]"></div>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#d81b60]">
         काफ गो-बुस्ट
       </h2>
+      <div className="h-[2px] bg-[#d81b60] flex-1 max-w-[80px] sm:max-w-[150px]"></div>
     </div>
     
-    <div className="max-w-2xl mx-auto">
-      <h3 className="text-xl font-bold text-[#829e36] mb-4">उपयोग: वासरे</h3>
+    <div className="max-w-3xl mx-auto">
+      <h3 className="text-xl sm:text-2xl font-black text-[#829e36] mb-4">उपयोग: वासरे</h3>
       
-      <div className="overflow-x-auto mb-8 border-2 border-gray-300">
-        <table className="w-full text-xs md:text-sm text-center font-bold">
+      <div className="overflow-x-auto mb-8">
+        <table className="w-full text-sm md:text-base text-center font-bold border-2 border-gray-400 bg-white">
           <thead className="bg-[#f2f6e9]">
             <tr>
-              <th className="p-2 border-b border-r border-gray-300 text-[#829e36]">आठवडा</th>
-              <th className="p-2 border-b border-r border-gray-300 text-[#829e36]">दूध<br/>(लिटर)</th>
-              <th className="p-2 border-b border-r border-gray-300 text-[#829e36]">सरस्वती ॲग्रो<br/>(काफ गो-बुस्ट)</th>
-              <th className="p-2 border-b border-r border-gray-300 text-[#829e36]">चारा</th>
-              <th className="p-2 border-b border-gray-300 text-[#829e36]">पाणी<br/>(लिटर)</th>
+              <th className="p-3 border-b border-r border-gray-400 text-[#829e36]">आठवडा</th>
+              <th className="p-3 border-b border-r border-gray-400 text-[#829e36]">दूध<br/>(लिटर)</th>
+              <th className="p-3 border-b border-r border-gray-400 text-[#829e36]">सरस्वती ॲग्रो<br/>(काफ गो-बुस्ट)</th>
+              <th className="p-3 border-b border-r border-gray-400 text-[#829e36]">चारा</th>
+              <th className="p-3 border-b border-gray-400 text-[#829e36]">पाणी<br/>(लिटर)</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-300 text-gray-700">
+          <tbody className="divide-y divide-gray-400 text-[#424242]">
             {[
               ["१", "४ ते ५", "", "", "५ ते ६"],
               ["२", "४ ते ५", "", "", "५ ते ६"],
@@ -227,17 +233,17 @@ const KafGoBoostFlyerMR = (
               ["८", "१", "१०५० (३ मापे)", "८००", "९ ते १०"],
               ["९", "", "१०५० (३ मापे)", "१०००", "८ ते १०"],
               ["१०", "", "१४०० (४ मापे)", "११००", "८ ते १०"],
-              ["११", "", "१४०० (४ मापे)", "१२००", "८ ते १०"],
+              ["११", "", "१४०० (४ मापे)", "१२०0", "८ ते १०"],
               ["१२", "", "१४०० (४ मापे)", "१४००", "११ ते १२"],
               ["१३", "", "१७५० (५ मापे)", "१९००", "१२ ते १५"],
               ["१४ च्या पुढे", "", "२००० (६ मापे)", "पोटभर", "१२ ते १५"],
             ].map((row, idx) => (
               <tr key={idx} className="hover:bg-gray-50">
-                <td className="p-1.5 border-r border-gray-300 bg-[#f2f6e9]">{row[0]}</td>
-                <td className="p-1.5 border-r border-gray-300">{row[1]}</td>
-                <td className="p-1.5 border-r border-gray-300">{row[2]}</td>
-                <td className="p-1.5 border-r border-gray-300 bg-[#f2f6e9]">{row[3]}</td>
-                <td className="p-1.5">{row[4]}</td>
+                <td className="p-2 border-r border-gray-400 bg-[#f2f6e9]">{row[0]}</td>
+                <td className="p-2 border-r border-gray-400">{row[1]}</td>
+                <td className="p-2 border-r border-gray-400 bg-[#f2f6e9]">{row[2]}</td>
+                <td className="p-2 border-r border-gray-400">{row[3]}</td>
+                <td className="p-2 bg-[#f2f6e9]">{row[4]}</td>
               </tr>
             ))}
           </tbody>
@@ -246,14 +252,14 @@ const KafGoBoostFlyerMR = (
 
       <div className="grid sm:grid-cols-2 gap-8">
         <div>
-          <h3 className="text-xl font-bold text-[#829e36] mb-2">उपयुक्तता:</h3>
-          <ul className="text-sm md:text-base text-gray-700 list-disc list-outside ml-4 font-medium">
+          <h3 className="text-xl sm:text-2xl font-black text-[#829e36] mb-2">उपयुक्तता:</h3>
+          <ul className="text-sm md:text-base text-[#424242] list-disc list-outside ml-5 font-semibold">
             <li>वजन वाढण्यास आणि अवयवांच्या विकासास मदत होते.</li>
           </ul>
         </div>
         <div>
-          <h3 className="text-xl font-bold text-[#829e36] mb-1">पॅकिंग करताना एकूण वजन:</h3>
-          <p className="text-xl md:text-2xl font-bold text-gray-800">२५ किलो</p>
+          <h3 className="text-xl sm:text-2xl font-black text-[#829e36] mb-1">पॅकिंग करताना एकूण वजन:</h3>
+          <p className="text-2xl md:text-3xl font-black text-[#424242]">२५ किलो</p>
         </div>
       </div>
     </div>
@@ -266,33 +272,34 @@ const KafGoBoostFlyerEN = KafGoBoostFlyerMR;
 // JANAYITRI FLYER TEMPLATES
 // -------------------------------------------------------------
 const JanayitriFlyerMR = (
-  <div className="bg-white text-gray-800 relative z-10 w-full h-full p-4 sm:p-8">
-    <div className="flex justify-center sm:justify-end mb-6 sm:mb-10">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#1b5e20] border-b-[3px] border-[#8bc34a] pb-1 inline-block">
+  <div className="bg-[#fafafa] text-gray-800 relative z-10 w-full h-full p-6 sm:p-10 border-[6px] border-[#8bc34a] rounded-3xl">
+    <div className="flex items-center justify-end gap-2 sm:gap-4 mb-8 sm:mb-12">
+      <div className="h-[2px] bg-[#8bc34a] flex-1 max-w-[200px] sm:max-w-[400px]"></div>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1b5e20]">
         जनयित्री
       </h2>
     </div>
     
-    <div className="max-w-xl mx-auto sm:mx-0 space-y-8">
+    <div className="max-w-xl space-y-10 pl-2 sm:pl-6">
       <div>
-        <h3 className="text-xl font-bold text-[#37474f] mb-3">उपयोग: गाभण गाय आणि म्हैस</h3>
-        <ul className="text-sm md:text-base space-y-2 font-medium text-gray-700">
-          <li>गाभण कालवडीसाठी ७ व्या महिन्या पर्यंत २ किलो प्रतिदिन</li>
-          <li>गायींसाठी ८ वा महिना - ३ किलो. प्रती दिन</li>
-          <li>गायींसाठी ९ वा महिना - ४ किलो. प्रती दिन</li>
-        </ul>
+        <h3 className="text-xl sm:text-2xl font-black text-[#37474f] mb-4">उपयोग: गाभण गाय आणि म्हैस</h3>
+        <div className="text-sm md:text-base space-y-3 font-semibold text-[#424242]">
+          <p>गाभण कालवडीसाठी ७ व्या महिन्या पर्यंत २ किलो प्रतिदिन</p>
+          <p>गायींसाठी ८ वा महिना - ३ किलो. प्रती दिन</p>
+          <p>गायींसाठी ९ वा महिना - ४ किलो. प्रती दिन</p>
+        </div>
       </div>
       
       <div>
-        <h3 className="text-xl font-bold text-[#37474f] mb-2">उपयुक्तता:</h3>
-        <ul className="text-sm md:text-base text-gray-700 list-disc list-outside ml-4 font-medium">
+        <h3 className="text-xl sm:text-2xl font-black text-[#37474f] mb-3">उपयुक्तता:</h3>
+        <ul className="text-sm md:text-base text-[#424242] list-disc list-outside ml-5 font-semibold">
           <li>सुलभ प्रसूती व वेताची भक्कम सुरुवात करण्यासाठी अतिशय उपयुक्त</li>
         </ul>
       </div>
       
       <div>
-        <h3 className="text-xl font-bold text-[#37474f] mb-1">पॅकिंग करताना एकूण वजन</h3>
-        <p className="text-xl md:text-2xl font-bold text-gray-800">५० किलो</p>
+        <h3 className="text-xl sm:text-2xl font-black text-[#37474f] mb-2">पॅकिंग करताना एकूण वजन</h3>
+        <p className="text-2xl md:text-3xl font-black text-[#424242]">५० किलो</p>
       </div>
     </div>
   </div>
@@ -352,7 +359,7 @@ export default function Products() {
     const timer = setInterval(() => {
       setDir(1);
       setActive((p) => mod(p + 1, total));
-    }, 3000); // Slower auto-rotate so they can read
+    }, 4000); 
     return () => clearInterval(timer);
   }, [total]);
 
@@ -409,7 +416,7 @@ export default function Products() {
           </p>
         </motion.div>
 
-        {/* Text-based Carousel Thumbnails (since bag images are removed) */}
+        {/* Text-based Carousel Thumbnails */}
         <div className="relative max-w-[100vw] sm:max-w-6xl mx-auto h-[220px] sm:h-[260px]">
           <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-gray-50 dark:from-slate-950 to-transparent z-10 pointer-events-none transition-colors" />
           <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-gray-50 dark:from-slate-950 to-transparent z-10 pointer-events-none transition-colors" />
@@ -428,7 +435,7 @@ export default function Products() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <div
-                    className={`relative w-40 sm:w-48 md:w-60 aspect-video rounded-3xl overflow-hidden shadow-xl border-2 flex flex-col items-center justify-center p-4 bg-gradient-to-br ${prod.color} ${
+                    className={`relative w-40 sm:w-48 md:w-60 aspect-video rounded-3xl overflow-hidden shadow-xl border-[4px] flex flex-col items-center justify-center p-4 bg-gradient-to-br ${prod.color} ${
                       isActive
                         ? "border-white shadow-2xl scale-100"
                         : "border-white/50 scale-95"
@@ -463,13 +470,13 @@ export default function Products() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.4 }}
-            className="mt-6 max-w-4xl mx-auto rounded-3xl shadow-2xl overflow-hidden"
+            className="mt-6 max-w-4xl mx-auto rounded-3xl shadow-2xl overflow-hidden bg-white"
           >
              {/* The exact flyer layout rendered here */}
              {p.flyer}
 
             {/* CTA */}
-            <div className="bg-white px-6 sm:px-8 pb-6 sm:pb-8 pt-4">
+            <div className="bg-[#fafafa] border-t border-gray-200 px-6 sm:px-8 pb-6 sm:pb-8 pt-4">
               <button
                 onClick={() => {
                    const msg = [
@@ -485,7 +492,7 @@ export default function Products() {
                    ].join("\n");
                    window.open(`https://wa.me/${WA_NUMBER_FULL}?text=${encodeURIComponent(msg)}`, "_blank");
                  }}
-                 className="w-full max-w-lg mx-auto flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl py-3 font-bold text-sm sm:text-base transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-emerald-600/20"
+                 className="w-full max-w-lg mx-auto flex items-center justify-center gap-2 bg-[#2e7d32] hover:bg-[#1b5e20] text-white rounded-xl py-3 font-bold text-sm sm:text-base transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-[#2e7d32]/30"
                >
                  <FaWhatsapp className="w-5 h-5" />
                  {t({ mr: "या उत्पादनाबद्दल चौकशी करा", en: "Inquire About This Product" })}
