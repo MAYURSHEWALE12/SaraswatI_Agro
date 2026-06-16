@@ -333,7 +333,7 @@ export default function Products() {
       flyer: t({ mr: RatnaiFlyerMR, en: RatnaiFlyerEN }),
     },
     {
-      image: amrutdhara,
+      image: caf_go_boost,
       name: t({ mr: "अमृतधारा पशु आहार", en: "Amrutdhara Cattle Feed" }),
       nameEn: "Amrutdhara Pashu Aahar",
       color: "from-pink-600 to-pink-400",
@@ -347,7 +347,7 @@ export default function Products() {
       flyer: t({ mr: JanayitriFlyerMR, en: JanayitriFlyerEN }),
     },
     {
-      image: caf_go_boost,
+      image: amrutdhara,
       name: t({ mr: "काफ गो-बुस्ट", en: "Kaf Go-Boost" }),
       nameEn: "Kaf Go-Boost (Calf Growth)",
       color: "from-pink-700 to-pink-500",

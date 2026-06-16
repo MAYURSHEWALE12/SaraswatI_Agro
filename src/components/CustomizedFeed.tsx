@@ -108,7 +108,7 @@ export default function CustomizedFeed() {
 
     // 1. Send Email Notification via API
     try {
-      await fetch("/api/submit", {
+      await fetch("/send_mail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({

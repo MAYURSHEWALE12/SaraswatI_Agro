@@ -76,7 +76,7 @@ export default function DealerForm() {
     const toastId = toast.loading(t({ mr: "चौकशी पाठवली जात आहे...", en: "Sending inquiry..." }));
 
     try {
-      const response = await fetch("/api/submit", {
+      const response = await fetch("/send_mail.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
