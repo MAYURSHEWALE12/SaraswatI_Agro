@@ -129,7 +129,7 @@ export default function Contact() {
           >
             <iframe
               title="Saraswati Agro Feeds Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.6!2d73.899!3d18.686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c8c1234567%3A0xabc!2sRajgurunagar%2C%20Khed%2C%20Pune%2C%20Maharashtra%20410505!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=18.84621810913086,73.90768432617188&hl=en&z=17&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "320px" }}
