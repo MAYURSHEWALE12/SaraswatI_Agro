@@ -7,7 +7,7 @@ export const PHONE_PRIMARY_DISPLAY = "9552398974";
 export const PHONE_SECONDARY_DISPLAY = "9921937353";
 
 // Contact Details
-export const CONTACT_EMAIL = "saraswatiagrofeeds2215@gmail.com";
+export const CONTACT_EMAIL = "saraswatiargofeeds@gmail.com";
 export const ADDRESS_TAKALKARWADI_MR = "टाकळकरवाडी, राजगुरूनगर, जि. पुणे – 410505";
 export const ADDRESS_TAKALKARWADI_EN = "Takalkarwadi, Rajgurunagar, Dist. Pune – 410505";
 

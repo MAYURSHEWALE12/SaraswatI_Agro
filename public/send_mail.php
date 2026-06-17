@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // IMPORTANT: CONFIGURATION
 // -------------------------------------------------------------
 // 1. The account that SENDS the emails (the one with the App Password)
-$SENDER_EMAIL = "YOUR_SENDER_EMAIL@gmail.com";
+$SENDER_EMAIL = "YOUR_GMAIL_ADDRESS@gmail.com";
 $SENDER_APP_PASSWORD = "YOUR_16_DIGIT_APP_PASSWORD_HERE"; 
 
 // 2. The account that RECEIVES the notifications
-$RECEIVER_EMAIL = "YOUR_RECEIVER_EMAIL@gmail.com";
+$RECEIVER_EMAIL = "YOUR_GMAIL_ADDRESS@gmail.com";
 // -------------------------------------------------------------
 
 use PHPMailer\PHPMailer\PHPMailer;
