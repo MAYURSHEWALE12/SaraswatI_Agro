@@ -67,7 +67,7 @@ export default function Footer() {
                 <FaFacebook className="w-5 h-5" />
               </a>
               <a
-                href="https://instagram.com/SaraswatiAgroFeeds"
+                href="https://www.instagram.com/saraswati_agro_feeds_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-pink-600 hover:bg-pink-500 flex items-center justify-center text-white transition-colors"
