@@ -43,8 +43,9 @@ export default function Navbar() {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
           : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5"
@@ -147,8 +148,9 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+    </header>
 
-      {/* ─── Mobile Slide-in Drawer ─── */}
+    {/* ─── Mobile Slide-in Drawer ─── */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
@@ -158,7 +160,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[55] lg:hidden"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[105] lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
 
@@ -168,7 +170,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-              className="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-white dark:bg-slate-950 shadow-2xl z-[55] lg:hidden flex flex-col transition-colors"
+              className="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-white dark:bg-slate-950 shadow-2xl z-[110] lg:hidden flex flex-col transition-colors"
             >
               {/* Drawer header */}
               <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100 dark:border-slate-800">
@@ -225,7 +227,7 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
 
